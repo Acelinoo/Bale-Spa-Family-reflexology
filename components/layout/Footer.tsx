@@ -1,13 +1,16 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { Phone, MapPin, Mail } from "lucide-react";
-import { businessConfig } from "@/config/business";
+import { useBranch } from "@/context/BranchContext";
 
 interface FooterProps {
   onOpenBooking?: () => void;
 }
 
 export default function Footer({ onOpenBooking }: FooterProps) {
+  const { currentBranch, openBranchModal } = useBranch();
   const quickLinks = [
     { label: "Home", href: "#home" },
     { label: "About Us", href: "#about" },
@@ -134,29 +137,37 @@ export default function Footer({ onOpenBooking }: FooterProps) {
 
           {/* Col 4: Contact Us (Desktop 3 cols) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-[11px] font-bold tracking-widest text-[#C5A880] uppercase">
-              Contact Us
-            </h4>
+            <div className="flex items-center justify-between">
+              <h4 className="text-[11px] font-bold tracking-widest text-[#C5A880] uppercase">
+                Cabang {currentBranch.shortName}
+              </h4>
+              <button
+                onClick={openBranchModal}
+                className="text-[10px] text-[#C5A880] hover:text-white underline cursor-pointer"
+              >
+                Ganti Cabang
+              </button>
+            </div>
             <ul className="space-y-2.5 text-xs text-[#B7CABF]">
               <li className="flex items-center gap-2.5">
                 <Phone className="w-3.5 h-3.5 text-[#C5A880] shrink-0" />
                 <a
-                  href={`https://wa.me/${businessConfig.whatsapp}`}
+                  href={`https://wa.me/${currentBranch.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  {businessConfig.whatsappDisplay}
+                  {currentBranch.whatsappDisplay}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="w-3.5 h-3.5 text-[#C5A880] shrink-0" />
-                <span>{businessConfig.email}</span>
+                <span>contact@balespafamily.com</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-3.5 h-3.5 text-[#C5A880] shrink-0 mt-0.5" />
                 <span className="line-clamp-2">
-                  {businessConfig.address}, {businessConfig.city}
+                  {currentBranch.address}
                 </span>
               </li>
             </ul>
@@ -166,7 +177,13 @@ export default function Footer({ onOpenBooking }: FooterProps) {
         {/* Bottom Copyright */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[#789080]">
           <p>© 2026 Bale Spa Family Reflexology. All rights reserved.</p>
-          <p>Relax · Renew · Revive.</p>
+          <div className="flex items-center gap-3">
+            <span>Baleendah · Soreang · Ciwastra</span>
+            <span>·</span>
+            <button onClick={openBranchModal} className="hover:text-white underline cursor-pointer">
+              Pilih Cabang
+            </button>
+          </div>
         </div>
       </div>
     </footer>

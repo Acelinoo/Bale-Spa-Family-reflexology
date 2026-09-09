@@ -12,6 +12,8 @@ import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
 import BookingModal from "@/components/sections/BookingModal";
+import BranchSelectorModal from "@/components/sections/BranchSelectorModal";
+import { BranchProvider } from "@/context/BranchContext";
 
 export default function HomePage() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -27,45 +29,50 @@ export default function HomePage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-[#F7F4EC]">
-      {/* Sticky Header Navigation */}
-      <Navbar onOpenBooking={() => openBookingModal()} />
+    <BranchProvider>
+      <main className="min-h-screen flex flex-col bg-[#F7F4EC]">
+        {/* Sticky Header Navigation */}
+        <Navbar onOpenBooking={() => openBookingModal()} />
 
-      {/* Hero Section */}
-      <HeroSection onOpenBooking={() => openBookingModal()} />
+        {/* Hero Section */}
+        <HeroSection onOpenBooking={() => openBookingModal()} />
 
-      {/* Services Section with Modal Detail */}
-      <ServicesSection
-        onSelectServiceToBook={(serviceId) => openBookingModal(serviceId)}
-      />
+        {/* Services Section with Modal Detail */}
+        <ServicesSection
+          onSelectServiceToBook={(serviceId) => openBookingModal(serviceId)}
+        />
 
-      {/* About Bale Spa Section */}
-      <AboutSection />
+        {/* About Bale Spa Section */}
+        <AboutSection />
 
-      {/* Dark Forest Green Why Choose Us Section */}
-      <WhyChooseUs />
+        {/* Dark Forest Green Why Choose Us Section */}
+        <WhyChooseUs />
 
-      {/* Authentic Google Reviews Gateway Section */}
-      <GoogleReviews />
+        {/* Authentic Google Reviews Gateway Section */}
+        <GoogleReviews />
 
-      {/* Pre-footer Call to Action */}
-      <CTASection onOpenBooking={() => openBookingModal()} />
+        {/* Pre-footer Call to Action */}
+        <CTASection onOpenBooking={() => openBookingModal()} />
 
-      {/* Location & Contact Details */}
-      <ContactSection />
+        {/* Location & Contact Details */}
+        <ContactSection />
 
-      {/* Footer */}
-      <Footer onOpenBooking={() => openBookingModal()} />
+        {/* Footer */}
+        <Footer onOpenBooking={() => openBookingModal()} />
 
-      {/* Floating WhatsApp Action Button */}
-      <FloatingWhatsApp />
+        {/* Floating WhatsApp Action Button */}
+        <FloatingWhatsApp />
 
-      {/* Booking Appointment Popup Modal */}
-      <BookingModal
-        isOpen={isBookingModalOpen}
-        onClose={() => setIsBookingModalOpen(false)}
-        selectedServiceId={preSelectedServiceId}
-      />
-    </main>
+        {/* Booking Appointment Popup Modal */}
+        <BookingModal
+          isOpen={isBookingModalOpen}
+          onClose={() => setIsBookingModalOpen(false)}
+          selectedServiceId={preSelectedServiceId}
+        />
+
+        {/* Branch Selection Welcome & Switcher Modal */}
+        <BranchSelectorModal />
+      </main>
+    </BranchProvider>
   );
 }

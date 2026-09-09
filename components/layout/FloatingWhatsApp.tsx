@@ -2,13 +2,14 @@
 
 import React, { useState } from "react";
 import { MessageCircle } from "lucide-react";
-import { businessConfig } from "@/config/business";
+import { useBranch } from "@/context/BranchContext";
 
 export default function FloatingWhatsApp() {
   const [isHovered, setIsHovered] = useState(false);
+  const { currentBranch } = useBranch();
 
-  const defaultMessage = `Halo ${businessConfig.name}, saya ingin bertanya mengenai layanan dan reservasi reflexology.`;
-  const whatsappUrl = `https://wa.me/${businessConfig.whatsapp}?text=${encodeURIComponent(
+  const defaultMessage = `Halo ${currentBranch.name}, saya ingin bertanya mengenai layanan dan reservasi reflexology.`;
+  const whatsappUrl = `https://wa.me/${currentBranch.whatsapp}?text=${encodeURIComponent(
     defaultMessage
   )}`;
 

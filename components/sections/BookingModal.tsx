@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { X, Calendar, Clock, User, Phone, Users, FileText, Send, AlertCircle, CheckCircle } from "lucide-react";
-import { businessConfig } from "@/config/business";
+import { X, Calendar, Clock, User, Phone, Users, FileText, Send, AlertCircle, CheckCircle, MapPin } from "lucide-react";
 import { SERVICES, ServiceItem } from "@/data/services";
+import { useBranch } from "@/context/BranchContext";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -17,6 +17,8 @@ export default function BookingModal({
   onClose,
   selectedServiceId,
 }: BookingModalProps) {
+  const { currentBranch, branches, selectBranch } = useBranch();
+
   const [customerName, setCustomerName] = useState("");
   const [customerPhone, setCustomerPhone] = useState("");
   const [serviceId, setServiceId] = useState(selectedServiceId || SERVICES[0].id);
@@ -102,10 +104,13 @@ export default function BookingModal({
     const selectedDuration =
       currentService.durations[durationIndex] || currentService.durations[0];
 
-    // Format WhatsApp message sesuai instruksi spesifikasi Bale Spa
-    const waText = `Halo ${businessConfig.name},
+    // Format WhatsApp message sesuai instruksi spesifikasi Bale Spa & Cabang
+    const waText = `Halo ${currentBranch.name},
 
 Saya ingin melakukan reservasi.
+
+Cabang:
+${currentBranch.name} (${currentBranch.city})
 
 Nama:
 ${customerName.trim()}
@@ -130,7 +135,7 @@ ${notes.trim() ? notes.trim() : "-"}
 
 Terima kasih.`;
 
-    const redirectUrl = `https://wa.me/${businessConfig.whatsapp}?text=${encodeURIComponent(
+    const redirectUrl = `https://wa.me/${currentBranch.whatsapp}?text=${encodeURIComponent(
       waText
     )}`;
 
@@ -166,7 +171,7 @@ Terima kasih.`;
             </div>
             <div>
               <span className="text-[10px] font-bold tracking-[0.2em] text-[#C5A880] uppercase block">
-                Reservasi Bale Spa
+                Reservasi Bale Spa · {currentBranch.shortName}
               </span>
               <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#F3E9DC]">
                 Book Your Appointment
@@ -200,6 +205,28 @@ Terima kasih.`;
           )}
 
           <form onSubmit={handleBookingSubmit} className="space-y-4 sm:space-y-5">
+            {/* Pilihan Cabang Bale Spa */}
+            <div className="p-3.5 rounded-xl bg-[#FAF7F2] border border-[#EAE4DC]">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#1F150C] mb-1.5 flex items-center justify-between">
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-[#1D4533]" />
+                  <span>Cabang Bale Spa *</span>
+                </span>
+                <span className="text-[10px] text-[#1D4533] font-semibold">{currentBranch.city}</span>
+              </label>
+              <select
+                value={currentBranch.id}
+                onChange={(e) => selectBranch(e.target.value)}
+                className="w-full px-3.5 py-2 rounded-lg border border-[#EAE4DC] bg-white text-sm font-semibold text-[#1F150C] focus:outline-none focus:ring-2 focus:ring-[#1D4533]/30 focus:border-[#1D4533] transition-all"
+              >
+                {branches.map((b) => (
+                  <option key={b.id} value={b.id}>
+                    {b.name} ({b.whatsappDisplay})
+                  </option>
+                ))}
+              </select>
+            </div>
+
             {/* Personal Details (2 Columns) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Nama Lengkap */}
