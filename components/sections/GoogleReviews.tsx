@@ -6,7 +6,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { REVIEWS } from "@/data/reviews";
 import GoogleReviewCard from "./GoogleReviewCard";
-import ReviewCTA from "./ReviewCTA";
 import { useBranch } from "@/context/BranchContext";
 
 export default function GoogleReviews() {
@@ -71,33 +70,91 @@ export default function GoogleReviews() {
       className="py-16 sm:py-20 lg:py-24 bg-[#FBF8F4] border-t border-[#EAE4DC] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        {/* Section Header with Navigation Arrows */}
-        <div
-          ref={headerRef}
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 max-w-5xl mx-auto"
-        >
-          <div className="text-center sm:text-left space-y-2">
-            <div className="inline-flex items-center gap-2">
-              <span className="text-[11px] font-bold tracking-[0.25em] text-[#1D4533] uppercase">
-                ULASAN PENGUNJUNG
-              </span>
-              <span className="h-px w-8 bg-[#1D4533]/60"></span>
-            </div>
-
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1F150C] tracking-tight">
-              Apa Kata Pengunjung Setia Kami
-            </h2>
+        {/* Section Header */}
+        <div ref={headerRef} className="text-center max-w-2xl mx-auto mb-8 space-y-2">
+          <div className="inline-flex items-center justify-center gap-2">
+            <span className="text-[11px] font-bold tracking-[0.25em] text-[#1D4533] uppercase">
+              [ INTEGRASI ULASAN GOOGLE MAPS ]
+            </span>
           </div>
 
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1F150C] tracking-tight">
+            Kepuasan Pelanggan Nyata
+          </h2>
+
+          <p className="text-xs sm:text-sm text-[#5A4A3E] leading-relaxed max-w-xl mx-auto">
+            Ulasan asli dari para pengunjung dan penikmat relaksasi Bale Spa Family Reflexology di Google Maps Cabang {currentBranch.shortName}, Bandung.
+          </p>
+        </div>
+
+        {/* Google Reviews Summary Card (Persis Seperti di Gambar 1) */}
+        <div className="max-w-4xl mx-auto mb-10 bg-white rounded-2xl border border-[#EAE4DC] p-6 sm:p-8 shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Left: 4.9 Rating & Star Badges */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+            <div className="text-4xl sm:text-5xl font-bold font-serif text-[#1F150C] tracking-tight">
+              4.9
+            </div>
+            <div className="space-y-1">
+              <div className="flex items-center justify-center sm:justify-start gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <svg
+                    key={i}
+                    className="w-5 h-5 text-[#F5A623] fill-[#F5A623]"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                ))}
+              </div>
+              <p className="text-xs text-[#6B5A4E] font-medium">
+                Berdasarkan 80+ ulasan Google &middot; <span className="font-bold text-[#1D4533]">Cabang {currentBranch.shortName}</span>
+              </p>
+            </div>
+          </div>
+
+          {/* Right: 2 Action Buttons (Lihat di Google Maps & Tulis Ulasan di Google) */}
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+            {/* Button 1: Lihat di Google Maps */}
+            <a
+              href={currentBranch.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-5 py-3 rounded-xl bg-white hover:bg-[#FAF7F2] text-[#1F150C] hover:text-[#1D4533] border border-[#D5C7B7] text-xs font-bold tracking-wide flex items-center justify-center gap-2 shadow-2xs transition-all cursor-pointer active:scale-98 text-center"
+              title={`Buka Google Maps Cabang ${currentBranch.shortName}`}
+            >
+              <span>Lihat di Google Maps</span>
+              <span className="text-sm leading-none">&nearr;</span>
+            </a>
+
+            {/* Button 2: Tulis Ulasan di Google (Membuka popup resmi Google seperti di Gambar 2) */}
+            <a
+              href={currentBranch.reviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-xs font-bold tracking-wide flex items-center justify-center gap-2 shadow-xs hover:shadow-md transition-all cursor-pointer active:scale-98 border border-[#C5A880]/30 text-center"
+              title={`Tulis Ulasan di Google untuk Cabang ${currentBranch.shortName}`}
+            >
+              <span className="text-base leading-none font-normal">+</span>
+              <span>Tulis Ulasan di Google</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Slider Controls Header */}
+        <div className="flex items-center justify-between gap-4 mb-6 max-w-5xl mx-auto">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#7A6B5F]">
+            Ulasan Terverifikasi Cabang {currentBranch.shortName}
+          </span>
+
           {/* Slider Controls: Arrow Buttons (Prev / Next) */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2">
             <button
               onClick={handlePrev}
-              className="w-10 h-10 rounded-full border border-[#EAE4DC] bg-white hover:bg-[#FAF7F2] text-[#1D4533] hover:border-[#1D4533]/40 flex items-center justify-center transition-all cursor-pointer shadow-2xs active:scale-95"
+              className="w-9 h-9 rounded-full border border-[#EAE4DC] bg-white hover:bg-[#FAF7F2] text-[#1D4533] hover:border-[#1D4533]/40 flex items-center justify-center transition-all cursor-pointer shadow-2xs active:scale-95"
               aria-label="Lihat ulasan sebelumnya"
               title="Ulasan sebelumnya"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4" />
             </button>
 
             <span className="text-xs font-bold text-[#5A4A3E] px-2 min-w-[50px] text-center">
@@ -106,11 +163,11 @@ export default function GoogleReviews() {
 
             <button
               onClick={handleNext}
-              className="w-10 h-10 rounded-full border border-[#EAE4DC] bg-white hover:bg-[#FAF7F2] text-[#1D4533] hover:border-[#1D4533]/40 flex items-center justify-center transition-all cursor-pointer shadow-2xs active:scale-95"
+              className="w-9 h-9 rounded-full border border-[#EAE4DC] bg-white hover:bg-[#FAF7F2] text-[#1D4533] hover:border-[#1D4533]/40 flex items-center justify-center transition-all cursor-pointer shadow-2xs active:scale-95"
               aria-label="Lihat ulasan berikutnya"
               title="Ulasan berikutnya"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -141,9 +198,6 @@ export default function GoogleReviews() {
             })}
           </div>
         </div>
-
-        {/* Real Google Review CTA Button */}
-        <ReviewCTA />
       </div>
     </section>
   );

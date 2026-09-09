@@ -35,14 +35,26 @@ assert(bSoreang && bSoreang.mapsUrl.includes("Soreang") && bSoreang.address.incl
 // TEST 6: Maps Ciwastra
 assert(bCiwastra && bCiwastra.mapsUrl.includes("Ciwastra") && bCiwastra.address.includes("Ciwastra No.285B"), "TEST 6: Google Maps Ciwastra valid & akurat");
 
-// TEST 7: Review URL Baleendah (default bersih tanpa string placeholder bocor)
-assert(bBaleendah && bBaleendah.reviewUrl === "", "TEST 7: Review URL Baleendah default bersih ('') tanpa placeholder UI");
+// TEST 7: Review URL Baleendah (Google Maps search dengan parameter #lrd=...,3 dialog ulasan)
+assert(
+  bBaleendah &&
+    bBaleendah.reviewUrl.includes("0x4d61414feedd6f4f:0xa7361e461a4f2d31,3"),
+  "TEST 7: Review URL Baleendah terhubung langsung dengan popup ulasan Google (#lrd=...,3)"
+);
 
-// TEST 8: Review URL Soreang (default bersih tanpa string placeholder bocor)
-assert(bSoreang && bSoreang.reviewUrl === "", "TEST 8: Review URL Soreang default bersih ('') tanpa placeholder UI");
+// TEST 8: Review URL Soreang (Google Maps search dengan parameter #lrd=...,3 dialog ulasan)
+assert(
+  bSoreang &&
+    bSoreang.reviewUrl.includes("0x2e68ed001517bf5b:0x1a0d801903b15b0b,3"),
+  "TEST 8: Review URL Soreang terhubung langsung dengan popup ulasan Google (#lrd=...,3)"
+);
 
-// TEST 9: Review URL Ciwastra (default bersih tanpa string placeholder bocor)
-assert(bCiwastra && bCiwastra.reviewUrl === "", "TEST 9: Review URL Ciwastra default bersih ('') tanpa placeholder UI");
+// TEST 9: Review URL Ciwastra (Google Maps search dengan parameter #lrd=...,3 dialog ulasan)
+assert(
+  bCiwastra &&
+    bCiwastra.reviewUrl.includes("0x2e68e9406e92ff03:0xa1f73cc2dd290577,3"),
+  "TEST 9: Review URL Ciwastra terhubung langsung dengan popup ulasan Google (#lrd=...,3)"
+);
 
 // TEST 10: Booking Baleendah -> submit ke WA Baleendah
 function createBookingUrl(branchId, bookingData) {

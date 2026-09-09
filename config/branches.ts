@@ -41,8 +41,10 @@ export const BRANCHES: Branch[] = [
     whatsappUrl: "https://api.whatsapp.com/send/?phone=6289524632932&text&type=phone_number&app_absent=0",
     mapsUrl: "https://www.google.com/maps/place/Bale+Spa+Family+Reflexology,+Jl.+Jaksa+Naranata+No.7A,+Baleendah,+Kec.+Baleendah,+Kabupaten+Bandung,+Jawa+Barat+40375/data=!4m2!3m1!1s0x4d61414feedd6f4f:0xa7361e461a4f2d31?utm_source=mstt_1&entry=gps&coh=192189&g_ep=CAESBzI1LjI0LjEYACDXggMqhwEsOTQyNjc3MjYsOTQyNzU0MDcsOTQyNzUzMTAsOTQyMjMyOTksOTQyMTY0MTMsOTQyMTI0OTYsOTQyMDczOTQsOTQyMDc1MDYsOTQyMDg1MDYsOTQyMTc1MjMsOTQyMTg2NTMsOTQyMjk4MzksNDcwODQzOTMsOTQyMTMyMDAsOTQyNTgzMjVCAklE&skid=1c57aa4d-be69-4e70-8efb-0003030f517f",
     googleMapsUrl: "https://www.google.com/maps/place/Bale+Spa+Family+Reflexology,+Jl.+Jaksa+Naranata+No.7A,+Baleendah,+Kec.+Baleendah,+Kabupaten+Bandung,+Jawa+Barat+40375/data=!4m2!3m1!1s0x4d61414feedd6f4f:0xa7361e461a4f2d31?utm_source=mstt_1&entry=gps&coh=192189&g_ep=CAESBzI1LjI0LjEYACDXggMqhwEsOTQyNjc3MjYsOTQyNzU0MDcsOTQyNzUzMTAsOTQyMjMyOTksOTQyMTY0MTMsOTQyMTI0OTYsOTQyMDczOTQsOTQyMDc1MDYsOTQyMDg1MDYsOTQyMTc1MjMsOTQyMTg2NTMsOTQyMjk4MzksNDcwODQzOTMsOTQyMTMyMDAsOTQyNTgzMjVCAklE&skid=1c57aa4d-be69-4e70-8efb-0003030f517f",
-    reviewUrl: "",
-    googleReviewUrl: "",
+    reviewUrl:
+      "https://www.google.com/search?hl=id-ID&gl=id&q=Bale+Spa+Family+Reflexology,+Jl.+Jaksa+Naranata+No.7A,+Baleendah,+Kec.+Baleendah,+Kabupaten+Bandung,+Jawa+Barat+40375&ludocid=12048851139514281265#lrd=0x4d61414feedd6f4f:0xa7361e461a4f2d31,3",
+    googleReviewUrl:
+      "https://www.google.com/search?hl=id-ID&gl=id&q=Bale+Spa+Family+Reflexology,+Jl.+Jaksa+Naranata+No.7A,+Baleendah,+Kec.+Baleendah,+Kabupaten+Bandung,+Jawa+Barat+40375&ludocid=12048851139514281265#lrd=0x4d61414feedd6f4f:0xa7361e461a4f2d31,3",
     websiteUrl: "https://balespafamily.com/?branch=baleendah",
     openingHours: {
       days: "Setiap Hari (Senin - Minggu)",
@@ -73,8 +75,10 @@ export const BRANCHES: Branch[] = [
     whatsappUrl: "https://api.whatsapp.com/send/?phone=6285182225677&text&type=phone_number&app_absent=0",
     mapsUrl: "https://www.google.com/maps/place/Bale+Spa+Family+reflexology+Soreang,+1+No,+Jl.+Raya+Gading+Tutuka+No.5,+Cingcin,+Kec.+Soreang,+Kabupaten+Bandung,+Jawa+Barat+40921/data=!4m2!3m1!1s0x2e68ed001517bf5b:0x1a0d801903b15b0b?utm_source=mstt_1&entry=gps&coh=192189&g_ep=CAESBzI1LjI0LjEYACCenQoqhwEsOTQyNjc3MjYsOTQyNzU0MDcsOTQyNzUzMTAsOTQyMjMyOTksOTQyMTY0MTMsOTQyMTI0OTYsOTQyMDczOTQsOTQyMDc1MDYsOTQyMDg1MDYsOTQyMTc1MjMsOTQyMTg2NTMsOTQyMjk4MzksNDcwODQzOTMsOTQyMTMyMDAsOTQyNTgzMjVCAklE&skid=ff1c2ce9-74ff-4083-aa50-3f78c57d9c18",
     googleMapsUrl: "https://www.google.com/maps/place/Bale+Spa+Family+reflexology+Soreang,+1+No,+Jl.+Raya+Gading+Tutuka+No.5,+Cingcin,+Kec.+Soreang,+Kabupaten+Bandung,+Jawa+Barat+40921/data=!4m2!3m1!1s0x2e68ed001517bf5b:0x1a0d801903b15b0b?utm_source=mstt_1&entry=gps&coh=192189&g_ep=CAESBzI1LjI0LjEYACCenQoqhwEsOTQyNjc3MjYsOTQyNzU0MDcsOTQyNzUzMTAsOTQyMjMyOTksOTQyMTY0MTMsOTQyMTI0OTYsOTQyMDczOTQsOTQyMDc1MDYsOTQyMDg1MDYsOTQyMTc1MjMsOTQyMTg2NTMsOTQyMjk4MzksNDcwODQzOTMsOTQyMTMyMDAsOTQyNTgzMjVCAklE&skid=ff1c2ce9-74ff-4083-aa50-3f78c57d9c18",
-    reviewUrl: "",
-    googleReviewUrl: "",
+    reviewUrl:
+      "https://www.google.com/search?hl=id-ID&gl=id&q=Bale+Spa+Family+reflexology+Soreang,+Jl.+Raya+Gading+Tutuka+No.5,+Cingcin,+Kec.+Soreang,+Kabupaten+Bandung,+Jawa+Barat+40921&ludocid=1877297464607857419#lrd=0x2e68ed001517bf5b:0x1a0d801903b15b0b,3",
+    googleReviewUrl:
+      "https://www.google.com/search?hl=id-ID&gl=id&q=Bale+Spa+Family+reflexology+Soreang,+Jl.+Raya+Gading+Tutuka+No.5,+Cingcin,+Kec.+Soreang,+Kabupaten+Bandung,+Jawa+Barat+40921&ludocid=1877297464607857419#lrd=0x2e68ed001517bf5b:0x1a0d801903b15b0b,3",
     websiteUrl: "https://balespafamily.com/?branch=soreang",
     openingHours: {
       days: "Setiap Hari (Senin - Minggu)",
@@ -105,8 +109,10 @@ export const BRANCHES: Branch[] = [
     whatsappUrl: "https://api.whatsapp.com/send/?phone=6285151220667&text&type=phone_number&app_absent=0",
     mapsUrl: "https://www.google.com/maps/place/Bale+Spa+Family+Reflexology+Ciwastra,+Jl.+Ciwastra+No.285B,+Margasari,+Kec.+Buahbatu,+Kota+Bandung,+Jawa+Barat+40292/data=!4m2!3m1!1s0x2e68e9406e92ff03:0xa1f73cc2dd290577!18m1!1e1?utm_source=mstt_1&entry=gps&coh=192189&g_ep=CAESBzI2LjM1LjMYACDXggMqqQEsMTAwODM0MjMyLDEyMTgxNjQ2MSw5NDI2NzcyNyw5NDI5MjE5NSw5NDI5OTUzMiwxMDA3OTY0OTgsMTAwNzk3NzYxLDEwMDc5NjUzNSw5NDI4MDU3Niw5NDIwNzM5NCw5NDIwNzUwNiw5NDIwODUwNiw5NDIxODY1Myw5NDIyOTgzOSw5NDI3NTE2OCw5NDI3OTYxOSwxMDA4MjAyMzcsMTAwODIyNDk0QgJJRA%3D%3D&skid=043bc4f9-5714-49b9-890a-73d474f7fb0f&g_st=ac",
     googleMapsUrl: "https://www.google.com/maps/place/Bale+Spa+Family+Reflexology+Ciwastra,+Jl.+Ciwastra+No.285B,+Margasari,+Kec.+Buahbatu,+Kota+Bandung,+Jawa+Barat+40292/data=!4m2!3m1!1s0x2e68e9406e92ff03:0xa1f73cc2dd290577!18m1!1e1?utm_source=mstt_1&entry=gps&coh=192189&g_ep=CAESBzI2LjM1LjMYACDXggMqqQEsMTAwODM0MjMyLDEyMTgxNjQ2MSw5NDI2NzcyNyw5NDI5MjE5NSw5NDI5OTUzMiwxMDA3OTY0OTgsMTAwNzk3NzYxLDEwMDc5NjUzNSw5NDI4MDU3Niw5NDIwNzM5NCw5NDIwNzUwNiw5NDIwODUwNiw5NDIxODY1Myw5NDIyOTgzOSw5NDI3NTE2OCw5NDI3OTYxOSwxMDA4MjAyMzcsMTAwODIyNDk0QgJJRA%3D%3D&skid=043bc4f9-5714-49b9-890a-73d474f7fb0f&g_st=ac",
-    reviewUrl: "",
-    googleReviewUrl: "",
+    reviewUrl:
+      "https://www.google.com/search?hl=id-ID&gl=id&q=Bale+Spa+Family+Reflexology+Ciwastra,+Jl.+Ciwastra+No.285B,+Margasari,+Kec.+Buahbatu,+Kota+Bandung,+Jawa+Barat+40292&ludocid=11670863766985704823#lrd=0x2e68e9406e92ff03:0xa1f73cc2dd290577,3",
+    googleReviewUrl:
+      "https://www.google.com/search?hl=id-ID&gl=id&q=Bale+Spa+Family+Reflexology+Ciwastra,+Jl.+Ciwastra+No.285B,+Margasari,+Kec.+Buahbatu,+Kota+Bandung,+Jawa+Barat+40292&ludocid=11670863766985704823#lrd=0x2e68e9406e92ff03:0xa1f73cc2dd290577,3",
     websiteUrl: "https://balespafamily.com/?branch=ciwastra",
     openingHours: {
       days: "Setiap Hari (Senin - Minggu)",
