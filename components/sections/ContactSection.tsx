@@ -4,7 +4,7 @@ import { businessConfig } from "@/config/business";
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-[#EFE4D6] border-t border-[#E2D5C3]">
+    <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-white border-t border-[#EAE4DC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Contact Details (Left 6 Cols) */}
@@ -32,8 +32,8 @@ export default function ContactSection() {
             {/* Info Cards */}
             <div className="space-y-3.5 pt-1">
               {/* Alamat */}
-              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-[#FAF6F0] border border-[#E2D5C3] shadow-2xs">
-                <div className="w-10 h-10 rounded-lg bg-[#EFE5D7] border border-[#DDCFBD] flex items-center justify-center text-[#1D4533] shrink-0">
+              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-[#FAF7F2] border border-[#EAE4DC] shadow-2xs">
+                <div className="w-10 h-10 rounded-lg bg-white border border-[#EAE4DC] flex items-center justify-center text-[#1D4533] shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -50,8 +50,8 @@ export default function ContactSection() {
               </div>
 
               {/* WhatsApp */}
-              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-[#FAF6F0] border border-[#E2D5C3] shadow-2xs">
-                <div className="w-10 h-10 rounded-lg bg-[#EFE5D7] border border-[#DDCFBD] flex items-center justify-center text-[#1D4533] shrink-0">
+              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-[#FAF7F2] border border-[#EAE4DC] shadow-2xs">
+                <div className="w-10 h-10 rounded-lg bg-white border border-[#EAE4DC] flex items-center justify-center text-[#1D4533] shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
@@ -74,8 +74,8 @@ export default function ContactSection() {
               </div>
 
               {/* Jam Buka */}
-              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-[#FAF6F0] border border-[#E2D5C3] shadow-2xs">
-                <div className="w-10 h-10 rounded-lg bg-[#EFE5D7] border border-[#DDCFBD] flex items-center justify-center text-[#1D4533] shrink-0">
+              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-[#FAF7F2] border border-[#EAE4DC] shadow-2xs">
+                <div className="w-10 h-10 rounded-lg bg-white border border-[#EAE4DC] flex items-center justify-center text-[#1D4533] shrink-0">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
@@ -108,9 +108,9 @@ export default function ContactSection() {
 
           {/* Interactive Map Card (Right 6 Cols) */}
           <div className="lg:col-span-6">
-            <div className="bg-[#FAF6F0] rounded-xl border border-[#E2D5C3] overflow-hidden shadow-sm flex flex-col">
+            <div className="bg-white rounded-xl border border-[#EAE4DC] overflow-hidden shadow-sm flex flex-col">
               {/* Map Graphic Area */}
-              <div className="relative h-64 sm:h-72 w-full bg-[#E8DDD0] flex items-center justify-center p-6 text-center">
+              <div className="relative h-64 sm:h-72 w-full bg-[#FAF7F2] flex items-center justify-center p-6 text-center border-b border-[#EAE4DC]">
                 <div className="space-y-3.5 max-w-sm">
                   <div className="w-14 h-14 rounded-full bg-[#1D4533] text-[#F3E9DC] flex items-center justify-center mx-auto shadow-md">
                     <MapPin className="w-7 h-7 text-[#C8A27A]" />
@@ -127,7 +127,7 @@ export default function ContactSection() {
                     href={businessConfig.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#FAF6F0] hover:bg-white text-[#1D4533] text-xs font-bold tracking-wider uppercase rounded-sm border border-[#E2D5C3] shadow-2xs transition-colors"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-[#FAF7F2] text-[#1D4533] text-xs font-bold tracking-wider uppercase rounded-sm border border-[#EAE4DC] shadow-2xs transition-colors"
                   >
                     <span>Buka Peta Navigasi</span>
                     <ExternalLink className="w-3.5 h-3.5 text-[#1D4533]" />
@@ -136,13 +136,13 @@ export default function ContactSection() {
               </div>
 
               {/* Schedule Table */}
-              <div className="p-5 sm:p-6 bg-[#FAF6F0] border-t border-[#E2D5C3]">
+              <div className="p-5 sm:p-6 bg-white">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-[#1D4533] mb-3">
                   Jadwal Buka Lengkap
                 </h4>
                 <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-xs text-[#4E3F33]">
                   {businessConfig.scheduleList.map((item) => (
-                    <div key={item.day} className="flex justify-between border-b border-[#E2D5C3]/60 pb-1">
+                    <div key={item.day} className="flex justify-between border-b border-[#EAE4DC]/60 pb-1">
                       <span className="font-medium">{item.day}</span>
                       <span className="text-[#1F150C] font-bold">{item.hours}</span>
                     </div>

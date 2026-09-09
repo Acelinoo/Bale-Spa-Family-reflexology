@@ -79,7 +79,7 @@ export default function GoogleReviews() {
     <section
       ref={sectionRef}
       id="reviews"
-      className="py-16 sm:py-20 lg:py-24 bg-[#F3E9DC] border-t border-[#E2D5C3]/60"
+      className="py-16 sm:py-20 lg:py-24 bg-[#FBF8F4] border-t border-[#EAE4DC]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}

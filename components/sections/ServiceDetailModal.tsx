@@ -38,7 +38,7 @@ export default function ServiceDetailModal({
       onClick={onClose}
     >
       <div
-        className="relative bg-[#FAF6F0] w-full max-w-2xl rounded-2xl shadow-2xl border border-[#E8DFD3] overflow-hidden my-auto max-h-[90vh] flex flex-col"
+        className="relative bg-white w-full max-w-2xl rounded-2xl shadow-2xl border border-[#EAE4DC] overflow-hidden my-auto max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header with Image */}

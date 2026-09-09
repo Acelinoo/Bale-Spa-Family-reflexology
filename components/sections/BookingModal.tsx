@@ -150,7 +150,7 @@ Terima kasih.`;
       onClick={onClose}
     >
       <div
-        className="relative bg-[#FAF6F0] w-full max-w-2xl rounded-2xl shadow-2xl border border-[#E8DFD3] overflow-hidden my-auto max-h-[92vh] flex flex-col animate-in zoom-in-95 duration-200"
+        className="relative bg-white w-full max-w-2xl rounded-2xl shadow-2xl border border-[#EAE4DC] overflow-hidden my-auto max-h-[92vh] flex flex-col animate-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}

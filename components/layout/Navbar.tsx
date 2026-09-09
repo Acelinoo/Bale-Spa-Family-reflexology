@@ -52,8 +52,8 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
     <header
       className={`sticky top-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#F3E9DC]/95 backdrop-blur-md shadow-xs border-b border-[#E2D5C3] py-3"
-          : "bg-[#F3E9DC] border-b border-[#E2D5C3]/50 py-4 sm:py-5"
+          ? "bg-white/95 backdrop-blur-md shadow-xs border-b border-[#EAE4DC] py-3"
+          : "bg-white border-b border-[#EAE4DC]/60 py-4 sm:py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between">
@@ -107,7 +107,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
         <div className="flex items-center md:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 rounded-md text-[#1F150C] hover:bg-[#EFE4D6] transition-colors focus:outline-none"
+            className="p-2 rounded-md text-[#1F150C] hover:bg-[#FAF7F2] transition-colors focus:outline-none"
             aria-label="Buka Menu"
             aria-expanded={isMobileMenuOpen}
           >
@@ -122,14 +122,14 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
 
       {/* Mobile Drawer Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#F3E9DC] border-b border-[#E2D5C3] px-5 pt-3 pb-6 space-y-4 animate-in slide-in-from-top-4 duration-200">
+        <div className="md:hidden bg-white border-b border-[#EAE4DC] px-5 pt-3 pb-6 space-y-4 animate-in slide-in-from-top-4 duration-200 shadow-md">
           <div className="flex flex-col space-y-3 pt-2">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-semibold tracking-wider text-[#1F150C] uppercase py-2 border-b border-[#E2D5C3]/50"
+                className="text-sm font-semibold tracking-wider text-[#1F150C] uppercase py-2 border-b border-[#EAE4DC]/60"
               >
                 {link.label}
               </a>

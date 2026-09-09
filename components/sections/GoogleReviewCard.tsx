@@ -9,7 +9,7 @@ interface GoogleReviewCardProps {
 
 export default function GoogleReviewCard({ review }: GoogleReviewCardProps) {
   return (
-    <div className="bg-[#FAF6F0] rounded-xl p-6 sm:p-7 border border-[#E2D5C3] shadow-[0_2px_12px_rgba(31,21,12,0.03)] hover:shadow-[0_6px_20px_rgba(29,69,51,0.08)] transition-all duration-300 flex flex-col justify-between space-y-5">
+    <div className="bg-white rounded-xl p-6 sm:p-7 border border-[#EAE4DC] shadow-[0_2px_12px_rgba(31,21,12,0.03)] hover:shadow-[0_8px_24px_rgba(29,69,51,0.08)] hover:border-[#1D4533]/40 transition-all duration-300 flex flex-col justify-between space-y-5">
       <div className="space-y-3">
         {/* Large Elegant Green Quote Mark */}
         <span className="font-serif text-4xl sm:text-5xl text-[#1D4533] leading-none block font-bold">
@@ -28,10 +28,10 @@ export default function GoogleReviewCard({ review }: GoogleReviewCardProps) {
       </div>
 
       {/* Reviewer Profile & 5 Stars */}
-      <div className="pt-4 border-t border-[#E8DDCE] flex items-center justify-between gap-3">
+      <div className="pt-4 border-t border-[#F0EBE3] flex items-center justify-between gap-3">
         {/* Left: Avatar & Name */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full overflow-hidden relative bg-[#EFE5D7] shrink-0 border border-[#DDCFBD]">
+          <div className="w-10 h-10 rounded-full overflow-hidden relative bg-[#FAF7F2] shrink-0 border border-[#EAE4DC]">
             {review.avatar ? (
               <Image
                 src={review.avatar}

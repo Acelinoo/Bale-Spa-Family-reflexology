@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   OrganicLeafDropIcon,
   HygienicShieldIcon,
-  HeartCareIcon,
+  SpaCandleIcon,
 } from "@/components/ui/SpaIcons";
 
 export default function AboutSection() {
@@ -72,13 +72,13 @@ export default function AboutSection() {
     <section
       ref={sectionRef}
       id="about"
-      className="py-16 sm:py-20 lg:py-24 bg-[#EFE4D6] border-y border-[#E2D5C3]"
+      className="py-16 sm:py-20 lg:py-24 bg-white border-y border-[#EAE4DC]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left Column: Spa Room Image with Official Logo Badge */}
           <div ref={imageRef} className="lg:col-span-6 relative">
-            <div className="relative rounded-lg overflow-hidden shadow-xl bg-[#E2D5C3] border border-[#D5C6B3]">
+            <div className="relative rounded-lg overflow-hidden shadow-xl bg-white border border-[#EAE4DC]">
               <Image
                 src="/images/about-room.jpg"
                 alt="Your Well-Being Is Our Priority - Bale Spa Family Reflexology Room"
@@ -91,7 +91,7 @@ export default function AboutSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F150C]/25 via-transparent to-transparent pointer-events-none" />
 
               {/* Official Bale Spa Logo Emblem Floating Badge */}
-              <div className="absolute top-4 left-4 w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden shadow-lg border-2 border-[#FAF6F0] bg-[#1D4533]">
+              <div className="absolute top-4 left-4 w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden shadow-lg border-2 border-white bg-[#1D4533]">
                 <Image
                   src="/images/bale-spa-logo.jpg"
                   alt="Bale Spa Official Emblem"
@@ -129,7 +129,7 @@ export default function AboutSection() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
               {/* Feature 1 */}
               <div className="flex sm:flex-col items-center sm:text-center gap-3 sm:gap-2">
-                <div className="w-12 h-12 rounded-full border border-[#D5C6B3] bg-[#FAF6F0] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
+                <div className="w-12 h-12 rounded-full border border-[#EAE4DC] bg-[#FAF7F2] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
                   <OrganicLeafDropIcon className="w-5 h-5" />
                 </div>
                 <div>
@@ -144,30 +144,30 @@ export default function AboutSection() {
 
               {/* Feature 2 */}
               <div className="flex sm:flex-col items-center sm:text-center gap-3 sm:gap-2">
-                <div className="w-12 h-12 rounded-full border border-[#D5C6B3] bg-[#FAF6F0] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
+                <div className="w-12 h-12 rounded-full border border-[#EAE4DC] bg-[#FAF7F2] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
                   <HygienicShieldIcon className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-[#1F150C]">
-                    Hygienic &amp; Safe
+                    Clean &amp; Hygienic
                   </h4>
                   <p className="text-[11px] text-[#635345] leading-snug mt-0.5">
-                    Highest standards of cleanliness and safety.
+                    Sanitized environment with private family rooms.
                   </p>
                 </div>
               </div>
 
               {/* Feature 3 */}
               <div className="flex sm:flex-col items-center sm:text-center gap-3 sm:gap-2">
-                <div className="w-12 h-12 rounded-full border border-[#D5C6B3] bg-[#FAF6F0] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
-                  <HeartCareIcon className="w-5 h-5" />
+                <div className="w-12 h-12 rounded-full border border-[#EAE4DC] bg-[#FAF7F2] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
+                  <SpaCandleIcon className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-[#1F150C]">
-                    Personalized Care
+                    Calm Atmosphere
                   </h4>
                   <p className="text-[11px] text-[#635345] leading-snug mt-0.5">
-                    Treatments tailored to your unique needs.
+                    A peaceful retreat away from the daily busy rush.
                   </p>
                 </div>
               </div>

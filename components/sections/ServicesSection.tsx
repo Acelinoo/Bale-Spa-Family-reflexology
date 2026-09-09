@@ -95,7 +95,7 @@ export default function ServicesSection({
     <section
       ref={sectionRef}
       id="services"
-      className="py-16 sm:py-20 lg:py-24 bg-[#F3E9DC]"
+      className="py-16 sm:py-20 lg:py-24 bg-[#FBF8F4] border-b border-[#EAE4DC]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
@@ -121,11 +121,11 @@ export default function ServicesSection({
             <div
               key={service.id}
               onClick={() => setSelectedService(service)}
-              className="bg-[#FAF6F0] rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-[#E2D5C3] shadow-[0_2px_12px_rgba(31,21,12,0.03)] hover:shadow-[0_8px_24px_rgba(29,69,51,0.1)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center cursor-pointer group"
+              className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-[#EAE4DC] shadow-[0_2px_10px_rgba(31,21,12,0.03)] hover:shadow-[0_10px_25px_rgba(29,69,51,0.08)] hover:border-[#1D4533]/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center cursor-pointer group"
             >
               <div className="space-y-3 sm:space-y-3.5 flex flex-col items-center">
                 {/* Circular Icon Container */}
-                <div className="w-13 h-13 sm:w-15 sm:h-15 rounded-full bg-[#EFE5D7] border border-[#DFD1C1] flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-2xs">
+                <div className="w-13 h-13 sm:w-15 sm:h-15 rounded-full bg-[#FAF7F2] border border-[#EAE4DC] flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-2xs">
                   {renderServiceIcon(service.iconType)}
                 </div>
 
@@ -141,7 +141,7 @@ export default function ServicesSection({
               </div>
 
               {/* Bottom Learn More Link */}
-              <div className="pt-4 mt-2 border-t border-[#E8DDCE] w-full">
+              <div className="pt-4 mt-2 border-t border-[#F0EBE3] w-full">
                 <span className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-[#1D4533] group-hover:text-[#163728] transition-colors inline-flex items-center gap-1">
                   <span>LEARN MORE</span>
                   <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>

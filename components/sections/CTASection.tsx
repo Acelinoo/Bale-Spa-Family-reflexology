@@ -52,12 +52,12 @@ export default function CTASection({ onOpenBooking }: CTASectionProps) {
   }, []);
 
   return (
-    <section className="py-12 sm:py-16 bg-[#F3E9DC]">
+    <section className="py-12 sm:py-16 bg-white border-t border-[#EAE4DC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Banner Horizontal Container */}
         <div
           ref={bannerRef}
-          className="bg-[#FAF6F0] rounded-2xl border border-[#E2D5C3] p-6 sm:p-8 lg:p-10 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center overflow-hidden relative"
+          className="bg-[#FAF7F2] rounded-2xl border border-[#EAE4DC] p-6 sm:p-8 lg:p-10 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center overflow-hidden relative"
         >
           {/* Left Column: Spa Stone & Candle Image (Desktop 4 cols) */}
           <div className="lg:col-span-4 relative">
@@ -102,7 +102,7 @@ export default function CTASection({ onOpenBooking }: CTASectionProps) {
 
           {/* Right Column: Self Care Circular Stamp Badge (Desktop 3 cols) */}
           <div className="lg:col-span-3 flex items-center justify-center">
-            <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full border border-[#DDCFBD] bg-[#FAF6F0] flex items-center justify-center p-3 shadow-xs">
+            <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full border border-[#EAE4DC] bg-white flex items-center justify-center p-3 shadow-xs">
               {/* Rotating SVG Curved Text */}
               <div ref={stampRef} className="absolute inset-0 w-full h-full">
                 <svg viewBox="0 0 160 160" className="w-full h-full">

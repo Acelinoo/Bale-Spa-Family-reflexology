@@ -80,7 +80,7 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
     <section
       ref={containerRef}
       id="home"
-      className="relative bg-[#F3E9DC] overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-20 border-b border-[#E2D5C3]/60"
+      className="relative bg-gradient-to-b from-white via-white to-[#FBF8F4] overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-20 border-b border-[#EAE4DC]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -125,11 +125,11 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
             {/* 3 Trust Badges Horizontal */}
             <div
               ref={trustRowRef}
-              className="pt-6 border-t border-[#E2D5C3] grid grid-cols-1 sm:grid-cols-3 gap-4"
+              className="pt-6 border-t border-[#EAE4DC] grid grid-cols-1 sm:grid-cols-3 gap-4"
             >
               {/* Item 1 */}
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#FAF6F0] border border-[#E2D5C3] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
+                <div className="w-10 h-10 rounded-full bg-white border border-[#EAE4DC] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
                   <OrganicLeafDropIcon className="w-5 h-5" />
                 </div>
                 <div>
@@ -144,7 +144,7 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
 
               {/* Item 2 */}
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#FAF6F0] border border-[#E2D5C3] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
+                <div className="w-10 h-10 rounded-full bg-white border border-[#EAE4DC] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
                   <TherapistUserIcon className="w-5 h-5" />
                 </div>
                 <div>
@@ -159,7 +159,7 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
 
               {/* Item 3 */}
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#FAF6F0] border border-[#E2D5C3] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
+                <div className="w-10 h-10 rounded-full bg-white border border-[#EAE4DC] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
                   <SpaLotusIcon className="w-5 h-5" />
                 </div>
                 <div>
@@ -176,7 +176,7 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
 
           {/* Right Column: Hero Image */}
           <div ref={imageColRef} className="lg:col-span-6 relative">
-            <div className="relative rounded-lg overflow-hidden shadow-xl bg-[#E8DDD0] border border-[#DDD0BF]">
+            <div className="relative rounded-lg overflow-hidden shadow-xl bg-white border border-[#EAE4DC]">
               <Image
                 src="/images/hero-exact.jpg"
                 alt="Wellness & Relaxation Tailored For You - Bale Spa Family Reflexology"
