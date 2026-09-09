@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { REVIEWS } from "@/data/reviews";
 import GoogleReviewCard from "./GoogleReviewCard";
 import { useBranch } from "@/context/BranchContext";
+import { openGoogleReview } from "@/config/branches";
 
 export default function GoogleReviews() {
   const { currentBranch } = useBranch();
@@ -114,7 +115,7 @@ export default function GoogleReviews() {
 
           {/* Right: 2 Action Buttons (Lihat di Google Maps & Tulis Ulasan di Google) */}
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
-            {/* Button 1: Lihat di Google Maps */}
+            {/* Button 1: Lihat di Google Maps (Fix Gambar 1: Menggunakan panah unicode asli ↗) */}
             <a
               href={currentBranch.mapsUrl}
               target="_blank"
@@ -123,12 +124,16 @@ export default function GoogleReviews() {
               title={`Buka Google Maps Cabang ${currentBranch.shortName}`}
             >
               <span>Lihat di Google Maps</span>
-              <span className="text-sm leading-none">&nearr;</span>
+              <span className="text-base leading-none" aria-hidden="true">↗</span>
             </a>
 
-            {/* Button 2: Tulis Ulasan di Google (Membuka popup resmi Google seperti di Gambar 2) */}
+            {/* Button 2: Tulis Ulasan di Google (Membuka sheet ulasan Google di HP & modal popup ulasan di Desktop) */}
             <a
               href={currentBranch.reviewUrl}
+              onClick={(e) => {
+                e.preventDefault();
+                openGoogleReview(currentBranch);
+              }}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-xs font-bold tracking-wide flex items-center justify-center gap-2 shadow-xs hover:shadow-md transition-all cursor-pointer active:scale-98 border border-[#C5A880]/30 text-center"

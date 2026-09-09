@@ -3,7 +3,7 @@ import { BRANCHES, DEFAULT_BRANCH, getBranchById } from "../config/branches.ts";
 console.log("=== BALE SPA FAMILY REFLEXOLOGY - MULTI-BRANCH VERIFICATION ===");
 
 let passedTests = 0;
-let totalTests = 15;
+let totalTests = 18;
 
 function assert(condition, message) {
   if (condition) {
@@ -89,6 +89,30 @@ assert(resolveBranchParam("ciwastra") === "ciwastra", "TEST 14: ?branch=ciwastra
 
 // TEST 15: Open ?branch=invalid -> fallback default (baleendah)
 assert(resolveBranchParam("invalid-branch-xyz") === "baleendah", "TEST 15: ?branch=invalid fallback aman ke default 'baleendah'");
+
+// TEST 16: Mobile Review URL Baleendah mengandung !18m1!1e1 (direct review sheet untuk HP)
+assert(
+  bBaleendah &&
+    bBaleendah.mobileReviewUrl &&
+    bBaleendah.mobileReviewUrl.includes("!18m1!1e1"),
+  "TEST 16: Mobile Review URL Baleendah mengandung parameter !18m1!1e1 (direct review sheet untuk HP)"
+);
+
+// TEST 17: Mobile Review URL Soreang mengandung !18m1!1e1 (direct review sheet untuk HP)
+assert(
+  bSoreang &&
+    bSoreang.mobileReviewUrl &&
+    bSoreang.mobileReviewUrl.includes("!18m1!1e1"),
+  "TEST 17: Mobile Review URL Soreang mengandung parameter !18m1!1e1 (direct review sheet untuk HP)"
+);
+
+// TEST 18: Mobile Review URL Ciwastra mengandung !18m1!1e1 (direct review sheet untuk HP)
+assert(
+  bCiwastra &&
+    bCiwastra.mobileReviewUrl &&
+    bCiwastra.mobileReviewUrl.includes("!18m1!1e1"),
+  "TEST 18: Mobile Review URL Ciwastra mengandung parameter !18m1!1e1 (direct review sheet untuk HP)"
+);
 
 console.log(`\n================================`);
 console.log(`HASIL: ${passedTests} / ${totalTests} TEST BERHASIL!`);

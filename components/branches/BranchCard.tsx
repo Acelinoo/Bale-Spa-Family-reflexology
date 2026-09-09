@@ -2,7 +2,7 @@
 
 import React from "react";
 import { MapPin, Phone, Star, Calendar, Navigation, MessageCircle, Check } from "lucide-react";
-import { Branch } from "@/config/branches";
+import { Branch, getBranchReviewUrl, openGoogleReview } from "@/config/branches";
 import { useBranch } from "@/context/BranchContext";
 
 interface BranchCardProps {
@@ -106,10 +106,14 @@ export default function BranchCard({ branch, onOpenBookingForBranch }: BranchCar
         {/* 3. Berikan Ulasan (Google Review) - Hanya tampil jika reviewUrl sudah dikonfigurasi */}
         {branch.reviewUrl ? (
           <a
-            href={branch.reviewUrl}
+            href={getBranchReviewUrl(branch)}
+            onClick={(e) => {
+              e.preventDefault();
+              openGoogleReview(branch);
+            }}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-2.5 rounded-lg bg-white hover:bg-[#FAF7F2] text-[#1F150C] hover:text-[#F5A623] border border-[#EAE4DC] hover:border-[#F5A623]/40 text-[11px] font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 transition-all shadow-2xs text-center"
+            className="px-3 py-2.5 rounded-lg bg-white hover:bg-[#FAF7F2] text-[#1F150C] hover:text-[#F5A623] border border-[#EAE4DC] hover:border-[#F5A623]/40 text-[11px] font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 transition-all shadow-2xs text-center cursor-pointer"
             title={`Berikan Ulasan Google untuk Cabang ${branch.shortName}`}
           >
             <Star className="w-3.5 h-3.5 text-[#F5A623]" />

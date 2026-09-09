@@ -3,6 +3,7 @@
 import React from "react";
 import { MapPin, Phone, Clock, ExternalLink, Navigation } from "lucide-react";
 import { useBranch } from "@/context/BranchContext";
+import { getBranchReviewUrl, openGoogleReview } from "@/config/branches";
 
 export default function ContactSection() {
   const { currentBranch, branches, selectBranch } = useBranch();
@@ -155,13 +156,17 @@ export default function ContactSection() {
                 <span>CHAT WHATSAPP</span>
               </a>
 
-              {/* 3. Berikan Ulasan (Review) - Langsung membuka Google Review jika url sudah tersedia */}
+              {/* 3. Berikan Ulasan (Review) - Langsung membuka Google Review (sheet di HP, dialog di Desktop) */}
               {currentBranch.reviewUrl ? (
                 <a
-                  href={currentBranch.reviewUrl}
+                  href={getBranchReviewUrl(currentBranch)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    openGoogleReview(currentBranch);
+                  }}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-white hover:bg-[#FAF7F2] text-[#1F150C] border border-[#EAE4DC] hover:border-[#F5A623]/50 text-xs font-bold tracking-wider uppercase rounded-lg shadow-xs transition-all duration-200 active:translate-y-0.5"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-white hover:bg-[#FAF7F2] text-[#1F150C] border border-[#EAE4DC] hover:border-[#F5A623]/50 text-xs font-bold tracking-wider uppercase rounded-lg shadow-xs transition-all duration-200 active:translate-y-0.5 cursor-pointer"
                   title={`Berikan Ulasan Google untuk ${currentBranch.name}`}
                 >
                   <span className="text-[#F5A623]">★</span>

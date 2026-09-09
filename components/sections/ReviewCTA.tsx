@@ -3,6 +3,7 @@
 import React from "react";
 import { Star, ExternalLink } from "lucide-react";
 import { useBranch } from "@/context/BranchContext";
+import { getBranchReviewUrl, openGoogleReview } from "@/config/branches";
 
 export default function ReviewCTA() {
   const { currentBranch } = useBranch();
@@ -28,7 +29,11 @@ export default function ReviewCTA() {
       {currentBranch.reviewUrl ? (
         <div className="pt-2">
           <a
-            href={currentBranch.reviewUrl}
+            href={getBranchReviewUrl(currentBranch)}
+            onClick={(e) => {
+              e.preventDefault();
+              openGoogleReview(currentBranch);
+            }}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-xs font-bold tracking-[0.14em] uppercase rounded-xl shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer active:translate-y-0.5 border border-[#C5A880]/30"

@@ -14,6 +14,7 @@ export interface Branch {
   googleMapsUrl: string; // Alias
   reviewUrl: string;
   googleReviewUrl: string; // Alias
+  mobileReviewUrl: string; // Google Maps direct write review dialog with !18m1!1e1 for smartphones
   websiteUrl: string;
   openingHours: {
     days: string;
@@ -45,6 +46,8 @@ export const BRANCHES: Branch[] = [
       "https://www.google.com/search?hl=id-ID&gl=id&q=Bale+Spa+Family+Reflexology,+Jl.+Jaksa+Naranata+No.7A,+Baleendah,+Kec.+Baleendah,+Kabupaten+Bandung,+Jawa+Barat+40375&ludocid=12048851139514281265#lrd=0x4d61414feedd6f4f:0xa7361e461a4f2d31,3",
     googleReviewUrl:
       "https://www.google.com/search?hl=id-ID&gl=id&q=Bale+Spa+Family+Reflexology,+Jl.+Jaksa+Naranata+No.7A,+Baleendah,+Kec.+Baleendah,+Kabupaten+Bandung,+Jawa+Barat+40375&ludocid=12048851139514281265#lrd=0x4d61414feedd6f4f:0xa7361e461a4f2d31,3",
+    mobileReviewUrl:
+      "https://www.google.com/maps/place/Bale+Spa+Family+Reflexology,+Jl.+Jaksa+Naranata+No.7A,+Baleendah,+Kec.+Baleendah,+Kabupaten+Bandung,+Jawa+Barat+40375/data=!4m2!3m1!1s0x4d61414feedd6f4f:0xa7361e461a4f2d31!18m1!1e1",
     websiteUrl: "https://balespafamily.com/?branch=baleendah",
     openingHours: {
       days: "Setiap Hari (Senin - Minggu)",
@@ -79,6 +82,8 @@ export const BRANCHES: Branch[] = [
       "https://www.google.com/search?hl=id-ID&gl=id&q=Bale+Spa+Family+reflexology+Soreang,+Jl.+Raya+Gading+Tutuka+No.5,+Cingcin,+Kec.+Soreang,+Kabupaten+Bandung,+Jawa+Barat+40921&ludocid=1877297464607857419#lrd=0x2e68ed001517bf5b:0x1a0d801903b15b0b,3",
     googleReviewUrl:
       "https://www.google.com/search?hl=id-ID&gl=id&q=Bale+Spa+Family+reflexology+Soreang,+Jl.+Raya+Gading+Tutuka+No.5,+Cingcin,+Kec.+Soreang,+Kabupaten+Bandung,+Jawa+Barat+40921&ludocid=1877297464607857419#lrd=0x2e68ed001517bf5b:0x1a0d801903b15b0b,3",
+    mobileReviewUrl:
+      "https://www.google.com/maps/place/Bale+Spa+Family+reflexology+Soreang,+1+No,+Jl.+Raya+Gading+Tutuka+No.5,+Cingcin,+Kec.+Soreang,+Kabupaten+Bandung,+Jawa+Barat+40921/data=!4m2!3m1!1s0x2e68ed001517bf5b:0x1a0d801903b15b0b!18m1!1e1",
     websiteUrl: "https://balespafamily.com/?branch=soreang",
     openingHours: {
       days: "Setiap Hari (Senin - Minggu)",
@@ -113,6 +118,8 @@ export const BRANCHES: Branch[] = [
       "https://www.google.com/search?hl=id-ID&gl=id&q=Bale+Spa+Family+Reflexology+Ciwastra,+Jl.+Ciwastra+No.285B,+Margasari,+Kec.+Buahbatu,+Kota+Bandung,+Jawa+Barat+40292&ludocid=11670863766985704823#lrd=0x2e68e9406e92ff03:0xa1f73cc2dd290577,3",
     googleReviewUrl:
       "https://www.google.com/search?hl=id-ID&gl=id&q=Bale+Spa+Family+Reflexology+Ciwastra,+Jl.+Ciwastra+No.285B,+Margasari,+Kec.+Buahbatu,+Kota+Bandung,+Jawa+Barat+40292&ludocid=11670863766985704823#lrd=0x2e68e9406e92ff03:0xa1f73cc2dd290577,3",
+    mobileReviewUrl:
+      "https://www.google.com/maps/place/Bale+Spa+Family+Reflexology+Ciwastra,+Jl.+Ciwastra+No.285B,+Margasari,+Kec.+Buahbatu,+Kota+Bandung,+Jawa+Barat+40292/data=!4m2!3m1!1s0x2e68e9406e92ff03:0xa1f73cc2dd290577!18m1!1e1",
     websiteUrl: "https://balespafamily.com/?branch=ciwastra",
     openingHours: {
       days: "Setiap Hari (Senin - Minggu)",
@@ -143,12 +150,40 @@ export function getBranchById(branchId?: string): Branch {
   return found || DEFAULT_BRANCH;
 }
 
+/**
+ * Deteksi apakah pengguna mengakses dari perangkat mobile / smartphone.
+ */
+export function isMobileDevice(): boolean {
+  if (typeof window === "undefined" || typeof navigator === "undefined") {
+    return false;
+  }
+  return (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile/i.test(
+      navigator.userAgent || ""
+    ) || window.innerWidth < 768
+  );
+}
+
+/**
+ * Mengembalikan URL ulasan yang paling tepat:
+ * - Pada perangkat smartphone/mobile: Mengembalikan mobileReviewUrl yang memiliki parameter !18m1!1e1
+ *   sehingga langsung memunculkan sheet/dialog ulasan di aplikasi Google Maps atau web mobile.
+ * - Pada komputer desktop: Mengembalikan reviewUrl dengan hash #lrd=...,3 untuk membuka dialog ulasan di Google Search desktop.
+ */
+export function getBranchReviewUrl(branch: Branch): string {
+  if (isMobileDevice() && branch.mobileReviewUrl) {
+    return branch.mobileReviewUrl;
+  }
+  return branch.reviewUrl || branch.mobileReviewUrl;
+}
+
 export function openGoogleReview(branch: Branch): void {
-  if (!branch.reviewUrl) {
+  const targetUrl = getBranchReviewUrl(branch);
+  if (!targetUrl) {
     console.warn(`Google Review URL belum dikonfigurasi untuk ${branch.name}`);
     return;
   }
-  window.open(branch.reviewUrl, "_blank", "noopener,noreferrer");
+  window.open(targetUrl, "_blank", "noopener,noreferrer");
 }
 
 export function getCleanPhoneNumber(phone: string): string {
