@@ -90,28 +90,28 @@ assert(resolveBranchParam("ciwastra") === "ciwastra", "TEST 14: ?branch=ciwastra
 // TEST 15: Open ?branch=invalid -> fallback default (baleendah)
 assert(resolveBranchParam("invalid-branch-xyz") === "baleendah", "TEST 15: ?branch=invalid fallback aman ke default 'baleendah'");
 
-// TEST 16: Mobile Review URL Baleendah mengandung !18m1!1e1 (direct review sheet untuk HP)
+// TEST 16: Mobile Review URL Baleendah menggunakan search.google.com/local/writereview (web review sheet tanpa buka aplikasi Maps)
 assert(
   bBaleendah &&
     bBaleendah.mobileReviewUrl &&
-    bBaleendah.mobileReviewUrl.includes("!18m1!1e1"),
-  "TEST 16: Mobile Review URL Baleendah mengandung parameter !18m1!1e1 (direct review sheet untuk HP)"
+    bBaleendah.mobileReviewUrl.includes("search.google.com/local/writereview?fid=0x4d61414feedd6f4f:0xa7361e461a4f2d31"),
+  "TEST 16: Mobile Review URL Baleendah membuka search.google.com/local/writereview (web review sheet tanpa buka aplikasi Maps)"
 );
 
-// TEST 17: Mobile Review URL Soreang mengandung !18m1!1e1 (direct review sheet untuk HP)
+// TEST 17: Mobile Review URL Soreang menggunakan search.google.com/local/writereview (web review sheet tanpa buka aplikasi Maps)
 assert(
   bSoreang &&
     bSoreang.mobileReviewUrl &&
-    bSoreang.mobileReviewUrl.includes("!18m1!1e1"),
-  "TEST 17: Mobile Review URL Soreang mengandung parameter !18m1!1e1 (direct review sheet untuk HP)"
+    bSoreang.mobileReviewUrl.includes("search.google.com/local/writereview?fid=0x2e68ed001517bf5b:0x1a0d801903b15b0b"),
+  "TEST 17: Mobile Review URL Soreang membuka search.google.com/local/writereview (web review sheet tanpa buka aplikasi Maps)"
 );
 
-// TEST 18: Mobile Review URL Ciwastra mengandung !18m1!1e1 (direct review sheet untuk HP)
+// TEST 18: Mobile Review URL Ciwastra menggunakan search.google.com/local/writereview (web review sheet tanpa buka aplikasi Maps)
 assert(
   bCiwastra &&
     bCiwastra.mobileReviewUrl &&
-    bCiwastra.mobileReviewUrl.includes("!18m1!1e1"),
-  "TEST 18: Mobile Review URL Ciwastra mengandung parameter !18m1!1e1 (direct review sheet untuk HP)"
+    bCiwastra.mobileReviewUrl.includes("search.google.com/local/writereview?fid=0x2e68e9406e92ff03:0xa1f73cc2dd290577"),
+  "TEST 18: Mobile Review URL Ciwastra membuka search.google.com/local/writereview (web review sheet tanpa buka aplikasi Maps)"
 );
 
 console.log(`\n================================`);
