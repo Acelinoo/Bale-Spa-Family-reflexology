@@ -9,29 +9,29 @@ interface GoogleReviewCardProps {
 
 export default function GoogleReviewCard({ review }: GoogleReviewCardProps) {
   return (
-    <div className="bg-[#FFFFFF] rounded-xl p-6 sm:p-7 border border-[#EAE3D4] shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.06)] transition-all duration-300 flex flex-col justify-between space-y-5">
+    <div className="bg-[#FAF6F0] rounded-xl p-6 sm:p-7 border border-[#E2D5C3] shadow-[0_2px_12px_rgba(31,21,12,0.03)] hover:shadow-[0_6px_20px_rgba(29,69,51,0.08)] transition-all duration-300 flex flex-col justify-between space-y-5">
       <div className="space-y-3">
-        {/* Large Elegant Green Quote Mark (Persis Gambar 1) */}
-        <span className="font-serif text-4xl sm:text-5xl text-[#2E4A35] leading-none block font-bold">
+        {/* Large Elegant Green Quote Mark */}
+        <span className="font-serif text-4xl sm:text-5xl text-[#1D4533] leading-none block font-bold">
           &ldquo;&ldquo;
         </span>
 
         {/* Highlight Quote */}
-        <h4 className="font-serif text-base sm:text-lg font-bold text-[#1B3324] leading-snug">
+        <h4 className="font-serif text-base sm:text-lg font-bold text-[#1F150C] leading-snug">
           &quot;{review.text.slice(0, 48)}...&quot;
         </h4>
 
         {/* Full Text */}
-        <p className="text-xs sm:text-sm text-[#5A685D] leading-relaxed">
+        <p className="text-xs sm:text-sm text-[#5A4A3E] leading-relaxed">
           {review.text}
         </p>
       </div>
 
-      {/* Reviewer Profile & 5 Stars (Persis Gambar 1) */}
-      <div className="pt-4 border-t border-[#F4EFE6] flex items-center justify-between gap-3">
+      {/* Reviewer Profile & 5 Stars */}
+      <div className="pt-4 border-t border-[#E8DDCE] flex items-center justify-between gap-3">
         {/* Left: Avatar & Name */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full overflow-hidden relative bg-[#EAE3D4] shrink-0 border border-[#DDD4C3]">
+          <div className="w-10 h-10 rounded-full overflow-hidden relative bg-[#EFE5D7] shrink-0 border border-[#DDCFBD]">
             {review.avatar ? (
               <Image
                 src={review.avatar}
@@ -40,16 +40,16 @@ export default function GoogleReviewCard({ review }: GoogleReviewCardProps) {
                 className="object-cover"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center font-bold text-xs text-[#2E4A35]">
+              <div className="w-full h-full flex items-center justify-center font-bold text-xs text-[#1D4533]">
                 {review.name.charAt(0)}
               </div>
             )}
           </div>
           <div>
-            <h5 className="text-xs sm:text-sm font-bold text-[#1B3324]">
+            <h5 className="text-xs sm:text-sm font-bold text-[#1F150C]">
               {review.name}
             </h5>
-            <span className="text-[10px] sm:text-[11px] text-[#7A887E] block">
+            <span className="text-[10px] sm:text-[11px] text-[#7A6B5F] block">
               {review.role}
             </span>
           </div>

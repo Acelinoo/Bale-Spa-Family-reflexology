@@ -8,7 +8,7 @@ import {
   HeartCareIcon,
 } from "@/components/ui/SpaIcons";
 
-// Bintang Line Art Minimalis (Sesuai Gambar 1 - Years of Experience)
+// Bintang Line Art Minimalis
 function StarExperienceIcon({ className = "w-7 h-7" }: { className?: string }) {
   return (
     <svg
@@ -25,7 +25,7 @@ function StarExperienceIcon({ className = "w-7 h-7" }: { className?: string }) {
   );
 }
 
-// Group Users Line Art Minimalis (Sesuai Gambar 1 - Happy Clients)
+// Group Users Line Art Minimalis
 function GroupUsersIcon({ className = "w-7 h-7" }: { className?: string }) {
   return (
     <svg
@@ -123,27 +123,27 @@ export default function WhyChooseUs() {
     <section
       ref={sectionRef}
       id="why-us"
-      className="py-16 sm:py-20 lg:py-24 bg-[#1E3827] text-[#FAF7F2] relative overflow-hidden"
+      className="py-16 sm:py-20 lg:py-24 bg-[#1D4533] text-[#F3E9DC] relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Heading & Subtitle (Desktop 5 cols) */}
           <div ref={leftColRef} className="lg:col-span-5 space-y-4 text-left">
             <div className="inline-flex items-center gap-2">
-              <span className="text-[11px] sm:text-xs font-bold tracking-[0.25em] text-[#C5A880] uppercase">
+              <span className="text-[11px] sm:text-xs font-bold tracking-[0.25em] text-[#C8A27A] uppercase">
                 WHY CHOOSE US
               </span>
-              <span className="h-px w-8 bg-[#C5A880]/60"></span>
+              <span className="h-px w-8 bg-[#C8A27A]/60"></span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white leading-tight">
               Experience the <br />
-              <span className="font-serif italic text-[#D8C6A5]">
+              <span className="font-serif italic text-[#F3E9DC]">
                 Bale Difference
               </span>
             </h2>
 
-            <p className="text-xs sm:text-sm text-[#B7CABF] leading-relaxed max-w-md">
+            <p className="text-xs sm:text-sm text-[#C4D9CF] leading-relaxed max-w-md">
               We are committed to providing exceptional wellness experiences that leave you feeling refreshed, renewed, and revitalized bersama keluarga tercinta.
             </p>
           </div>
@@ -159,10 +159,10 @@ export default function WhyChooseUs() {
               return (
                 <div
                   key={idx}
-                  className="p-4 sm:p-5 flex flex-col items-center justify-center sm:border-l sm:border-[#33533E] first:border-l-0 bg-[#162D1F]/40 sm:bg-transparent rounded-lg sm:rounded-none"
+                  className="p-4 sm:p-5 flex flex-col items-center justify-center sm:border-l sm:border-[#2C5C46] first:border-l-0 bg-[#163728]/50 sm:bg-transparent rounded-lg sm:rounded-none"
                 >
-                  {/* Line Art Icon (Persis Gambar 1) */}
-                  <div className="text-[#C5A880] mb-3 flex items-center justify-center">
+                  {/* Line Art Icon */}
+                  <div className="text-[#C8A27A] mb-3 flex items-center justify-center">
                     <IconComp className="w-7 h-7" />
                   </div>
 
@@ -172,7 +172,7 @@ export default function WhyChooseUs() {
                   </span>
 
                   {/* Label */}
-                  <span className="text-[11px] sm:text-xs font-medium text-[#B7CABF] block mt-1.5 leading-snug">
+                  <span className="text-[11px] sm:text-xs font-medium text-[#C4D9CF] block mt-1.5 leading-snug">
                     {item.label}
                   </span>
                 </div>

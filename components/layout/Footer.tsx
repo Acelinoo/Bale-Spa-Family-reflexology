@@ -1,7 +1,7 @@
 import React from "react";
+import Image from "next/image";
 import { Phone, MapPin, Mail } from "lucide-react";
 import { businessConfig } from "@/config/business";
-import { SpaLotusIcon } from "@/components/ui/SpaIcons";
 
 interface FooterProps {
   onOpenBooking?: () => void;
@@ -26,34 +26,39 @@ export default function Footer({ onOpenBooking }: FooterProps) {
   ];
 
   return (
-    <footer className="bg-[#142A1D] text-[#FAF7F2] pt-12 pb-8 sm:pt-16 sm:pb-10 border-t border-[#223E2C]">
+    <footer className="bg-[#1F150C] text-[#F3E9DC] pt-12 pb-8 sm:pt-16 sm:pb-10 border-t border-[#352516]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-8 sm:pb-12 border-b border-[#223E2C]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-8 sm:pb-12 border-b border-[#352516]">
           {/* Col 1: Brand Info (Desktop 4 cols) */}
           <div className="lg:col-span-4 space-y-3.5">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-[#FAF7F2] text-[#142A1D] flex items-center justify-center">
-                <SpaLotusIcon className="w-5 h-5" />
+              <div className="relative w-11 h-11 rounded-full overflow-hidden ring-2 ring-[#C5A880]/50 shadow-md shrink-0">
+                <Image
+                  src="/images/bale-spa-logo.jpg"
+                  alt="Bale Spa Logo"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div>
-                <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white block leading-none">
+                <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#F3E9DC] block leading-none">
                   BALE SPA
                 </span>
-                <span className="text-[9px] font-semibold tracking-[0.22em] text-[#C5A880] uppercase block mt-0.5">
+                <span className="text-[9px] font-semibold tracking-[0.22em] text-[#C5A880] uppercase block mt-1">
                   Family Reflexology
                 </span>
               </div>
             </div>
 
-            <p className="text-xs text-[#9EB2A4] leading-relaxed max-w-sm">
-              A peaceful sanctuary dedicated to your well-being. Relax, renew, and reconnect with our expert care.
+            <p className="text-xs text-[#D1C2B2] leading-relaxed max-w-sm">
+              A peaceful sanctuary dedicated to your well-being. Relax, renew, and reconnect with our expert care in total serenity.
             </p>
 
-            {/* Social Icons (Persis Gambar 1) */}
+            {/* Social Icons */}
             <div className="flex items-center gap-2 pt-1">
               <a
                 href="#"
-                className="w-8 h-8 rounded-full bg-[#1F3C2B] hover:bg-[#2E553E] text-[#FAF7F2] flex items-center justify-center transition-colors text-xs"
+                className="w-8 h-8 rounded-full bg-[#1D4533] hover:bg-[#2A5F47] text-[#F3E9DC] flex items-center justify-center transition-all duration-200 text-xs border border-[#C5A880]/30 shadow-sm"
                 aria-label="Facebook"
               >
                 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -62,7 +67,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
               </a>
               <a
                 href="#"
-                className="w-8 h-8 rounded-full bg-[#1F3C2B] hover:bg-[#2E553E] text-[#FAF7F2] flex items-center justify-center transition-colors text-xs"
+                className="w-8 h-8 rounded-full bg-[#1D4533] hover:bg-[#2A5F47] text-[#F3E9DC] flex items-center justify-center transition-all duration-200 text-xs border border-[#C5A880]/30 shadow-sm"
                 aria-label="Instagram"
               >
                 <svg

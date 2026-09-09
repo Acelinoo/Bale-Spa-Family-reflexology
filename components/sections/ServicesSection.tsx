@@ -76,18 +76,18 @@ export default function ServicesSection({
   const renderServiceIcon = (type: ServiceItem["iconType"]) => {
     switch (type) {
       case "aromatherapy":
-        return <OrganicLeafDropIcon className="w-6 h-6 text-[#4A6451]" />;
+        return <OrganicLeafDropIcon className="w-6 h-6 text-[#1D4533]" />;
       case "hotstone":
-        return <HotStoneIcon className="w-6 h-6 text-[#4A6451]" />;
+        return <HotStoneIcon className="w-6 h-6 text-[#1D4533]" />;
       case "facial":
-        return <FacialCareIcon className="w-6 h-6 text-[#4A6451]" />;
+        return <FacialCareIcon className="w-6 h-6 text-[#1D4533]" />;
       case "reflexology":
-        return <ReflexologyFeetIcon className="w-6 h-6 text-[#4A6451]" />;
+        return <ReflexologyFeetIcon className="w-6 h-6 text-[#1D4533]" />;
       case "body":
-        return <BodyMassageIcon className="w-6 h-6 text-[#4A6451]" />;
+        return <BodyMassageIcon className="w-6 h-6 text-[#1D4533]" />;
       case "package":
       default:
-        return <SpaPackageMeditationIcon className="w-6 h-6 text-[#4A6451]" />;
+        return <SpaPackageMeditationIcon className="w-6 h-6 text-[#1D4533]" />;
     }
   };
 
@@ -95,19 +95,19 @@ export default function ServicesSection({
     <section
       ref={sectionRef}
       id="services"
-      className="py-16 sm:py-20 lg:py-24 bg-[#FBF9F4]"
+      className="py-16 sm:py-20 lg:py-24 bg-[#F3E9DC]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        {/* Section Header (Persis Gambar 1: OUR SERVICES —— ) */}
+        {/* Section Header */}
         <div ref={headerRef} className="text-center max-w-2xl mx-auto mb-12 space-y-2">
           <div className="inline-flex items-center justify-center gap-2">
-            <span className="text-[11px] font-bold tracking-[0.25em] text-[#34523B] uppercase">
+            <span className="text-[11px] font-bold tracking-[0.25em] text-[#1D4533] uppercase">
               OUR SERVICES
             </span>
-            <span className="h-px w-8 bg-[#34523B]/60"></span>
+            <span className="h-px w-8 bg-[#1D4533]/60"></span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1B3324] tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1F150C] tracking-tight">
             Holistic Treatments for Mind &amp; Body
           </h2>
         </div>
@@ -121,28 +121,28 @@ export default function ServicesSection({
             <div
               key={service.id}
               onClick={() => setSelectedService(service)}
-              className="bg-[#FFFFFF] rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-[#EAE3D4] shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_24px_rgba(40,68,48,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center cursor-pointer group"
+              className="bg-[#FAF6F0] rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-[#E2D5C3] shadow-[0_2px_12px_rgba(31,21,12,0.03)] hover:shadow-[0_8px_24px_rgba(29,69,51,0.1)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center cursor-pointer group"
             >
               <div className="space-y-3 sm:space-y-3.5 flex flex-col items-center">
-                {/* Circular Icon Container (Persis Gambar 1) */}
-                <div className="w-13 h-13 sm:w-15 sm:h-15 rounded-full bg-[#F4EFE6] border border-[#E8E0D2] flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                {/* Circular Icon Container */}
+                <div className="w-13 h-13 sm:w-15 sm:h-15 rounded-full bg-[#EFE5D7] border border-[#DFD1C1] flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-2xs">
                   {renderServiceIcon(service.iconType)}
                 </div>
 
                 {/* Service Title */}
-                <h3 className="font-serif text-sm sm:text-base font-bold text-[#1B3324] leading-snug group-hover:text-[#34523B] transition-colors line-clamp-2 min-h-[38px] sm:min-h-[44px] flex items-center justify-center">
+                <h3 className="font-serif text-sm sm:text-base font-bold text-[#1F150C] leading-snug group-hover:text-[#1D4533] transition-colors line-clamp-2 min-h-[38px] sm:min-h-[44px] flex items-center justify-center">
                   {service.title}
                 </h3>
 
                 {/* Short Description */}
-                <p className="text-[11px] sm:text-xs text-[#66756B] leading-relaxed line-clamp-3">
+                <p className="text-[11px] sm:text-xs text-[#5A4A3E] leading-relaxed line-clamp-3">
                   {service.shortDesc}
                 </p>
               </div>
 
-              {/* Bottom Learn More Link (Persis Gambar 1) */}
-              <div className="pt-4 mt-2 border-t border-[#F4EFE6] w-full">
-                <span className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-[#44634C] group-hover:text-[#1B3324] transition-colors inline-flex items-center gap-1">
+              {/* Bottom Learn More Link */}
+              <div className="pt-4 mt-2 border-t border-[#E8DDCE] w-full">
+                <span className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-[#1D4533] group-hover:text-[#163728] transition-colors inline-flex items-center gap-1">
                   <span>LEARN MORE</span>
                   <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
                 </span>

@@ -80,35 +80,35 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
     <section
       ref={containerRef}
       id="home"
-      className="relative bg-[#FBF9F4] overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-20 border-b border-[#EAE3D4]/60"
+      className="relative bg-[#F3E9DC] overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-20 border-b border-[#E2D5C3]/60"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column (Desktop 6 Cols) */}
           <div ref={textColRef} className="lg:col-span-6 space-y-6">
             {/* Eyebrow */}
-            <span className="inline-block text-[11px] sm:text-xs font-bold tracking-[0.25em] text-[#34523B] uppercase">
+            <span className="inline-block text-[11px] sm:text-xs font-bold tracking-[0.25em] text-[#1D4533] uppercase">
               RELAX. RENEW. REVIVE.
             </span>
 
             {/* Headline Serif Besar (Persis Gambar 1) */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-[62px] font-normal text-[#1B3324] leading-[1.12] tracking-tight">
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-[62px] font-normal text-[#1F150C] leading-[1.12] tracking-tight">
               Wellness &amp; Relaxation <br />
-              <span className="font-serif italic font-medium text-[#26422F]">
+              <span className="font-serif italic font-medium text-[#1D4533]">
                 Tailored For You
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-sm sm:text-base text-[#5A685D] leading-relaxed max-w-lg">
+            <p className="text-sm sm:text-base text-[#4E3F33] leading-relaxed max-w-lg">
               Step into a peaceful sanctuary where expert care and natural therapies help you relax, rejuvenate, and achieve total well-being.
             </p>
 
-            {/* CTA Buttons (Persis Gambar 1) */}
+            {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <button
                 onClick={onOpenBooking}
-                className="px-7 py-3.5 bg-[#2E4A35] hover:bg-[#243B2A] text-[#FAF7F2] text-xs font-bold tracking-[0.14em] uppercase rounded-sm shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer active:translate-y-0.5"
+                className="px-7 py-3.5 bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-xs font-bold tracking-[0.14em] uppercase rounded-sm shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer active:translate-y-0.5"
               >
                 BOOK APPOINTMENT
               </button>
@@ -116,27 +116,27 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
               <a
                 href="#services"
                 onClick={scrollToServices}
-                className="px-7 py-3.5 bg-transparent border border-[#2E4A35]/50 hover:border-[#2E4A35] text-[#2E4A35] text-xs font-bold tracking-[0.14em] uppercase rounded-sm transition-all duration-200 hover:bg-[#2E4A35]/5"
+                className="px-7 py-3.5 bg-transparent border border-[#1D4533]/50 hover:border-[#1D4533] text-[#1D4533] text-xs font-bold tracking-[0.14em] uppercase rounded-sm transition-all duration-200 hover:bg-[#1D4533]/5"
               >
                 EXPLORE SERVICES
               </a>
             </div>
 
-            {/* 3 Trust Badges Horizontal (Persis Gambar 1 & Gambar 3) */}
+            {/* 3 Trust Badges Horizontal */}
             <div
               ref={trustRowRef}
-              className="pt-6 border-t border-[#EAE3D4] grid grid-cols-1 sm:grid-cols-3 gap-4"
+              className="pt-6 border-t border-[#E2D5C3] grid grid-cols-1 sm:grid-cols-3 gap-4"
             >
               {/* Item 1 */}
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#EFE9DC] text-[#34523B] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-full bg-[#FAF6F0] border border-[#E2D5C3] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
                   <OrganicLeafDropIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#1B3324] leading-tight">
+                  <h4 className="text-xs font-bold text-[#1F150C] leading-tight">
                     Natural Therapies
                   </h4>
-                  <p className="text-[11px] text-[#6B7A6F] leading-tight mt-0.5">
+                  <p className="text-[11px] text-[#635345] leading-tight mt-0.5">
                     100% Safe &amp; Natural
                   </p>
                 </div>
@@ -144,14 +144,14 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
 
               {/* Item 2 */}
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#EFE9DC] text-[#34523B] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-full bg-[#FAF6F0] border border-[#E2D5C3] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
                   <TherapistUserIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#1B3324] leading-tight">
+                  <h4 className="text-xs font-bold text-[#1F150C] leading-tight">
                     Expert Therapists
                   </h4>
-                  <p className="text-[11px] text-[#6B7A6F] leading-tight mt-0.5">
+                  <p className="text-[11px] text-[#635345] leading-tight mt-0.5">
                     Certified Professionals
                   </p>
                 </div>
@@ -159,14 +159,14 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
 
               {/* Item 3 */}
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#EFE9DC] text-[#34523B] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-full bg-[#FAF6F0] border border-[#E2D5C3] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
                   <SpaLotusIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#1B3324] leading-tight">
+                  <h4 className="text-xs font-bold text-[#1F150C] leading-tight">
                     Peaceful Environment
                   </h4>
-                  <p className="text-[11px] text-[#6B7A6F] leading-tight mt-0.5">
+                  <p className="text-[11px] text-[#635345] leading-tight mt-0.5">
                     Relaxing &amp; Hygienic
                   </p>
                 </div>
@@ -174,9 +174,9 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Right Column: Hero Image (Persis Gambar 1) */}
+          {/* Right Column: Hero Image */}
           <div ref={imageColRef} className="lg:col-span-6 relative">
-            <div className="relative rounded-lg overflow-hidden shadow-xl bg-[#EFE8DA] border border-[#E5DFD1]">
+            <div className="relative rounded-lg overflow-hidden shadow-xl bg-[#E8DDD0] border border-[#DDD0BF]">
               <Image
                 src="/images/hero-exact.jpg"
                 alt="Wellness & Relaxation Tailored For You - Bale Spa Family Reflexology"
@@ -186,8 +186,8 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
                 priority
               />
 
-              {/* Gentle warm spa vignette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#142A1D]/30 via-transparent to-transparent pointer-events-none" />
+              {/* Gentle luxury emerald vignette */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1F150C]/25 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>
         </div>

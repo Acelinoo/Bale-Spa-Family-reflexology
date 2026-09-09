@@ -4,22 +4,20 @@
   --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   --font-sans: var(--font-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
 
-  --color-bale-bg: #F7F4EC;
-  --color-bale-ivory: #FAF7F2;
-  --color-bale-card: #FFFFFF;
-  --color-bale-dark: #1B3B2B;
-  --color-bale-dark-hover: #142C20;
-  --color-bale-darker: #12241A;
-  --color-bale-olive: #385A42;
-  --color-bale-olive-muted: #4E6554;
-  --color-bale-brown: #6B4E2B;
-  --color-bale-gold: #C5A880;
-  --color-bale-gold-accent: #B89358;
-  --color-bale-border: #E5DFD3;
-  --color-bale-border-light: #EEE9DF;
-  --color-bale-text: #1A261D;
-  --color-bale-muted: #556358;
-  --color-bale-sand: #EAE3D4;
+  /* Luxurious Trio Palette */
+  --color-bale-espresso: #1F150C;
+  --color-bale-cream: #F3E9DC;
+  --color-bale-emerald: #1D4533;
+  --color-bale-emerald-hover: #163728;
+  --color-bale-emerald-deep: #132D21;
+
+  --color-bale-surface: #FAF6F0;
+  --color-bale-surface-warm: #EFE4D6;
+  --color-bale-border: #E2D5C3;
+  --color-bale-border-subtle: #EDE2D3;
+  --color-bale-text: #1F150C;
+  --color-bale-text-muted: #5A4A3E;
+  --color-bale-gold: #C8A27A;
 }
 
 html {
@@ -27,16 +25,16 @@ html {
 }
 
 body {
-  background-color: #F7F4EC;
-  color: #1A261D;
+  background-color: #F3E9DC;
+  color: #1F150C;
   font-family: var(--font-jakarta), "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background-color: #1B3B2B;
-  color: #FAF7F2;
+  background-color: #1D4533;
+  color: #F3E9DC;
 }
 
 .font-serif {
@@ -47,17 +45,17 @@ body {
   font-family: var(--font-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
-/* Custom subtle scrollbar */
+/* Custom subtle luxury scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F7F4EC;
+  background: #F3E9DC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D8CEBE;
+  background: #D5C6B3;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #385A42;
+  background: #1D4533;
 }

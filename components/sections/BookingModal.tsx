@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { X, Calendar, Clock, User, Phone, Users, FileText, Send, AlertCircle, CheckCircle } from "lucide-react";
 import { businessConfig } from "@/config/business";
 import { SERVICES, ServiceItem } from "@/data/services";
-import { SpaLotusIcon } from "@/components/ui/SpaIcons";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -146,24 +146,29 @@ Terima kasih.`;
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-[#12241A]/75 backdrop-blur-xs animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-[#1F150C]/80 backdrop-blur-xs animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative bg-[#FAF7F2] w-full max-w-2xl rounded-2xl shadow-2xl border border-[#E5DFD3] overflow-hidden my-auto max-h-[92vh] flex flex-col animate-in zoom-in-95 duration-200"
+        className="relative bg-[#FAF6F0] w-full max-w-2xl rounded-2xl shadow-2xl border border-[#E8DFD3] overflow-hidden my-auto max-h-[92vh] flex flex-col animate-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="bg-[#1E3827] text-white p-5 sm:p-6 flex items-center justify-between border-b border-[#2C4E38] shrink-0">
+        <div className="bg-[#1D4533] text-[#F3E9DC] p-5 sm:p-6 flex items-center justify-between border-b border-[#2A5F47] shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-[#FAF7F2] text-[#1E3827] flex items-center justify-center shrink-0">
-              <SpaLotusIcon className="w-6 h-6" />
+            <div className="relative w-11 h-11 rounded-full overflow-hidden ring-2 ring-[#C5A880]/50 shadow-md shrink-0">
+              <Image
+                src="/images/bale-spa-logo.jpg"
+                alt="Bale Spa Logo"
+                fill
+                className="object-cover"
+              />
             </div>
             <div>
               <span className="text-[10px] font-bold tracking-[0.2em] text-[#C5A880] uppercase block">
                 Reservasi Bale Spa
               </span>
-              <h3 className="font-serif text-xl sm:text-2xl font-normal text-white">
+              <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#F3E9DC]">
                 Book Your Appointment
               </h3>
             </div>
@@ -171,7 +176,7 @@ Terima kasih.`;
 
           <button
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-[#162D1F] hover:bg-[#122419] text-white flex items-center justify-center transition-colors cursor-pointer"
+            className="w-9 h-9 rounded-full bg-[#163728] hover:bg-[#11291E] text-[#F3E9DC] flex items-center justify-center transition-colors cursor-pointer border border-[#C5A880]/20"
             aria-label="Tutup"
           >
             <X className="w-5 h-5" />
@@ -350,7 +355,7 @@ Terima kasih.`;
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full py-3.5 bg-[#1E3827] hover:bg-[#162D1F] text-[#FAF7F2] text-xs sm:text-sm font-bold tracking-wider uppercase rounded-lg shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer active:translate-y-0.5"
+                className="w-full py-3.5 bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-xs sm:text-sm font-bold tracking-wider uppercase rounded-xl shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer active:translate-y-0.5 border border-[#C5A880]/30"
               >
                 <Send className="w-4 h-4 text-[#C5A880]" />
                 <span>KONFIRMASI RESERVASI (VIA WHATSAPP)</span>

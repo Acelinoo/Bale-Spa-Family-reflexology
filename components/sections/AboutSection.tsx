@@ -72,13 +72,13 @@ export default function AboutSection() {
     <section
       ref={sectionRef}
       id="about"
-      className="py-16 sm:py-20 lg:py-24 bg-[#F5EFE6] border-y border-[#EAE1D3]"
+      className="py-16 sm:py-20 lg:py-24 bg-[#EFE4D6] border-y border-[#E2D5C3]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          {/* Left Column: Spa Room Image (Persis Gambar 1) */}
+          {/* Left Column: Spa Room Image with Official Logo Badge */}
           <div ref={imageRef} className="lg:col-span-6 relative">
-            <div className="relative rounded-lg overflow-hidden shadow-xl bg-[#E8E0D2] border border-[#DDD3C2]">
+            <div className="relative rounded-lg overflow-hidden shadow-xl bg-[#E2D5C3] border border-[#D5C6B3]">
               <Image
                 src="/images/about-room.jpg"
                 alt="Your Well-Being Is Our Priority - Bale Spa Family Reflexology Room"
@@ -88,45 +88,55 @@ export default function AboutSection() {
               />
 
               {/* Gentle warm tint overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#142A1D]/20 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1F150C]/25 via-transparent to-transparent pointer-events-none" />
+
+              {/* Official Bale Spa Logo Emblem Floating Badge */}
+              <div className="absolute top-4 left-4 w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden shadow-lg border-2 border-[#FAF6F0] bg-[#1D4533]">
+                <Image
+                  src="/images/bale-spa-logo.jpg"
+                  alt="Bale Spa Official Emblem"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
 
-          {/* Right Column: About Content (Persis Gambar 1) */}
+          {/* Right Column: About Content */}
           <div ref={textRef} className="lg:col-span-6 space-y-6">
-            {/* Eyebrow with horizontal line (ABOUT US ——) */}
+            {/* Eyebrow with horizontal line */}
             <div className="inline-flex items-center gap-2">
-              <span className="text-[11px] sm:text-xs font-bold tracking-[0.25em] text-[#34523B] uppercase">
+              <span className="text-[11px] sm:text-xs font-bold tracking-[0.25em] text-[#1D4533] uppercase">
                 ABOUT US
               </span>
-              <span className="h-px w-8 bg-[#34523B]/60"></span>
+              <span className="h-px w-8 bg-[#1D4533]/60"></span>
             </div>
 
             {/* Headline Serif Besar */}
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1B3324] leading-[1.15] tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1F150C] leading-[1.15] tracking-tight">
               Your Well-Being <br />
-              <span className="font-serif italic text-[#294632]">
+              <span className="font-serif italic text-[#1D4533]">
                 Is Our Priority
               </span>
             </h2>
 
             {/* Copy Text */}
-            <p className="text-sm sm:text-base text-[#5A685D] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#4E3F33] leading-relaxed">
               Di Bale Spa Family Reflexology, kami percaya bahwa kesehatan sejati berawal dari keseimbangan tubuh dan ketenangan pikiran. Terapis kami yang terampil dan beretika santun memadukan produk minyak herbal alami dan teknik pijat teruji untuk menghadirkan kenyamanan istimewa bagi Anda dan keluarga tercinta.
             </p>
 
-            {/* 3 Circular Feature Icons (Persis Gambar 1 & Gambar 3) */}
+            {/* 3 Circular Feature Icons */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
               {/* Feature 1 */}
               <div className="flex sm:flex-col items-center sm:text-center gap-3 sm:gap-2">
-                <div className="w-12 h-12 rounded-full border border-[#D5CABB] bg-[#FAF7F2] text-[#425F49] flex items-center justify-center shrink-0 shadow-xs">
+                <div className="w-12 h-12 rounded-full border border-[#D5C6B3] bg-[#FAF6F0] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
                   <OrganicLeafDropIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#1B3324]">
+                  <h4 className="text-xs font-bold text-[#1F150C]">
                     Natural &amp; Organic
                   </h4>
-                  <p className="text-[11px] text-[#6A786E] leading-snug mt-0.5">
+                  <p className="text-[11px] text-[#635345] leading-snug mt-0.5">
                     We use premium natural products for your care.
                   </p>
                 </div>
@@ -134,14 +144,14 @@ export default function AboutSection() {
 
               {/* Feature 2 */}
               <div className="flex sm:flex-col items-center sm:text-center gap-3 sm:gap-2">
-                <div className="w-12 h-12 rounded-full border border-[#D5CABB] bg-[#FAF7F2] text-[#425F49] flex items-center justify-center shrink-0 shadow-xs">
+                <div className="w-12 h-12 rounded-full border border-[#D5C6B3] bg-[#FAF6F0] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
                   <HygienicShieldIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#1B3324]">
+                  <h4 className="text-xs font-bold text-[#1F150C]">
                     Hygienic &amp; Safe
                   </h4>
-                  <p className="text-[11px] text-[#6A786E] leading-snug mt-0.5">
+                  <p className="text-[11px] text-[#635345] leading-snug mt-0.5">
                     Highest standards of cleanliness and safety.
                   </p>
                 </div>
@@ -149,26 +159,26 @@ export default function AboutSection() {
 
               {/* Feature 3 */}
               <div className="flex sm:flex-col items-center sm:text-center gap-3 sm:gap-2">
-                <div className="w-12 h-12 rounded-full border border-[#D5CABB] bg-[#FAF7F2] text-[#425F49] flex items-center justify-center shrink-0 shadow-xs">
+                <div className="w-12 h-12 rounded-full border border-[#D5C6B3] bg-[#FAF6F0] text-[#1D4533] flex items-center justify-center shrink-0 shadow-2xs">
                   <HeartCareIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#1B3324]">
+                  <h4 className="text-xs font-bold text-[#1F150C]">
                     Personalized Care
                   </h4>
-                  <p className="text-[11px] text-[#6A786E] leading-snug mt-0.5">
+                  <p className="text-[11px] text-[#635345] leading-snug mt-0.5">
                     Treatments tailored to your unique needs.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* CTA Button (Persis Gambar 1) */}
+            {/* CTA Button */}
             <div className="pt-2">
               <a
                 href="#why-us"
                 onClick={handleLearnMore}
-                className="inline-block px-7 py-3.5 bg-[#2E4A35] hover:bg-[#223827] text-[#FAF7F2] text-xs font-bold tracking-[0.14em] uppercase rounded-sm shadow-xs transition-colors"
+                className="inline-block px-7 py-3.5 bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-xs font-bold tracking-[0.14em] uppercase rounded-sm shadow-xs transition-colors"
               >
                 LEARN MORE ABOUT US
               </a>

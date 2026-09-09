@@ -79,24 +79,24 @@ export default function GoogleReviews() {
     <section
       ref={sectionRef}
       id="reviews"
-      className="py-16 sm:py-20 lg:py-24 bg-[#FBF9F4] border-t border-[#EAE3D4]/60"
+      className="py-16 sm:py-20 lg:py-24 bg-[#F3E9DC] border-t border-[#E2D5C3]/60"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        {/* Section Header (Persis Gambar 1: TESTIMONIALS ——) */}
+        {/* Section Header */}
         <div ref={headerRef} className="text-center max-w-2xl mx-auto mb-12 space-y-2">
           <div className="inline-flex items-center justify-center gap-2">
-            <span className="text-[11px] font-bold tracking-[0.25em] text-[#34523B] uppercase">
+            <span className="text-[11px] font-bold tracking-[0.25em] text-[#1D4533] uppercase">
               TESTIMONIALS
             </span>
-            <span className="h-px w-8 bg-[#34523B]/60"></span>
+            <span className="h-px w-8 bg-[#1D4533]/60"></span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1B3324] tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1F150C] tracking-tight">
             What Our Clients Say
           </h2>
         </div>
 
-        {/* 3 Review Cards (Persis Gambar 1) */}
+        {/* 3 Review Cards */}
         <div
           ref={gridRef}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto"
@@ -106,11 +106,11 @@ export default function GoogleReviews() {
           ))}
         </div>
 
-        {/* 3 Pagination Dots (Persis Gambar 1) */}
+        {/* 3 Pagination Dots */}
         <div className="flex items-center justify-center gap-2 mt-8">
-          <span className="w-2 h-2 rounded-full bg-[#2E4A35]"></span>
-          <span className="w-2 h-2 rounded-full bg-[#D5CBBC]"></span>
-          <span className="w-2 h-2 rounded-full bg-[#D5CBBC]"></span>
+          <span className="w-2 h-2 rounded-full bg-[#1D4533]"></span>
+          <span className="w-2 h-2 rounded-full bg-[#D5C6B3]"></span>
+          <span className="w-2 h-2 rounded-full bg-[#D5C6B3]"></span>
         </div>
 
         {/* Real Google Review CTA Button */}
