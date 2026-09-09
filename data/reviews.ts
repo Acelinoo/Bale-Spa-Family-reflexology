@@ -1,5 +1,6 @@
 export interface ReviewItem {
   id: string;
+  branchId: "baleendah" | "soreang" | "ciwastra" | string;
   name: string;
   role: string;
   rating: number;
@@ -13,8 +14,9 @@ export interface ReviewItem {
 export const REVIEWS: ReviewItem[] = [
   {
     id: "rev-1",
+    branchId: "baleendah",
     name: "Hendra Wijaya",
-    role: "Local Guide · Pengunjung Keluarga",
+    role: "Local Guide · Baleendah",
     rating: 5,
     text: "Tempatnya sangat bersih dan nyaman untuk bawa keluarga. Terapisnya sopan, teknik pijat refleksinya pas di titik pegal, dan suasananya benar-benar menenangkan. Sangat recommended setelah lelah bekerja sepekan.",
     date: "1 minggu yang lalu",
@@ -24,10 +26,11 @@ export const REVIEWS: ReviewItem[] = [
   },
   {
     id: "rev-2",
+    branchId: "soreang",
     name: "Siti Rahmawati",
-    role: "Pengunjung",
+    role: "Pengunjung · Soreang",
     rating: 5,
-    text: "Pijat refleksi kaki dan punggungnya terbaik di kelasnya. Ruangan wangi aromaterapi alami dan tidak bising. Badan jadi enteng banget dan tidurnya jadi jauh lebih nyenyak. Pasti bakal langganan.",
+    text: "Pijat refleksi kaki dan punggungnya terbaik di kelasnya. Ruangan wangi aromaterapi alami dan tidak bising. Badan jadi enteng banget dan tidurnya jadi jauh lebih nyenyak. Pasti bakal langganan di cabang Soreang.",
     date: "2 minggu yang lalu",
     source: "Google",
     avatar: "/images/client-jessica.jpg",
@@ -35,10 +38,11 @@ export const REVIEWS: ReviewItem[] = [
   },
   {
     id: "rev-3",
+    branchId: "ciwastra",
     name: "Budi Santoso",
-    role: "Local Guide",
+    role: "Local Guide · Ciwastra",
     rating: 5,
-    text: "Pelayanan sangat ramah sejak dari resepsionis. Terapis profesional dan mengerti tekanan pijat yang diminta. Tempat parkir aman dan protokol higienitasnya sangat terjaga. Cocok untuk relaksasi rutin.",
+    text: "Pelayanan sangat ramah sejak dari resepsionis. Terapis profesional dan mengerti tekanan pijat yang diminta. Tempat parkir aman dan protokol higienitasnya sangat terjaga. Cabang Ciwastra sangat nyaman.",
     date: "1 bulan yang lalu",
     source: "Google",
     avatar: "/images/client-sarah.jpg",
@@ -46,8 +50,9 @@ export const REVIEWS: ReviewItem[] = [
   },
   {
     id: "rev-4",
+    branchId: "baleendah",
     name: "Ratna Dewi",
-    role: "Pengunjung Keluarga",
+    role: "Pengunjung Keluarga · Baleendah",
     rating: 5,
     text: "Paket family reflexology-nya mantap sekali. Kami sekeluarga bisa relaksasi bareng dalam suasana yang hangat dan privat. Harganya sangat sepadan dengan kualitas dan kebersihan tempatnya.",
     date: "1 bulan yang lalu",
@@ -56,8 +61,9 @@ export const REVIEWS: ReviewItem[] = [
   },
   {
     id: "rev-5",
+    branchId: "soreang",
     name: "Agus Pratama",
-    role: "Pengunjung",
+    role: "Pengunjung · Soreang",
     rating: 5,
     text: "Refleksi di Bale Spa selalu konsisten kualitasnya. Terapisnya mengerti titik saraf dengan presisi, ruangannya tenang dan adem. Paling pas untuk memulihkan kebugaran tubuh setelah aktivitas padat.",
     date: "1 bulan yang lalu",
@@ -66,6 +72,7 @@ export const REVIEWS: ReviewItem[] = [
   },
   {
     id: "rev-6",
+    branchId: "ciwastra",
     name: "Maya Anggraeni",
     role: "Local Guide · Bandung",
     rating: 5,

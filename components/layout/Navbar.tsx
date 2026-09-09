@@ -26,6 +26,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
   const navLinks = [
     { label: "Beranda", href: "#home" },
     { label: "Layanan", href: "#services" },
+    { label: "Cabang", href: "#branches" },
     { label: "Tentang Kami", href: "#about" },
     { label: "Ulasan", href: "#reviews" },
     { label: "Kontak", href: "#contact" },

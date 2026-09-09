@@ -4,16 +4,26 @@ import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { REVIEWS, ReviewItem } from "@/data/reviews";
+import { REVIEWS } from "@/data/reviews";
 import GoogleReviewCard from "./GoogleReviewCard";
 import ReviewCTA from "./ReviewCTA";
+import { useBranch } from "@/context/BranchContext";
 
 export default function GoogleReviews() {
-  const [reviews, setReviews] = useState<ReviewItem[]>(REVIEWS);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const { currentBranch } = useBranch();
+  const [slideIndex, setSlideIndex] = useState(0);
 
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
+
+  // Susun ulasan agar cabang aktif muncul paling depan (pure derived state)
+  const reviews = React.useMemo(() => {
+    return [...REVIEWS].sort((a, b) => {
+      if (a.branchId === currentBranch.id && b.branchId !== currentBranch.id) return -1;
+      if (a.branchId !== currentBranch.id && b.branchId === currentBranch.id) return 1;
+      return 0;
+    });
+  }, [currentBranch.id]);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -41,31 +51,17 @@ export default function GoogleReviews() {
     return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
-    async function loadReviews() {
-      try {
-        const res = await fetch("/api/reviews");
-        const data = await res.json();
-        if (data.success && Array.isArray(data.reviews) && data.reviews.length > 0) {
-          setReviews(data.reviews);
-        }
-      } catch {
-        // Fallback to static reviews
-      }
-    }
-    loadReviews();
-  }, []);
-
   // Split reviews into pairs of 2 cards per slide (1 baris 2 card)
   const itemsPerSlide = 2;
-  const totalSlides = Math.ceil(reviews.length / itemsPerSlide);
+  const totalSlides = Math.max(1, Math.ceil(reviews.length / itemsPerSlide));
+  const currentIndex = slideIndex % totalSlides;
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : totalSlides - 1));
+    setSlideIndex((prev) => (prev > 0 ? prev - 1 : totalSlides - 1));
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev < totalSlides - 1 ? prev + 1 : 0));
+    setSlideIndex((prev) => (prev < totalSlides - 1 ? prev + 1 : 0));
   };
 
   return (

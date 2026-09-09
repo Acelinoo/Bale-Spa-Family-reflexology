@@ -1,48 +1,79 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { Branch, BRANCHES, DEFAULT_BRANCH } from "@/config/branches";
 
 interface BranchContextType {
   currentBranch: Branch;
+  selectedBranch: string;
   branches: Branch[];
   selectBranch: (branchId: string) => void;
   isBranchModalOpen: boolean;
   openBranchModal: () => void;
   closeBranchModal: () => void;
+  isReviewModalOpen: boolean;
+  openReviewModal: () => void;
+  closeReviewModal: () => void;
+  isQrModalOpen: boolean;
+  openQrModal: () => void;
+  closeQrModal: () => void;
 }
 
 const BranchContext = createContext<BranchContextType | undefined>(undefined);
 
 const STORAGE_KEY = "balespa_selected_branch";
 
-export function BranchProvider({ children }: { children: React.ReactNode }) {
-  const [currentBranch, setCurrentBranch] = useState<Branch>(DEFAULT_BRANCH);
-  const [isBranchModalOpen, setIsBranchModalOpen] = useState(false);
+function getInitialBranch(): Branch {
+  if (typeof window === "undefined") return DEFAULT_BRANCH;
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const branchParam = params.get("branch")?.toLowerCase().trim();
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      try {
-        const savedBranchId = localStorage.getItem(STORAGE_KEY);
-        if (savedBranchId) {
-          const found = BRANCHES.find((b) => b.id === savedBranchId);
-          if (found) {
-            setCurrentBranch(found);
-            return;
-          }
-        }
-        // Jika pengunjung baru pertama kali membuka web, tampilkan modal pilih cabang
-        setIsBranchModalOpen(true);
-      } catch {
-        setIsBranchModalOpen(true);
+    if (branchParam) {
+      const found = BRANCHES.find(
+        (b) => b.id.toLowerCase() === branchParam || b.slug.toLowerCase() === branchParam
+      );
+      if (found) {
+        localStorage.setItem(STORAGE_KEY, found.id);
+        return found;
       }
-    }, 0);
+      // Invalid branch query param -> fallback ke default
+      return DEFAULT_BRANCH;
+    }
 
-    return () => clearTimeout(timer);
-  }, []);
+    const savedBranchId = localStorage.getItem(STORAGE_KEY);
+    if (savedBranchId) {
+      const found = BRANCHES.find((b) => b.id === savedBranchId);
+      if (found) return found;
+    }
+  } catch {
+    // Ignore storage/search params error in ssr/restricted environments
+  }
+  return DEFAULT_BRANCH;
+}
+
+function getInitialBranchModalState(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const hasBranchParam = !!params.get("branch");
+    const hasSaved = !!localStorage.getItem(STORAGE_KEY);
+    return !hasBranchParam && !hasSaved;
+  } catch {
+    return false;
+  }
+}
+
+export function BranchProvider({ children }: { children: React.ReactNode }) {
+  const [currentBranch, setCurrentBranch] = useState<Branch>(getInitialBranch);
+  const [isBranchModalOpen, setIsBranchModalOpen] = useState<boolean>(getInitialBranchModalState);
+  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
+  const [isQrModalOpen, setIsQrModalOpen] = useState(false);
 
   const selectBranch = (branchId: string) => {
-    const found = BRANCHES.find((b) => b.id === branchId);
+    const found = BRANCHES.find(
+      (b) => b.id.toLowerCase() === branchId.toLowerCase().trim()
+    );
     if (found) {
       setCurrentBranch(found);
       try {
@@ -57,15 +88,28 @@ export function BranchProvider({ children }: { children: React.ReactNode }) {
   const openBranchModal = () => setIsBranchModalOpen(true);
   const closeBranchModal = () => setIsBranchModalOpen(false);
 
+  const openReviewModal = () => setIsReviewModalOpen(true);
+  const closeReviewModal = () => setIsReviewModalOpen(false);
+
+  const openQrModal = () => setIsQrModalOpen(true);
+  const closeQrModal = () => setIsQrModalOpen(false);
+
   return (
     <BranchContext.Provider
       value={{
         currentBranch,
+        selectedBranch: currentBranch.id,
         branches: BRANCHES,
         selectBranch,
         isBranchModalOpen,
         openBranchModal,
         closeBranchModal,
+        isReviewModalOpen,
+        openReviewModal,
+        closeReviewModal,
+        isQrModalOpen,
+        openQrModal,
+        closeQrModal,
       }}
     >
       {children}

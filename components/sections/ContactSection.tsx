@@ -5,7 +5,7 @@ import { MapPin, Phone, Clock, ExternalLink, Navigation } from "lucide-react";
 import { useBranch } from "@/context/BranchContext";
 
 export default function ContactSection() {
-  const { currentBranch, branches, selectBranch } = useBranch();
+  const { currentBranch, branches, selectBranch, openReviewModal } = useBranch();
 
   return (
     <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-white border-t border-[#EAE4DC]">
@@ -129,17 +129,47 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* CTA Get Directions */}
-            <div className="pt-1">
+            {/* 3 CTAs: GET DIRECTIONS, CHAT WHATSAPP, WRITE A REVIEW */}
+            <div className="pt-2 flex flex-wrap gap-2.5">
+              {/* 1. Petunjuk Arah (Maps) */}
               <a
-                href={currentBranch.googleMapsUrl}
+                href={currentBranch.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-xs font-bold tracking-wider uppercase rounded-sm shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer active:translate-y-0.5"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-xs font-bold tracking-wider uppercase rounded-lg shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer active:translate-y-0.5"
               >
-                <Navigation className="w-4 h-4 text-[#C8A27A]" />
-                <span>PETUNJUK ARAH KE CABANG {currentBranch.shortName.toUpperCase()}</span>
+                <Navigation className="w-3.5 h-3.5 text-[#C8A27A]" />
+                <span>PETUNJUK ARAH</span>
               </a>
+
+              {/* 2. Chat WhatsApp */}
+              <a
+                href={`https://api.whatsapp.com/send?phone=${currentBranch.whatsapp.replace(/\D/g, "")}&text=${encodeURIComponent(
+                  `Halo Admin ${currentBranch.name}, saya ingin menanyakan informasi layanan dan reservasi di Bale Spa Family Reflexology.`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-white hover:bg-[#FAF7F2] text-[#1D4533] border border-[#1D4533]/40 text-xs font-bold tracking-wider uppercase rounded-lg shadow-xs transition-all duration-200 cursor-pointer active:translate-y-0.5"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#25D366]" />
+                <span>CHAT WHATSAPP</span>
+              </a>
+
+              {/* 3. Berikan Ulasan (Review) */}
+              <button
+                type="button"
+                onClick={() => {
+                  if (currentBranch.reviewUrl && !currentBranch.reviewUrl.startsWith("REVIEW_URL_")) {
+                    window.open(currentBranch.reviewUrl, "_blank", "noopener,noreferrer");
+                  } else {
+                    openReviewModal();
+                  }
+                }}
+                className="inline-flex items-center gap-2 px-5 py-3 bg-white hover:bg-[#FAF7F2] text-[#1F150C] border border-[#EAE4DC] hover:border-[#F5A623]/50 text-xs font-bold tracking-wider uppercase rounded-lg shadow-xs transition-all duration-200 cursor-pointer active:translate-y-0.5"
+              >
+                <span className="text-[#F5A623]">★</span>
+                <span>BERIKAN ULASAN</span>
+              </button>
             </div>
           </div>
 

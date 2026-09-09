@@ -14,6 +14,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
   const quickLinks = [
     { label: "Beranda", href: "#home" },
     { label: "Layanan", href: "#services" },
+    { label: "Cabang", href: "#branches" },
     { label: "Tentang Kami", href: "#about" },
     { label: "Ulasan", href: "#reviews" },
     { label: "Reservasi", href: "#booking", isBooking: true },
