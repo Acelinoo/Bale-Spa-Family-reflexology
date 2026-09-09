@@ -3,13 +3,17 @@ import { Phone, MapPin, Mail } from "lucide-react";
 import { businessConfig } from "@/config/business";
 import { SpaLotusIcon } from "@/components/ui/SpaIcons";
 
-export default function Footer() {
+interface FooterProps {
+  onOpenBooking?: () => void;
+}
+
+export default function Footer({ onOpenBooking }: FooterProps) {
   const quickLinks = [
     { label: "Home", href: "#home" },
     { label: "About Us", href: "#about" },
     { label: "Services", href: "#services" },
     { label: "Reviews", href: "#reviews" },
-    { label: "Booking", href: "#booking" },
+    { label: "Booking", href: "#booking", isBooking: true },
   ];
 
   const serviceLinks = [
@@ -83,12 +87,21 @@ export default function Footer() {
               <ul className="space-y-2 text-xs text-[#B7CABF]">
                 {quickLinks.map((item) => (
                   <li key={item.label}>
-                    <a
-                      href={item.href}
-                      className="hover:text-white transition-colors"
-                    >
-                      {item.label}
-                    </a>
+                    {item.isBooking && onOpenBooking ? (
+                      <button
+                        onClick={onOpenBooking}
+                        className="hover:text-white transition-colors cursor-pointer text-left"
+                      >
+                        {item.label}
+                      </button>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className="hover:text-white transition-colors"
+                      >
+                        {item.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

@@ -7,38 +7,36 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import AboutSection from "@/components/sections/AboutSection";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import GoogleReviews from "@/components/sections/GoogleReviews";
-import BookingSection from "@/components/sections/BookingSection";
 import CTASection from "@/components/sections/CTASection";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
+import BookingModal from "@/components/sections/BookingModal";
 
 export default function HomePage() {
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [preSelectedServiceId, setPreSelectedServiceId] = useState<string | undefined>(
     undefined
   );
 
-  const scrollToBooking = (serviceId?: string) => {
+  const openBookingModal = (serviceId?: string) => {
     if (serviceId) {
       setPreSelectedServiceId(serviceId);
     }
-    const bookingElement = document.querySelector("#booking");
-    if (bookingElement) {
-      bookingElement.scrollIntoView({ behavior: "smooth" });
-    }
+    setIsBookingModalOpen(true);
   };
 
   return (
     <main className="min-h-screen flex flex-col bg-[#F7F4EC]">
       {/* Sticky Header Navigation */}
-      <Navbar onOpenBooking={() => scrollToBooking()} />
+      <Navbar onOpenBooking={() => openBookingModal()} />
 
       {/* Hero Section */}
-      <HeroSection onOpenBooking={() => scrollToBooking()} />
+      <HeroSection onOpenBooking={() => openBookingModal()} />
 
       {/* Services Section with Modal Detail */}
       <ServicesSection
-        onSelectServiceToBook={(serviceId) => scrollToBooking(serviceId)}
+        onSelectServiceToBook={(serviceId) => openBookingModal(serviceId)}
       />
 
       {/* About Bale Spa Section */}
@@ -50,20 +48,24 @@ export default function HomePage() {
       {/* Authentic Google Reviews Gateway Section */}
       <GoogleReviews />
 
-      {/* Interactive Reservation Form with WhatsApp Redirect */}
-      <BookingSection selectedServiceId={preSelectedServiceId} />
-
       {/* Pre-footer Call to Action */}
-      <CTASection onOpenBooking={() => scrollToBooking()} />
+      <CTASection onOpenBooking={() => openBookingModal()} />
 
       {/* Location & Contact Details */}
       <ContactSection />
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenBooking={() => openBookingModal()} />
 
       {/* Floating WhatsApp Action Button */}
       <FloatingWhatsApp />
+
+      {/* Booking Appointment Popup Modal */}
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        selectedServiceId={preSelectedServiceId}
+      />
     </main>
   );
 }
