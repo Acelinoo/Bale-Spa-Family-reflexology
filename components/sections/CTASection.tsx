@@ -35,6 +35,26 @@ export default function CTASection({ onOpenBooking }: CTASectionProps) {
             ease: "power2.out",
           }
         );
+
+        // GSAP smooth zoom-out reveal on promo banner image
+        const promoImg = bannerRef.current.querySelector(".cta-promo-img");
+        if (promoImg) {
+          gsap.fromTo(
+            promoImg,
+            { scale: 1.15, opacity: 0 },
+            {
+              scrollTrigger: {
+                trigger: bannerRef.current,
+                start: "top 85%",
+                once: true,
+              },
+              scale: 1,
+              opacity: 1,
+              duration: 1,
+              ease: "power2.out",
+            }
+          );
+        }
       }
 
       // Elegant slow continuous rotate for the stamp badge
@@ -66,7 +86,7 @@ export default function CTASection({ onOpenBooking }: CTASectionProps) {
                 src="/images/promo-banner.jpg"
                 alt="Take time for yourself - Bale Spa Relaxation Stones"
                 fill
-                className="object-cover"
+                className="cta-promo-img object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F150C]/25 via-transparent to-transparent pointer-events-none" />
             </div>

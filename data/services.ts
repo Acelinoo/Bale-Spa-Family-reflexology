@@ -141,7 +141,7 @@ export const SERVICES: ServiceItem[] = [
     shortDesc: "Paket perawatan lengkap terpadu untuk relaksasi maksimal seluruh anggota keluarga.",
     description:
       "Paket komplit peremajaan istimewa yang memadukan refleksi kaki, pijat tubuh beraroma, lulur scrub herbal, dan terapi kompres hangat untuk kepuasan relaksasi tanpa kompromi.",
-    image: "/images/hero-exact.jpg",
+    image: "/images/spa-package.jpg",
     iconType: "package",
     durations: [
       { duration: 90, label: "90 Menit", price: 145000, priceFormatted: "Rp 145.000" },

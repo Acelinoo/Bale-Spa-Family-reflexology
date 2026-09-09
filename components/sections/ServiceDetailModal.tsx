@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import gsap from "gsap";
 import { X, Check, Clock, Calendar, ShieldCheck } from "lucide-react";
 import { ServiceItem } from "@/data/services";
 
@@ -16,6 +17,8 @@ export default function ServiceDetailModal({
   onClose,
   onBookService,
 }: ServiceDetailModalProps) {
+  const modalImgContainerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -23,6 +26,18 @@ export default function ServiceDetailModal({
     if (service) {
       document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
+
+      // GSAP smooth image zoom-out reveal on modal open
+      if (modalImgContainerRef.current) {
+        const img = modalImgContainerRef.current.querySelector("img");
+        if (img) {
+          gsap.fromTo(
+            img,
+            { scale: 1.15, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.7, ease: "power2.out" }
+          );
+        }
+      }
     }
     return () => {
       document.body.style.overflow = "unset";
@@ -42,7 +57,7 @@ export default function ServiceDetailModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header with Image */}
-        <div className="relative h-52 sm:h-60 w-full bg-[#EAE3D4] shrink-0">
+        <div ref={modalImgContainerRef} className="relative h-52 sm:h-60 w-full bg-[#EAE3D4] shrink-0 overflow-hidden">
           <Image
             src={service.image}
             alt={service.title}

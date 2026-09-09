@@ -36,17 +36,26 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
       if (imageColRef.current) {
         tl.fromTo(
           imageColRef.current,
-          { opacity: 0, scale: 0.96, x: 20 },
+          { opacity: 0, y: 25 },
           {
             opacity: 1,
-            scale: 1,
-            x: 0,
+            y: 0,
             duration: 0.8,
             ease: "power2.out",
-            clearProps: "all",
           },
           "-=0.5"
         );
+
+        // GSAP image scale-reveal for luxury photo experience
+        const heroImg = imageColRef.current.querySelector(".hero-main-img");
+        if (heroImg) {
+          tl.fromTo(
+            heroImg,
+            { scale: 1.12, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 1.1, ease: "power2.out" },
+            "-=0.7"
+          );
+        }
       }
 
       if (trustRowRef.current) {
@@ -182,7 +191,7 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
                 alt="Wellness & Relaxation Tailored For You - Bale Spa Family Reflexology"
                 width={800}
                 height={550}
-                className="w-full h-auto object-cover aspect-[4/3] sm:aspect-[16/11]"
+                className="hero-main-img w-full h-auto object-cover aspect-[4/3] sm:aspect-[16/11]"
                 priority
               />
 

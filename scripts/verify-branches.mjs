@@ -1,4 +1,4 @@
-import { BRANCHES, DEFAULT_BRANCH, getBranchById, isPlaceholderReviewUrl, getCleanPhoneNumber } from "../config/branches.ts";
+import { BRANCHES, DEFAULT_BRANCH, getBranchById, isPlaceholderReviewUrl } from "../config/branches.ts";
 
 console.log("=== BALE SPA FAMILY REFLEXOLOGY - MULTI-BRANCH VERIFICATION ===");
 

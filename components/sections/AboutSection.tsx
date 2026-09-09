@@ -35,6 +35,48 @@ export default function AboutSection() {
             ease: "power2.out",
           }
         );
+
+        // GSAP image scale-reveal for spa room
+        const roomImg = imageRef.current.querySelector(".about-room-img");
+        if (roomImg) {
+          gsap.fromTo(
+            roomImg,
+            { scale: 1.12, opacity: 0 },
+            {
+              scrollTrigger: {
+                trigger: imageRef.current,
+                start: "top 85%",
+                once: true,
+              },
+              scale: 1,
+              opacity: 1,
+              duration: 1,
+              ease: "power2.out",
+            }
+          );
+        }
+
+        // GSAP pop-in for the floating official emblem logo
+        const badge = imageRef.current.querySelector(".about-badge-emblem");
+        if (badge) {
+          gsap.fromTo(
+            badge,
+            { scale: 0, opacity: 0, rotation: -12 },
+            {
+              scrollTrigger: {
+                trigger: imageRef.current,
+                start: "top 80%",
+                once: true,
+              },
+              scale: 1,
+              opacity: 1,
+              rotation: 0,
+              duration: 0.7,
+              delay: 0.3,
+              ease: "back.out(1.7)",
+            }
+          );
+        }
       }
 
       if (textRef.current) {
@@ -84,14 +126,14 @@ export default function AboutSection() {
                 alt="Your Well-Being Is Our Priority - Bale Spa Family Reflexology Room"
                 width={700}
                 height={520}
-                className="w-full h-auto object-cover aspect-[4/3]"
+                className="about-room-img w-full h-auto object-cover aspect-[4/3]"
               />
 
               {/* Gentle warm tint overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F150C]/25 via-transparent to-transparent pointer-events-none" />
 
-              {/* Official Bale Spa Logo Emblem Floating Badge */}
-              <div className="absolute top-4 left-4 w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden shadow-lg border-2 border-white bg-[#1D4533]">
+              {/* Official Bale Spa Logo Emblem Floating Badge with GSAP animation */}
+              <div className="about-badge-emblem absolute top-4 left-4 w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden shadow-lg border-2 border-white bg-[#1D4533]">
                 <Image
                   src="/images/bale-spa-logo.jpg"
                   alt="Bale Spa Official Emblem"
