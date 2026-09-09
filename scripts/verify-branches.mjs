@@ -90,28 +90,28 @@ assert(resolveBranchParam("ciwastra") === "ciwastra", "TEST 14: ?branch=ciwastra
 // TEST 15: Open ?branch=invalid -> fallback default (baleendah)
 assert(resolveBranchParam("invalid-branch-xyz") === "baleendah", "TEST 15: ?branch=invalid fallback aman ke default 'baleendah'");
 
-// TEST 16: Mobile Review URL Baleendah menggunakan search.google.com/local/writereview (web review sheet tanpa buka aplikasi Maps)
+// TEST 16: Mobile Review URL Baleendah menggunakan search.google.com/local/writereview?placeid=ChIJT2_d7k9BYU0RMS1PGkYeNqc
 assert(
   bBaleendah &&
-    bBaleendah.mobileReviewUrl &&
-    bBaleendah.mobileReviewUrl.includes("search.google.com/local/writereview?fid=0x4d61414feedd6f4f:0xa7361e461a4f2d31"),
-  "TEST 16: Mobile Review URL Baleendah membuka search.google.com/local/writereview (web review sheet tanpa buka aplikasi Maps)"
+    bBaleendah.placeId === "ChIJT2_d7k9BYU0RMS1PGkYeNqc" &&
+    bBaleendah.mobileReviewUrl === "https://search.google.com/local/writereview?placeid=ChIJT2_d7k9BYU0RMS1PGkYeNqc",
+  "TEST 16: Mobile Review URL Baleendah membuka search.google.com/local/writereview?placeid=ChIJT2_d7k9BYU0RMS1PGkYeNqc"
 );
 
-// TEST 17: Mobile Review URL Soreang menggunakan search.google.com/local/writereview (web review sheet tanpa buka aplikasi Maps)
+// TEST 17: Mobile Review URL Soreang menggunakan search.google.com/local/writereview?placeid=ChIJW78XFQDtaC4RC1uxAxmADRo
 assert(
   bSoreang &&
-    bSoreang.mobileReviewUrl &&
-    bSoreang.mobileReviewUrl.includes("search.google.com/local/writereview?fid=0x2e68ed001517bf5b:0x1a0d801903b15b0b"),
-  "TEST 17: Mobile Review URL Soreang membuka search.google.com/local/writereview (web review sheet tanpa buka aplikasi Maps)"
+    bSoreang.placeId === "ChIJW78XFQDtaC4RC1uxAxmADRo" &&
+    bSoreang.mobileReviewUrl === "https://search.google.com/local/writereview?placeid=ChIJW78XFQDtaC4RC1uxAxmADRo",
+  "TEST 17: Mobile Review URL Soreang membuka search.google.com/local/writereview?placeid=ChIJW78XFQDtaC4RC1uxAxmADRo"
 );
 
-// TEST 18: Mobile Review URL Ciwastra menggunakan search.google.com/local/writereview (web review sheet tanpa buka aplikasi Maps)
+// TEST 18: Mobile Review URL Ciwastra menggunakan search.google.com/local/writereview?placeid=ChIJA_-SbkDpaC4RdwUp3cI896E
 assert(
   bCiwastra &&
-    bCiwastra.mobileReviewUrl &&
-    bCiwastra.mobileReviewUrl.includes("search.google.com/local/writereview?fid=0x2e68e9406e92ff03:0xa1f73cc2dd290577"),
-  "TEST 18: Mobile Review URL Ciwastra membuka search.google.com/local/writereview (web review sheet tanpa buka aplikasi Maps)"
+    bCiwastra.placeId === "ChIJA_-SbkDpaC4RdwUp3cI896E" &&
+    bCiwastra.mobileReviewUrl === "https://search.google.com/local/writereview?placeid=ChIJA_-SbkDpaC4RdwUp3cI896E",
+  "TEST 18: Mobile Review URL Ciwastra membuka search.google.com/local/writereview?placeid=ChIJA_-SbkDpaC4RdwUp3cI896E"
 );
 
 console.log(`\n================================`);

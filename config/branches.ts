@@ -3,6 +3,7 @@ export interface Branch {
   name: string;
   shortName: string;
   slug: string;
+  placeId: string; // Official Google Maps Place ID (ChIJ...)
   address: string;
   city: string;
   district: string;
@@ -14,7 +15,7 @@ export interface Branch {
   googleMapsUrl: string; // Alias
   reviewUrl: string;
   googleReviewUrl: string; // Alias
-  mobileReviewUrl: string; // Google Maps direct write review dialog with !18m1!1e1 for smartphones
+  mobileReviewUrl: string; // Direct in-browser Google review form with placeid
   websiteUrl: string;
   openingHours: {
     days: string;
@@ -33,6 +34,7 @@ export const BRANCHES: Branch[] = [
     name: "Bale Spa Family Reflexology Baleendah",
     shortName: "Baleendah",
     slug: "baleendah",
+    placeId: "ChIJT2_d7k9BYU0RMS1PGkYeNqc",
     address: "Jl. Jaksa Naranata No.7A, Baleendah, Kec. Baleendah, Kabupaten Bandung, Jawa Barat 40375",
     district: "Baleendah",
     city: "Kabupaten Bandung",
@@ -47,7 +49,7 @@ export const BRANCHES: Branch[] = [
     googleReviewUrl:
       "https://www.google.com/search?hl=id-ID&gl=id&q=Bale+Spa+Family+Reflexology,+Jl.+Jaksa+Naranata+No.7A,+Baleendah,+Kec.+Baleendah,+Kabupaten+Bandung,+Jawa+Barat+40375&ludocid=12048851139514281265#lrd=0x4d61414feedd6f4f:0xa7361e461a4f2d31,3",
     mobileReviewUrl:
-      "https://search.google.com/local/writereview?fid=0x4d61414feedd6f4f:0xa7361e461a4f2d31",
+      "https://search.google.com/local/writereview?placeid=ChIJT2_d7k9BYU0RMS1PGkYeNqc",
     websiteUrl: "https://balespafamily.com/?branch=baleendah",
     openingHours: {
       days: "Setiap Hari (Senin - Minggu)",
@@ -69,6 +71,7 @@ export const BRANCHES: Branch[] = [
     name: "Bale Spa Family Reflexology Soreang",
     shortName: "Soreang",
     slug: "soreang",
+    placeId: "ChIJW78XFQDtaC4RC1uxAxmADRo",
     address: "Jl. Raya Gading Tutuka No.5, Cingcin, Kec. Soreang, Kabupaten Bandung, Jawa Barat 40921",
     district: "Soreang",
     city: "Kabupaten Bandung",
@@ -83,7 +86,7 @@ export const BRANCHES: Branch[] = [
     googleReviewUrl:
       "https://www.google.com/search?hl=id-ID&gl=id&q=Bale+Spa+Family+reflexology+Soreang,+Jl.+Raya+Gading+Tutuka+No.5,+Cingcin,+Kec.+Soreang,+Kabupaten+Bandung,+Jawa+Barat+40921&ludocid=1877297464607857419#lrd=0x2e68ed001517bf5b:0x1a0d801903b15b0b,3",
     mobileReviewUrl:
-      "https://search.google.com/local/writereview?fid=0x2e68ed001517bf5b:0x1a0d801903b15b0b",
+      "https://search.google.com/local/writereview?placeid=ChIJW78XFQDtaC4RC1uxAxmADRo",
     websiteUrl: "https://balespafamily.com/?branch=soreang",
     openingHours: {
       days: "Setiap Hari (Senin - Minggu)",
@@ -105,6 +108,7 @@ export const BRANCHES: Branch[] = [
     name: "Bale Spa Family Reflexology Ciwastra",
     shortName: "Ciwastra",
     slug: "ciwastra",
+    placeId: "ChIJA_-SbkDpaC4RdwUp3cI896E",
     address: "Jl. Ciwastra No.285B, Margasari, Kec. Buahbatu, Kota Bandung, Jawa Barat 40292",
     district: "Buahbatu",
     city: "Kota Bandung",
@@ -119,7 +123,7 @@ export const BRANCHES: Branch[] = [
     googleReviewUrl:
       "https://www.google.com/search?hl=id-ID&gl=id&q=Bale+Spa+Family+Reflexology+Ciwastra,+Jl.+Ciwastra+No.285B,+Margasari,+Kec.+Buahbatu,+Kota+Bandung,+Jawa+Barat+40292&ludocid=11670863766985704823#lrd=0x2e68e9406e92ff03:0xa1f73cc2dd290577,3",
     mobileReviewUrl:
-      "https://search.google.com/local/writereview?fid=0x2e68e9406e92ff03:0xa1f73cc2dd290577",
+      "https://search.google.com/local/writereview?placeid=ChIJA_-SbkDpaC4RdwUp3cI896E",
     websiteUrl: "https://balespafamily.com/?branch=ciwastra",
     openingHours: {
       days: "Setiap Hari (Senin - Minggu)",
