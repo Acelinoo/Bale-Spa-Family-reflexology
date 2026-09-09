@@ -11,9 +11,6 @@ interface BranchContextType {
   isBranchModalOpen: boolean;
   openBranchModal: () => void;
   closeBranchModal: () => void;
-  isReviewModalOpen: boolean;
-  openReviewModal: () => void;
-  closeReviewModal: () => void;
   isQrModalOpen: boolean;
   openQrModal: () => void;
   closeQrModal: () => void;
@@ -67,7 +64,6 @@ function getInitialBranchModalState(): boolean {
 export function BranchProvider({ children }: { children: React.ReactNode }) {
   const [currentBranch, setCurrentBranch] = useState<Branch>(getInitialBranch);
   const [isBranchModalOpen, setIsBranchModalOpen] = useState<boolean>(getInitialBranchModalState);
-  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   const [isQrModalOpen, setIsQrModalOpen] = useState(false);
 
   const selectBranch = (branchId: string) => {
@@ -88,9 +84,6 @@ export function BranchProvider({ children }: { children: React.ReactNode }) {
   const openBranchModal = () => setIsBranchModalOpen(true);
   const closeBranchModal = () => setIsBranchModalOpen(false);
 
-  const openReviewModal = () => setIsReviewModalOpen(true);
-  const closeReviewModal = () => setIsReviewModalOpen(false);
-
   const openQrModal = () => setIsQrModalOpen(true);
   const closeQrModal = () => setIsQrModalOpen(false);
 
@@ -104,9 +97,6 @@ export function BranchProvider({ children }: { children: React.ReactNode }) {
         isBranchModalOpen,
         openBranchModal,
         closeBranchModal,
-        isReviewModalOpen,
-        openReviewModal,
-        closeReviewModal,
         isQrModalOpen,
         openQrModal,
         closeQrModal,

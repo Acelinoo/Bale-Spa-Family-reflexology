@@ -3,18 +3,9 @@
 import React from "react";
 import { Star, ExternalLink } from "lucide-react";
 import { useBranch } from "@/context/BranchContext";
-import { isPlaceholderReviewUrl } from "@/config/branches";
 
 export default function ReviewCTA() {
-  const { currentBranch, openReviewModal } = useBranch();
-  const isPlaceholder = isPlaceholderReviewUrl(currentBranch.reviewUrl);
-
-  const handleClick = (e: React.MouseEvent) => {
-    if (isPlaceholder) {
-      e.preventDefault();
-      openReviewModal();
-    }
-  };
+  const { currentBranch } = useBranch();
 
   return (
     <div className="mt-14 bg-white rounded-2xl border border-[#EAE4DC] p-8 sm:p-10 text-center shadow-xs max-w-3xl mx-auto space-y-4">
@@ -34,23 +25,27 @@ export default function ReviewCTA() {
         </p>
       </div>
 
-      <div className="pt-2">
-        <a
-          href={!isPlaceholder ? currentBranch.reviewUrl : "#"}
-          onClick={handleClick}
-          target={!isPlaceholder ? "_blank" : undefined}
-          rel={!isPlaceholder ? "noopener noreferrer" : undefined}
-          className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-xs font-bold tracking-[0.14em] uppercase rounded-xl shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer active:translate-y-0.5 border border-[#C5A880]/30"
-        >
-          <span className="text-[#F5A623] text-sm leading-none">★</span>
-          <span>BERIKAN ULASAN DI GOOGLE ({currentBranch.shortName.toUpperCase()})</span>
-          <ExternalLink className="w-4 h-4 text-[#C8A27A]" />
-        </a>
-      </div>
+      {currentBranch.reviewUrl ? (
+        <div className="pt-2">
+          <a
+            href={currentBranch.reviewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-xs font-bold tracking-[0.14em] uppercase rounded-xl shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer active:translate-y-0.5 border border-[#C5A880]/30"
+            title={`Berikan Ulasan di Google untuk Cabang ${currentBranch.shortName}`}
+          >
+            <span className="text-[#F5A623] text-sm leading-none">★</span>
+            <span>BERIKAN ULASAN DI GOOGLE ({currentBranch.shortName.toUpperCase()})</span>
+            <ExternalLink className="w-4 h-4 text-[#C8A27A]" />
+          </a>
+        </div>
+      ) : null}
 
-      <p className="text-[10px] text-[#7A6B5F] italic">
-        *Membuka halaman ulasan resmi Google cabang {currentBranch.shortName} pada tab baru.
-      </p>
+      {currentBranch.reviewUrl ? (
+        <p className="text-[10px] text-[#7A6B5F] italic">
+          *Membuka profil ulasan resmi Google Cabang {currentBranch.shortName} pada tab baru.
+        </p>
+      ) : null}
     </div>
   );
 }

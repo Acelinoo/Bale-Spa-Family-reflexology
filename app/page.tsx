@@ -14,7 +14,6 @@ import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
 import BookingModal from "@/components/sections/BookingModal";
 import BranchSelectorModal from "@/components/sections/BranchSelectorModal";
-import ReviewBranchModal from "@/components/branches/ReviewBranchModal";
 import BranchQRModal from "@/components/branches/BranchQRModal";
 import { BranchProvider, useBranch } from "@/context/BranchContext";
 
@@ -83,9 +82,6 @@ function MainContent() {
 
       {/* Branch Selection Welcome & Switcher Modal */}
       <BranchSelectorModal />
-
-      {/* Google Review Branch Selector Modal */}
-      <ReviewBranchModal />
 
       {/* QR Codes Modal for 3 Branches (Website & Review QR) */}
       <BranchQRModal />

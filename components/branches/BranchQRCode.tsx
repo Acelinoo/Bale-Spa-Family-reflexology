@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Globe, Star, QrCode, ExternalLink } from "lucide-react";
-import { getBranchById, isPlaceholderReviewUrl } from "@/config/branches";
+import { getBranchById } from "@/config/branches";
 
 export interface BranchQRCodeProps {
   branchId: string;
@@ -24,11 +24,10 @@ export default function BranchQRCode({
       ? branch.websiteUrl
       : branch.reviewUrl);
 
-  const isReviewPlaceholder =
-    type === "review" && isPlaceholderReviewUrl(targetUrl);
+  const isReviewPlaceholder = type === "review" && !targetUrl;
 
   // Gunakan QR Server API yang ringan dan akurat jika URL valid
-  const qrImageSrc = !isReviewPlaceholder
+  const qrImageSrc = !isReviewPlaceholder && targetUrl
     ? `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(
         targetUrl
       )}&margin=8&format=svg`
@@ -59,10 +58,10 @@ export default function BranchQRCode({
           <div className="text-center p-3 space-y-2">
             <QrCode className="w-10 h-10 text-[#7A6B5F]/40 mx-auto" />
             <span className="text-[11px] font-bold text-[#1F150C] block">
-              Menunggu Review URL
+              QR Ulasan Belum Tersedia
             </span>
             <p className="text-[10px] text-[#7A6B5F] leading-tight">
-              QR Code ulasan akan aktif otomatis setelah <code className="bg-amber-100 px-1 py-0.5 rounded text-[9px] font-mono">{branch.reviewUrl}</code> diisi URL asli.
+              QR Code ulasan akan otomatis aktif setelah tautan ulasan resmi Google cabang ini diaktifkan.
             </p>
           </div>
         ) : qrImageSrc ? (

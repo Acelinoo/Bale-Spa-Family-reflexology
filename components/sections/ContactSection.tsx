@@ -5,7 +5,7 @@ import { MapPin, Phone, Clock, ExternalLink, Navigation } from "lucide-react";
 import { useBranch } from "@/context/BranchContext";
 
 export default function ContactSection() {
-  const { currentBranch, branches, selectBranch, openReviewModal } = useBranch();
+  const { currentBranch, branches, selectBranch } = useBranch();
 
   return (
     <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-white border-t border-[#EAE4DC]">
@@ -155,21 +155,19 @@ export default function ContactSection() {
                 <span>CHAT WHATSAPP</span>
               </a>
 
-              {/* 3. Berikan Ulasan (Review) */}
-              <button
-                type="button"
-                onClick={() => {
-                  if (currentBranch.reviewUrl && !currentBranch.reviewUrl.startsWith("REVIEW_URL_")) {
-                    window.open(currentBranch.reviewUrl, "_blank", "noopener,noreferrer");
-                  } else {
-                    openReviewModal();
-                  }
-                }}
-                className="inline-flex items-center gap-2 px-5 py-3 bg-white hover:bg-[#FAF7F2] text-[#1F150C] border border-[#EAE4DC] hover:border-[#F5A623]/50 text-xs font-bold tracking-wider uppercase rounded-lg shadow-xs transition-all duration-200 cursor-pointer active:translate-y-0.5"
-              >
-                <span className="text-[#F5A623]">★</span>
-                <span>BERIKAN ULASAN</span>
-              </button>
+              {/* 3. Berikan Ulasan (Review) - Langsung membuka Google Review jika url sudah tersedia */}
+              {currentBranch.reviewUrl ? (
+                <a
+                  href={currentBranch.reviewUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-white hover:bg-[#FAF7F2] text-[#1F150C] border border-[#EAE4DC] hover:border-[#F5A623]/50 text-xs font-bold tracking-wider uppercase rounded-lg shadow-xs transition-all duration-200 active:translate-y-0.5"
+                  title={`Berikan Ulasan Google untuk ${currentBranch.name}`}
+                >
+                  <span className="text-[#F5A623]">★</span>
+                  <span>BERIKAN ULASAN</span>
+                </a>
+              ) : null}
             </div>
           </div>
 

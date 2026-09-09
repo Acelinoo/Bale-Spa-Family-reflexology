@@ -2,7 +2,7 @@
 
 import React from "react";
 import { MapPin, Phone, Star, Calendar, Navigation, MessageCircle, Check } from "lucide-react";
-import { Branch, isPlaceholderReviewUrl } from "@/config/branches";
+import { Branch } from "@/config/branches";
 import { useBranch } from "@/context/BranchContext";
 
 interface BranchCardProps {
@@ -11,18 +11,8 @@ interface BranchCardProps {
 }
 
 export default function BranchCard({ branch, onOpenBookingForBranch }: BranchCardProps) {
-  const { currentBranch, selectBranch, openReviewModal } = useBranch();
+  const { currentBranch, selectBranch } = useBranch();
   const isSelected = currentBranch.id === branch.id;
-
-  const handleReviewClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    selectBranch(branch.id);
-    if (!isPlaceholderReviewUrl(branch.reviewUrl)) {
-      window.open(branch.reviewUrl, "_blank", "noopener,noreferrer");
-    } else {
-      openReviewModal();
-    }
-  };
 
   const handleBookingClick = () => {
     selectBranch(branch.id);
@@ -81,8 +71,12 @@ export default function BranchCard({ branch, onOpenBookingForBranch }: BranchCar
         </div>
       </div>
 
-      {/* 4 Action Buttons Grid (Lihat Lokasi, Chat WA, Berikan Ulasan, Reservasi) */}
-      <div className="p-4 sm:p-5 pt-3 bg-[#FAF7F2]/70 border-t border-[#EAE4DC] grid grid-cols-2 gap-2">
+      {/* Action Buttons Grid (Lihat Lokasi, Chat WA, Berikan Ulasan jika ada, Reservasi) */}
+      <div
+        className={`p-4 sm:p-5 pt-3 bg-[#FAF7F2]/70 border-t border-[#EAE4DC] grid gap-2 ${
+          branch.reviewUrl ? "grid-cols-2" : "grid-cols-2"
+        }`}
+      >
         {/* 1. Lihat Lokasi (Google Maps) */}
         <a
           href={branch.mapsUrl}
@@ -109,22 +103,27 @@ export default function BranchCard({ branch, onOpenBookingForBranch }: BranchCar
           <span>Chat WA</span>
         </a>
 
-        {/* 3. Berikan Ulasan (Google Review) */}
-        <button
-          type="button"
-          onClick={handleReviewClick}
-          className="px-3 py-2.5 rounded-lg bg-white hover:bg-[#FAF7F2] text-[#1F150C] hover:text-[#F5A623] border border-[#EAE4DC] hover:border-[#F5A623]/40 text-[11px] font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 transition-all shadow-2xs cursor-pointer text-center"
-          title={`Berikan Ulasan Google untuk Cabang ${branch.shortName}`}
-        >
-          <Star className="w-3.5 h-3.5 text-[#F5A623]" />
-          <span>Ulasan</span>
-        </button>
+        {/* 3. Berikan Ulasan (Google Review) - Hanya tampil jika reviewUrl sudah dikonfigurasi */}
+        {branch.reviewUrl ? (
+          <a
+            href={branch.reviewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3 py-2.5 rounded-lg bg-white hover:bg-[#FAF7F2] text-[#1F150C] hover:text-[#F5A623] border border-[#EAE4DC] hover:border-[#F5A623]/40 text-[11px] font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 transition-all shadow-2xs text-center"
+            title={`Berikan Ulasan Google untuk Cabang ${branch.shortName}`}
+          >
+            <Star className="w-3.5 h-3.5 text-[#F5A623]" />
+            <span>Ulasan</span>
+          </a>
+        ) : null}
 
         {/* 4. Reservasi */}
         <button
           type="button"
           onClick={handleBookingClick}
-          className="px-3 py-2.5 rounded-lg bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-[11px] font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 transition-all shadow-xs hover:shadow-md cursor-pointer text-center"
+          className={`px-3 py-2.5 rounded-lg bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-[11px] font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 transition-all shadow-xs hover:shadow-md cursor-pointer text-center ${
+            !branch.reviewUrl ? "col-span-2 sm:col-span-2" : ""
+          }`}
           title={`Reservasi di Cabang ${branch.shortName}`}
         >
           <Calendar className="w-3.5 h-3.5 text-[#C8A27A]" />

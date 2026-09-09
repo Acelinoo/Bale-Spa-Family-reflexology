@@ -1,4 +1,4 @@
-import { BRANCHES, DEFAULT_BRANCH, getBranchById, isPlaceholderReviewUrl } from "../config/branches.ts";
+import { BRANCHES, DEFAULT_BRANCH, getBranchById } from "../config/branches.ts";
 
 console.log("=== BALE SPA FAMILY REFLEXOLOGY - MULTI-BRANCH VERIFICATION ===");
 
@@ -35,14 +35,14 @@ assert(bSoreang && bSoreang.mapsUrl.includes("Soreang") && bSoreang.address.incl
 // TEST 6: Maps Ciwastra
 assert(bCiwastra && bCiwastra.mapsUrl.includes("Ciwastra") && bCiwastra.address.includes("Ciwastra No.285B"), "TEST 6: Google Maps Ciwastra valid & akurat");
 
-// TEST 7: Review URL Baleendah
-assert(bBaleendah && bBaleendah.reviewUrl === "REVIEW_URL_BALEENDAH" && isPlaceholderReviewUrl(bBaleendah.reviewUrl), "TEST 7: Review URL Baleendah placeholder REVIEW_URL_BALEENDAH terdeteksi aman");
+// TEST 7: Review URL Baleendah (default bersih tanpa string placeholder bocor)
+assert(bBaleendah && bBaleendah.reviewUrl === "", "TEST 7: Review URL Baleendah default bersih ('') tanpa placeholder UI");
 
-// TEST 8: Review URL Soreang
-assert(bSoreang && bSoreang.reviewUrl === "REVIEW_URL_SOREANG" && isPlaceholderReviewUrl(bSoreang.reviewUrl), "TEST 8: Review URL Soreang placeholder REVIEW_URL_SOREANG terdeteksi aman");
+// TEST 8: Review URL Soreang (default bersih tanpa string placeholder bocor)
+assert(bSoreang && bSoreang.reviewUrl === "", "TEST 8: Review URL Soreang default bersih ('') tanpa placeholder UI");
 
-// TEST 9: Review URL Ciwastra
-assert(bCiwastra && bCiwastra.reviewUrl === "REVIEW_URL_CIWASTRA" && isPlaceholderReviewUrl(bCiwastra.reviewUrl), "TEST 9: Review URL Ciwastra placeholder REVIEW_URL_CIWASTRA terdeteksi aman");
+// TEST 9: Review URL Ciwastra (default bersih tanpa string placeholder bocor)
+assert(bCiwastra && bCiwastra.reviewUrl === "", "TEST 9: Review URL Ciwastra default bersih ('') tanpa placeholder UI");
 
 // TEST 10: Booking Baleendah -> submit ke WA Baleendah
 function createBookingUrl(branchId, bookingData) {
