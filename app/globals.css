@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
+
+  --color-bale-bg: #F7F4EC;
+  --color-bale-ivory: #FAF7F2;
+  --color-bale-card: #FFFFFF;
+  --color-bale-dark: #1B3B2B;
+  --color-bale-dark-hover: #142C20;
+  --color-bale-darker: #12241A;
+  --color-bale-olive: #385A42;
+  --color-bale-olive-muted: #4E6554;
+  --color-bale-brown: #6B4E2B;
+  --color-bale-gold: #C5A880;
+  --color-bale-gold-accent: #B89358;
+  --color-bale-border: #E5DFD3;
+  --color-bale-border-light: #EEE9DF;
+  --color-bale-text: #1A261D;
+  --color-bale-muted: #556358;
+  --color-bale-sand: #EAE3D4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F7F4EC;
+  color: #1A261D;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: #1B3B2B;
+  color: #FAF7F2;
+}
+
+.font-serif {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+}
+
+.font-sans {
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F4EC;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8CEBE;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #385A42;
+}
