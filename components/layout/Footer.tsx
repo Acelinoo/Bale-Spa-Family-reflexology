@@ -12,11 +12,11 @@ interface FooterProps {
 export default function Footer({ onOpenBooking }: FooterProps) {
   const { currentBranch, openBranchModal } = useBranch();
   const quickLinks = [
-    { label: "Home", href: "#home" },
-    { label: "About Us", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Reviews", href: "#reviews" },
-    { label: "Booking", href: "#booking", isBooking: true },
+    { label: "Beranda", href: "#home" },
+    { label: "Layanan", href: "#services" },
+    { label: "Tentang Kami", href: "#about" },
+    { label: "Ulasan", href: "#reviews" },
+    { label: "Reservasi", href: "#booking", isBooking: true },
   ];
 
   const serviceLinks = [
@@ -54,7 +54,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
             </div>
 
             <p className="text-xs text-[#D1C2B2] leading-relaxed max-w-sm">
-              A peaceful sanctuary dedicated to your well-being. Relax, renew, and reconnect with our expert care in total serenity.
+              Pusat relaksasi dan kebugaran keluarga yang tenang dan terpercaya. Kembalikan vitalitas dan kesegaran tubuh bersama layanan terapis profesional kami.
             </p>
 
             {/* Social Icons */}
@@ -90,7 +90,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
             {/* Col 2: Quick Links */}
             <div className="space-y-3">
               <h4 className="text-[11px] font-bold tracking-widest text-[#C5A880] uppercase">
-                Quick Links
+                Tautan Cepat
               </h4>
               <ul className="space-y-2 text-xs text-[#B7CABF]">
                 {quickLinks.map((item) => (
@@ -118,7 +118,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
             {/* Col 3: Services */}
             <div className="space-y-3">
               <h4 className="text-[11px] font-bold tracking-widest text-[#C5A880] uppercase">
-                Our Services
+                Layanan Kami
               </h4>
               <ul className="space-y-2 text-xs text-[#B7CABF]">
                 {serviceLinks.map((item) => (
@@ -152,7 +152,9 @@ export default function Footer({ onOpenBooking }: FooterProps) {
               <li className="flex items-center gap-2.5">
                 <Phone className="w-3.5 h-3.5 text-[#C5A880] shrink-0" />
                 <a
-                  href={`https://wa.me/${currentBranch.whatsapp}`}
+                  href={`https://api.whatsapp.com/send?phone=${currentBranch.whatsapp}&text=${encodeURIComponent(
+                    `Halo Admin ${currentBranch.name}, saya ingin menanyakan informasi layanan dan reservasi di Bale Spa Family Reflexology.`
+                  )}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
@@ -176,7 +178,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
 
         {/* Bottom Copyright */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[#789080]">
-          <p>© 2026 Bale Spa Family Reflexology. All rights reserved.</p>
+          <p>© 2026 Bale Spa Family Reflexology. Hak cipta dilindungi undang-undang.</p>
           <div className="flex items-center gap-3">
             <span>Baleendah · Soreang · Ciwastra</span>
             <span>·</span>

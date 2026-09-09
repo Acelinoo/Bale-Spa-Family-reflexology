@@ -56,35 +56,32 @@ export async function POST(req: Request) {
     const duration = service.durations[durationIndex || 0] || service.durations[0];
     const count = Number(peopleCount) || 1;
 
-    // Format WhatsApp message sesuai instruksi
-    const waText = `Halo ${businessConfig.name},
+    // Format WhatsApp message terstruktur rapi
+    const cleanPhone = businessConfig.whatsapp.replace(/\D/g, "");
+    const waLines = [
+      "*FORMULIR RESERVASI - BALE SPA*",
+      "──────────────────────",
+      `Halo Admin *${businessConfig.name}*,`,
+      "Saya ingin melakukan reservasi layanan di Bale Spa Family Reflexology dengan rincian sebagai berikut:",
+      "",
+      `📍 *Cabang:* ${businessConfig.name} (${businessConfig.city})`,
+      `👤 *Nama Pemesan:* ${customerName.trim()}`,
+      `📱 *Nomor WhatsApp:* ${customerPhone.trim()}`,
+      `💆 *Pilihan Layanan:* ${service.title}`,
+      `⏳ *Durasi & Tarif:* ${duration.label} (${duration.priceFormatted})`,
+      `👥 *Jumlah Pengunjung:* ${count} Orang`,
+      `📅 *Tanggal Kedatangan:* ${bookingDate}`,
+      `⏰ *Waktu Kedatangan:* ${bookingTime} WIB`,
+      `📝 *Catatan Khusus:* ${notes && notes.trim() ? notes.trim() : "-"}`,
+      "──────────────────────",
+      "Mohon konfirmasi ketersediaan jadwal terapis pada waktu tersebut.",
+      "",
+      "Terima kasih banyak.",
+    ];
 
-Saya ingin melakukan reservasi.
+    const waText = waLines.join("\n");
 
-Nama:
-${customerName.trim()}
-
-No. WhatsApp:
-${customerPhone.trim()}
-
-Layanan:
-${service.title} (${duration.label} - ${duration.priceFormatted})
-
-Jumlah Orang:
-${count} orang
-
-Tanggal:
-${bookingDate}
-
-Jam:
-${bookingTime} WIB
-
-Catatan:
-${notes && notes.trim() ? notes.trim() : "-"}
-
-Terima kasih.`;
-
-    const whatsappUrl = `https://wa.me/${businessConfig.whatsapp}?text=${encodeURIComponent(
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(
       waText
     )}`;
 

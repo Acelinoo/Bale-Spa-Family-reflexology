@@ -76,17 +76,17 @@ export default function CTASection({ onOpenBooking }: CTASectionProps) {
           <div className="lg:col-span-5 space-y-4 text-center lg:text-left">
             <div className="inline-flex items-center gap-2">
               <span className="text-[11px] font-bold tracking-[0.25em] text-[#1D4533] uppercase">
-                READY TO RELAX?
+                SIAP UNTUK RELAKSASI?
               </span>
               <span className="h-px w-8 bg-[#1D4533]/60"></span>
             </div>
 
             <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1F150C] tracking-tight">
-              Book Your Appointment Today
+              Jadwalkan Waktu Relaksasi Anda
             </h3>
 
             <p className="text-xs sm:text-sm text-[#5A4A3E] leading-relaxed max-w-md mx-auto lg:mx-0">
-              Take time for yourself and your family. Your mind and body will thank you.
+              Luangkan waktu berharga bagi kesehatan Anda dan keharmonisan keluarga. Tubuh kembali bugar, pikiran tenang dan segar.
             </p>
 
             <div className="pt-2">
@@ -95,7 +95,7 @@ export default function CTASection({ onOpenBooking }: CTASectionProps) {
                 className="px-7 py-3.5 bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-xs font-bold tracking-[0.14em] uppercase rounded-sm shadow-xs hover:shadow-md transition-all duration-200 inline-flex items-center gap-2.5 cursor-pointer active:translate-y-0.5"
               >
                 <Calendar className="w-4 h-4 text-[#C8A27A]" />
-                <span>BOOK APPOINTMENT NOW</span>
+                <span>RESERVASI SEKARANG</span>
               </button>
             </div>
           </div>
@@ -113,7 +113,7 @@ export default function CTASection({ onOpenBooking }: CTASectionProps) {
                   />
                   <text className="text-[10.5px] tracking-[0.28em] font-bold fill-[#1D4533] uppercase">
                     <textPath href="#circlePath" startOffset="0%">
-                      SELF CARE · IS HEALTH CARE ·
+                      PERAWATAN DIRI · KESEHATAN KELUARGA ·
                     </textPath>
                   </text>
                 </svg>

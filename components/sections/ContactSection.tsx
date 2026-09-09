@@ -97,7 +97,9 @@ export default function ContactSection() {
                     {currentBranch.whatsappDisplay}
                   </p>
                   <a
-                    href={`https://wa.me/${currentBranch.whatsapp}`}
+                    href={`https://api.whatsapp.com/send?phone=${currentBranch.whatsapp.replace(/\D/g, "")}&text=${encodeURIComponent(
+                      `Halo Admin ${currentBranch.name}, saya ingin menanyakan informasi layanan dan reservasi di Bale Spa Family Reflexology.`
+                    )}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs text-[#1D4533] hover:underline inline-flex items-center gap-1 mt-1 font-semibold"

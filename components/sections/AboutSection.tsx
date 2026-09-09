@@ -107,16 +107,16 @@ export default function AboutSection() {
             {/* Eyebrow with horizontal line */}
             <div className="inline-flex items-center gap-2">
               <span className="text-[11px] sm:text-xs font-bold tracking-[0.25em] text-[#1D4533] uppercase">
-                ABOUT US
+                TENTANG KAMI
               </span>
               <span className="h-px w-8 bg-[#1D4533]/60"></span>
             </div>
 
             {/* Headline Serif Besar */}
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1F150C] leading-[1.15] tracking-tight">
-              Your Well-Being <br />
+              Kesehatan &amp; Kenyamanan <br />
               <span className="font-serif italic text-[#1D4533]">
-                Is Our Priority
+                Adalah Prioritas Kami
               </span>
             </h2>
 
@@ -134,10 +134,10 @@ export default function AboutSection() {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-[#1F150C]">
-                    Natural &amp; Organic
+                    Alami &amp; Organik
                   </h4>
                   <p className="text-[11px] text-[#635345] leading-snug mt-0.5">
-                    We use premium natural products for your care.
+                    Minyak herbal alami nusantara berkualitas tinggi.
                   </p>
                 </div>
               </div>
@@ -149,10 +149,10 @@ export default function AboutSection() {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-[#1F150C]">
-                    Clean &amp; Hygienic
+                    Bersih &amp; Higienis
                   </h4>
                   <p className="text-[11px] text-[#635345] leading-snug mt-0.5">
-                    Sanitized environment with private family rooms.
+                    Ruang perawatan higienis, bersih, dan privat.
                   </p>
                 </div>
               </div>
@@ -164,10 +164,10 @@ export default function AboutSection() {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-[#1F150C]">
-                    Calm Atmosphere
+                    Suasana Tenang
                   </h4>
                   <p className="text-[11px] text-[#635345] leading-snug mt-0.5">
-                    A peaceful retreat away from the daily busy rush.
+                    Suasana hening dan relaks, bebas dari kepenatan.
                   </p>
                 </div>
               </div>
@@ -180,7 +180,7 @@ export default function AboutSection() {
                 onClick={handleLearnMore}
                 className="inline-block px-7 py-3.5 bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-xs font-bold tracking-[0.14em] uppercase rounded-sm shadow-xs transition-colors"
               >
-                LEARN MORE ABOUT US
+                PELAJARI TENTANG KAMI
               </a>
             </div>
           </div>

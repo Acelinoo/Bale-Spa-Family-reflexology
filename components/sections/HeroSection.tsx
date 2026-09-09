@@ -88,20 +88,20 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
           <div ref={textColRef} className="lg:col-span-6 space-y-6">
             {/* Eyebrow */}
             <span className="inline-block text-[11px] sm:text-xs font-bold tracking-[0.25em] text-[#1D4533] uppercase">
-              RELAX. RENEW. REVIVE.
+              RELAKSASI · PEMULIHAN · KESEGARAN
             </span>
 
-            {/* Headline Serif Besar (Persis Gambar 1) */}
+            {/* Headline Serif Besar */}
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-[62px] font-normal text-[#1F150C] leading-[1.12] tracking-tight">
-              Wellness &amp; Relaxation <br />
+              Kebugaran &amp; Relaksasi <br />
               <span className="font-serif italic font-medium text-[#1D4533]">
-                Tailored For You
+                Istimewa untuk Anda
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-sm sm:text-base text-[#4E3F33] leading-relaxed max-w-lg">
-              Step into a peaceful sanctuary where expert care and natural therapies help you relax, rejuvenate, and achieve total well-being.
+              Masuki suasana peristirahatan yang damai di mana sentuhan terapis profesional dan terapi alami membantu Anda memulihkan kebugaran tubuh dan ketenangan pikiran sekeluarga.
             </p>
 
             {/* CTA Buttons */}
@@ -110,7 +110,7 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
                 onClick={onOpenBooking}
                 className="px-7 py-3.5 bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-xs font-bold tracking-[0.14em] uppercase rounded-sm shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer active:translate-y-0.5"
               >
-                BOOK APPOINTMENT
+                RESERVASI SEKARANG
               </button>
 
               <a
@@ -118,7 +118,7 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
                 onClick={scrollToServices}
                 className="px-7 py-3.5 bg-transparent border border-[#1D4533]/50 hover:border-[#1D4533] text-[#1D4533] text-xs font-bold tracking-[0.14em] uppercase rounded-sm transition-all duration-200 hover:bg-[#1D4533]/5"
               >
-                EXPLORE SERVICES
+                LIHAT LAYANAN KAMI
               </a>
             </div>
 
@@ -134,10 +134,10 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-[#1F150C] leading-tight">
-                    Natural Therapies
+                    Terapi Alami
                   </h4>
                   <p className="text-[11px] text-[#635345] leading-tight mt-0.5">
-                    100% Safe &amp; Natural
+                    100% Aman &amp; Alami
                   </p>
                 </div>
               </div>
@@ -149,10 +149,10 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-[#1F150C] leading-tight">
-                    Expert Therapists
+                    Terapis Profesional
                   </h4>
                   <p className="text-[11px] text-[#635345] leading-tight mt-0.5">
-                    Certified Professionals
+                    Tersertifikasi &amp; Terlatih
                   </p>
                 </div>
               </div>
@@ -164,10 +164,10 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-[#1F150C] leading-tight">
-                    Peaceful Environment
+                    Suasana Menenangkan
                   </h4>
                   <p className="text-[11px] text-[#635345] leading-tight mt-0.5">
-                    Relaxing &amp; Hygienic
+                    Bersih, Nyaman &amp; Higienis
                   </p>
                 </div>
               </div>

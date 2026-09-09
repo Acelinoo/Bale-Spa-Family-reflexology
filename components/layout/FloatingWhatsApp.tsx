@@ -8,8 +8,9 @@ export default function FloatingWhatsApp() {
   const [isHovered, setIsHovered] = useState(false);
   const { currentBranch } = useBranch();
 
-  const defaultMessage = `Halo ${currentBranch.name}, saya ingin bertanya mengenai layanan dan reservasi reflexology.`;
-  const whatsappUrl = `https://wa.me/${currentBranch.whatsapp}?text=${encodeURIComponent(
+  const defaultMessage = `Halo Admin ${currentBranch.name}, saya ingin menanyakan informasi layanan dan reservasi di Bale Spa Family Reflexology.`;
+  const cleanPhone = currentBranch.whatsapp.replace(/\D/g, "");
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(
     defaultMessage
   )}`;
 
@@ -23,7 +24,7 @@ export default function FloatingWhatsApp() {
             : "opacity-0 translate-x-2"
         }`}
       >
-        <span>Chat with us</span>
+        <span>Konsultasi WhatsApp</span>
         <div className="w-2 h-2 bg-[#1B3B2B] rotate-45 -mr-1 ml-1.5"></div>
       </div>
 

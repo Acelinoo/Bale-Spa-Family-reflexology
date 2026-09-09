@@ -100,22 +100,22 @@ export default function WhyChooseUs() {
     {
       icon: GroupUsersIcon,
       value: "5,000+",
-      label: "Happy Clients",
+      label: "Pengunjung Puas",
     },
     {
       icon: StarExperienceIcon,
       value: "15+",
-      label: "Years of Dedication",
+      label: "Tahun Pengalaman",
     },
     {
       icon: SpaLotusIcon,
       value: "25+",
-      label: "Expert Therapists",
+      label: "Terapis Tersertifikasi",
     },
     {
       icon: HeartCareIcon,
       value: "98%",
-      label: "Client Satisfaction",
+      label: "Kepuasan Pelanggan",
     },
   ];
 
@@ -131,20 +131,20 @@ export default function WhyChooseUs() {
           <div ref={leftColRef} className="lg:col-span-5 space-y-4 text-left">
             <div className="inline-flex items-center gap-2">
               <span className="text-[11px] sm:text-xs font-bold tracking-[0.25em] text-[#C8A27A] uppercase">
-                WHY CHOOSE US
+                MENGAPA MEMILIH BALE SPA
               </span>
               <span className="h-px w-8 bg-[#C8A27A]/60"></span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white leading-tight">
-              Experience the <br />
+              Rasakan Keistimewaan <br />
               <span className="font-serif italic text-[#F3E9DC]">
-                Bale Difference
+                Pelayanan Bale Spa
               </span>
             </h2>
 
             <p className="text-xs sm:text-sm text-[#C4D9CF] leading-relaxed max-w-md">
-              We are committed to providing exceptional wellness experiences that leave you feeling refreshed, renewed, and revitalized bersama keluarga tercinta.
+              Kami berdedikasi menghadirkan pengalaman relaksasi terbaik untuk memulihkan kebugaran tubuh, ketenangan pikiran, dan keharmonisan bersama keluarga tercinta.
             </p>
           </div>
 

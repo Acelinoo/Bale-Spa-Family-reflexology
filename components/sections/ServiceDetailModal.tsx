@@ -141,7 +141,7 @@ export default function ServiceDetailModal({
             className="w-full sm:w-auto px-6 py-3 bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-xs font-bold tracking-wider uppercase rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer border border-[#C5A880]/30"
           >
             <Calendar className="w-3.5 h-3.5 text-[#C5A880]" />
-            <span>BOOK THIS SERVICE</span>
+            <span>RESERVASI LAYANAN INI</span>
           </button>
         </div>
       </div>

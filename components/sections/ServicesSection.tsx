@@ -102,13 +102,13 @@ export default function ServicesSection({
         <div ref={headerRef} className="text-center max-w-2xl mx-auto mb-12 space-y-2">
           <div className="inline-flex items-center justify-center gap-2">
             <span className="text-[11px] font-bold tracking-[0.25em] text-[#1D4533] uppercase">
-              OUR SERVICES
+              LAYANAN KAMI
             </span>
             <span className="h-px w-8 bg-[#1D4533]/60"></span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1F150C] tracking-tight">
-            Holistic Treatments for Mind &amp; Body
+            Perawatan Holistik untuk Tubuh &amp; Pikiran
           </h2>
         </div>
 
@@ -143,7 +143,7 @@ export default function ServicesSection({
               {/* Bottom Learn More Link */}
               <div className="pt-4 mt-2 border-t border-[#F0EBE3] w-full">
                 <span className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-[#1D4533] group-hover:text-[#163728] transition-colors inline-flex items-center gap-1">
-                  <span>LEARN MORE</span>
+                  <span>LIHAT RINCIAN</span>
                   <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
                 </span>
               </div>

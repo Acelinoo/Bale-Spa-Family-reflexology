@@ -19,7 +19,7 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://balespafamily.com"),
-  title: "Bale Spa Family Reflexology | Relax, Restore & Reconnect",
+  title: "Bale Spa Family Reflexology | Kebugaran & Relaksasi Keluarga",
   description:
     "Bale Spa Family Reflexology menghadirkan layanan reflexology dan relaksasi yang nyaman untuk Anda dan keluarga dengan suasana tenang, terapis profesional, dan higienis.",
   keywords: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Bale Spa Family Reflexology" }],
   openGraph: {
-    title: "Bale Spa Family Reflexology | Relax, Restore & Reconnect",
+    title: "Bale Spa Family Reflexology | Kebugaran & Relaksasi Keluarga",
     description:
       "Tempat nyaman untuk menikmati reflexology dan perawatan tubuh bersama keluarga. Relaksasi berkualitas dengan sentuhan terapis berpengalaman.",
     url: "https://balespafamily.com",

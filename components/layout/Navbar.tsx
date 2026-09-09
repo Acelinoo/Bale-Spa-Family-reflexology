@@ -24,11 +24,11 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { label: "Home", href: "#home" },
-    { label: "Services", href: "#services" },
-    { label: "About Us", href: "#about" },
-    { label: "Reviews", href: "#reviews" },
-    { label: "Contact", href: "#contact" },
+    { label: "Beranda", href: "#home" },
+    { label: "Layanan", href: "#services" },
+    { label: "Tentang Kami", href: "#about" },
+    { label: "Ulasan", href: "#reviews" },
+    { label: "Kontak", href: "#contact" },
   ];
 
   const handleNavClick = (
@@ -113,7 +113,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
             className="px-5 py-2.5 bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-xs font-bold tracking-[0.14em] uppercase rounded-sm shadow-xs transition-all duration-200 flex items-center gap-2 cursor-pointer hover:shadow-md active:translate-y-0.5"
           >
             <Calendar className="w-3.5 h-3.5 text-[#C8A27A]" />
-            <span>Book Appointment</span>
+            <span>Reservasi Sekarang</span>
           </button>
         </div>
 
@@ -185,7 +185,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
               className="w-full py-3 bg-[#1D4533] text-[#F3E9DC] text-xs font-bold tracking-wider uppercase rounded-sm shadow-xs flex items-center justify-center gap-2 cursor-pointer"
             >
               <Calendar className="w-4 h-4 text-[#C8A27A]" />
-              <span>Book Appointment</span>
+              <span>Reservasi Sekarang</span>
             </button>
           </div>
         </div>

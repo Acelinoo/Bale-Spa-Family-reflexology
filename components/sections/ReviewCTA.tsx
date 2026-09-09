@@ -15,10 +15,10 @@ export default function ReviewCTA() {
 
       <div>
         <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#1F150C]">
-          Had a great experience at {currentBranch.shortName}?
+          Puas dengan Pelayanan di Bale Spa {currentBranch.shortName}?
         </h3>
         <p className="text-xs sm:text-sm text-[#5A4A3E] max-w-md mx-auto mt-1.5">
-          Share your experience with us on Google. Ulasan Anda sangat berharga bagi tim terapis kami di Cabang {currentBranch.shortName}.
+          Bagikan pengalaman relaksasi Anda di Google Review. Penilaian Anda sangat berharga dalam mendukung dedikasi para terapis kami di Cabang {currentBranch.shortName}.
         </p>
       </div>
 
@@ -29,13 +29,13 @@ export default function ReviewCTA() {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#1D4533] hover:bg-[#163728] text-[#F3E9DC] text-xs font-bold tracking-[0.14em] uppercase rounded-sm shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer active:translate-y-0.5"
         >
-          <span>WRITE A REVIEW FOR CABANG {currentBranch.shortName.toUpperCase()}</span>
+          <span>TULIS ULASAN UNTUK CABANG {currentBranch.shortName.toUpperCase()}</span>
           <ExternalLink className="w-4 h-4 text-[#C8A27A]" />
         </a>
       </div>
 
       <p className="text-[10px] text-[#7A6B5F] italic">
-        *Membuka halaman Google Maps / Review resmi cabang {currentBranch.shortName} di tab baru.
+        *Membuka halaman ulasan resmi Google Maps cabang {currentBranch.shortName} pada tab baru.
       </p>
     </div>
   );

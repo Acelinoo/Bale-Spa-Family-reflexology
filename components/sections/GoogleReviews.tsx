@@ -83,13 +83,13 @@ export default function GoogleReviews() {
           <div className="text-center sm:text-left space-y-2">
             <div className="inline-flex items-center gap-2">
               <span className="text-[11px] font-bold tracking-[0.25em] text-[#1D4533] uppercase">
-                TESTIMONIALS
+                ULASAN PENGUNJUNG
               </span>
               <span className="h-px w-8 bg-[#1D4533]/60"></span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1F150C] tracking-tight">
-              What Our Clients Say
+              Apa Kata Pengunjung Setia Kami
             </h2>
           </div>
 

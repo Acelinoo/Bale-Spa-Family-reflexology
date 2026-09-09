@@ -104,38 +104,48 @@ export default function BookingModal({
     const selectedDuration =
       currentService.durations[durationIndex] || currentService.durations[0];
 
-    // Format WhatsApp message sesuai instruksi spesifikasi Bale Spa & Cabang
-    const waText = `Halo ${currentBranch.name},
+    // Format tanggal Indonesia baku (misal: Rabu, 09 September 2026)
+    let formattedDate = bookingDate;
+    try {
+      const d = new Date(bookingDate + "T00:00:00");
+      formattedDate = d.toLocaleDateString("id-ID", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      });
+    } catch {
+      formattedDate = bookingDate;
+    }
 
-Saya ingin melakukan reservasi.
+    const cleanPhone = currentBranch.whatsapp.replace(/\D/g, "");
 
-Cabang:
-${currentBranch.name} (${currentBranch.city})
+    // Format WhatsApp message yang rapi, berjarak baris jelas, dan formal
+    const waLines = [
+      "*FORMULIR RESERVASI - BALE SPA*",
+      "──────────────────────",
+      `Halo Admin *${currentBranch.name}*,`,
+      "Saya ingin melakukan reservasi layanan di Bale Spa Family Reflexology dengan rincian sebagai berikut:",
+      "",
+      `📍 *Cabang:* ${currentBranch.name} (${currentBranch.city})`,
+      `👤 *Nama Pemesan:* ${customerName.trim()}`,
+      `📱 *Nomor WhatsApp:* ${customerPhone.trim()}`,
+      `💆 *Pilihan Layanan:* ${currentService.title}`,
+      `⏳ *Durasi & Tarif:* ${selectedDuration.label} (${selectedDuration.priceFormatted})`,
+      `👥 *Jumlah Pengunjung:* ${peopleCount} Orang`,
+      `📅 *Hari & Tanggal:* ${formattedDate}`,
+      `⏰ *Waktu Kedatangan:* ${bookingTime} WIB`,
+      `📝 *Catatan Khusus:* ${notes.trim() ? notes.trim() : "-"}`,
+      "──────────────────────",
+      "Mohon konfirmasi ketersediaan jadwal terapis pada waktu tersebut.",
+      "",
+      "Terima kasih banyak.",
+    ];
 
-Nama:
-${customerName.trim()}
+    const waText = waLines.join("\n");
 
-No. WhatsApp:
-${customerPhone.trim()}
-
-Layanan:
-${currentService.title} (${selectedDuration.label} - ${selectedDuration.priceFormatted})
-
-Jumlah Orang:
-${peopleCount} orang
-
-Tanggal:
-${bookingDate}
-
-Jam:
-${bookingTime} WIB
-
-Catatan:
-${notes.trim() ? notes.trim() : "-"}
-
-Terima kasih.`;
-
-    const redirectUrl = `https://wa.me/${currentBranch.whatsapp}?text=${encodeURIComponent(
+    // Gunakan api.whatsapp.com yang mempertahankan format baris baru di semua platform
+    const redirectUrl = `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(
       waText
     )}`;
 
@@ -174,7 +184,7 @@ Terima kasih.`;
                 Reservasi Bale Spa · {currentBranch.shortName}
               </span>
               <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#F3E9DC]">
-                Book Your Appointment
+                Formulir Reservasi Perawatan
               </h3>
             </div>
           </div>
