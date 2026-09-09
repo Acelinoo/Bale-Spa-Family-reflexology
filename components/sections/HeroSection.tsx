@@ -1,15 +1,73 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
-import { Calendar, CheckCircle2, ArrowRight } from "lucide-react";
-import { businessConfig } from "@/config/business";
+import gsap from "gsap";
+import { OrganicLeafDropIcon, TherapistUserIcon, SpaLotusIcon } from "@/components/ui/SpaIcons";
 
 interface HeroSectionProps {
   onOpenBooking: () => void;
 }
 
 export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
+  const containerRef = useRef<HTMLElement>(null);
+  const textColRef = useRef<HTMLDivElement>(null);
+  const imageColRef = useRef<HTMLDivElement>(null);
+  const trustRowRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+      if (textColRef.current) {
+        tl.fromTo(
+          textColRef.current.children,
+          { opacity: 0, y: 25 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.1,
+            clearProps: "all",
+          }
+        );
+      }
+
+      if (imageColRef.current) {
+        tl.fromTo(
+          imageColRef.current,
+          { opacity: 0, scale: 0.96, x: 20 },
+          {
+            opacity: 1,
+            scale: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            clearProps: "all",
+          },
+          "-=0.5"
+        );
+      }
+
+      if (trustRowRef.current) {
+        tl.fromTo(
+          trustRowRef.current.children,
+          { opacity: 0, y: 15 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.08,
+            clearProps: "all",
+          },
+          "-=0.3"
+        );
+      }
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const scrollToServices = (e: React.MouseEvent) => {
     e.preventDefault();
     const el = document.querySelector("#services");
@@ -20,98 +78,116 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
 
   return (
     <section
+      ref={containerRef}
       id="home"
-      className="relative bg-[#F7F4EC] overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-24 border-b border-[#E5DFD3]/50"
+      className="relative bg-[#FBF9F4] overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-20 border-b border-[#EAE3D4]/60"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left Column (5 cols) */}
-          <div className="lg:col-span-6 space-y-6">
-            {/* Small Eyebrow */}
-            <div className="inline-flex items-center gap-2">
-              <span className="h-px w-6 bg-[#385A42]"></span>
-              <span className="text-[11px] font-bold tracking-[0.25em] text-[#385A42] uppercase">
-                {businessConfig.tagline}
-              </span>
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Left Column (Desktop 6 Cols) */}
+          <div ref={textColRef} className="lg:col-span-6 space-y-6">
+            {/* Eyebrow */}
+            <span className="inline-block text-[11px] sm:text-xs font-bold tracking-[0.25em] text-[#34523B] uppercase">
+              RELAX. RENEW. REVIVE.
+            </span>
 
-            {/* Headline Besar */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-[#1A261D] leading-[1.12] tracking-tight">
-              Your Place to <br className="hidden sm:inline" />
-              <span className="font-serif italic text-[#1B3B2B] font-medium">
-                Relax &amp; Reconnect
+            {/* Headline Serif Besar (Persis Gambar 1) */}
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-[62px] font-normal text-[#1B3324] leading-[1.12] tracking-tight">
+              Wellness &amp; Relaxation <br />
+              <span className="font-serif italic font-medium text-[#26422F]">
+                Tailored For You
               </span>
             </h1>
 
-            {/* Subheadline */}
-            <p className="text-sm sm:text-base text-[#556358] leading-relaxed max-w-lg">
-              {businessConfig.subheadline}
+            {/* Subtitle */}
+            <p className="text-sm sm:text-base text-[#5A685D] leading-relaxed max-w-lg">
+              Step into a peaceful sanctuary where expert care and natural therapies help you relax, rejuvenate, and achieve total well-being.
             </p>
 
-            {/* Dual CTA Buttons */}
+            {/* CTA Buttons (Persis Gambar 1) */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <button
                 onClick={onOpenBooking}
-                className="px-7 py-3.5 bg-[#1B3B2B] hover:bg-[#142C20] text-[#FAF7F2] text-xs font-bold tracking-wider uppercase rounded-lg shadow-sm hover:shadow-md transition-all duration-200 flex items-center gap-2.5 cursor-pointer active:translate-y-0.5"
+                className="px-7 py-3.5 bg-[#2E4A35] hover:bg-[#243B2A] text-[#FAF7F2] text-xs font-bold tracking-[0.14em] uppercase rounded-sm shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer active:translate-y-0.5"
               >
-                <Calendar className="w-4 h-4 text-[#C5A880]" />
-                <span>BOOK APPOINTMENT</span>
+                BOOK APPOINTMENT
               </button>
 
               <a
                 href="#services"
                 onClick={scrollToServices}
-                className="px-7 py-3.5 bg-transparent border border-[#385A42]/50 hover:border-[#1B3B2B] text-[#1B3B2B] text-xs font-bold tracking-wider uppercase rounded-lg transition-all duration-200 flex items-center gap-2 group"
+                className="px-7 py-3.5 bg-transparent border border-[#2E4A35]/50 hover:border-[#2E4A35] text-[#2E4A35] text-xs font-bold tracking-[0.14em] uppercase rounded-sm transition-all duration-200 hover:bg-[#2E4A35]/5"
               >
-                <span>EXPLORE SERVICES</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#385A42] transition-transform duration-200 group-hover:translate-x-1" />
+                EXPLORE SERVICES
               </a>
             </div>
 
-            {/* Trust Points Under Hero */}
-            <div className="pt-6 border-t border-[#E5DFD3]/80">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {businessConfig.trustPoints.map((point) => (
-                  <div key={point} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#385A42] shrink-0" />
-                    <span className="text-xs font-semibold text-[#1A261D]">
-                      {point}
-                    </span>
-                  </div>
-                ))}
+            {/* 3 Trust Badges Horizontal (Persis Gambar 1 & Gambar 3) */}
+            <div
+              ref={trustRowRef}
+              className="pt-6 border-t border-[#EAE3D4] grid grid-cols-1 sm:grid-cols-3 gap-4"
+            >
+              {/* Item 1 */}
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#EFE9DC] text-[#34523B] flex items-center justify-center shrink-0">
+                  <OrganicLeafDropIcon className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-[#1B3324] leading-tight">
+                    Natural Therapies
+                  </h4>
+                  <p className="text-[11px] text-[#6B7A6F] leading-tight mt-0.5">
+                    100% Safe &amp; Natural
+                  </p>
+                </div>
+              </div>
+
+              {/* Item 2 */}
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#EFE9DC] text-[#34523B] flex items-center justify-center shrink-0">
+                  <TherapistUserIcon className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-[#1B3324] leading-tight">
+                    Expert Therapists
+                  </h4>
+                  <p className="text-[11px] text-[#6B7A6F] leading-tight mt-0.5">
+                    Certified Professionals
+                  </p>
+                </div>
+              </div>
+
+              {/* Item 3 */}
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#EFE9DC] text-[#34523B] flex items-center justify-center shrink-0">
+                  <SpaLotusIcon className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-[#1B3324] leading-tight">
+                    Peaceful Environment
+                  </h4>
+                  <p className="text-[11px] text-[#6B7A6F] leading-tight mt-0.5">
+                    Relaxing &amp; Hygienic
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column (6 cols) */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative rounded-xl overflow-hidden shadow-xl bg-[#EAE3D4] border border-[#E5DFD3]">
+          {/* Right Column: Hero Image (Persis Gambar 1) */}
+          <div ref={imageColRef} className="lg:col-span-6 relative">
+            <div className="relative rounded-lg overflow-hidden shadow-xl bg-[#EFE8DA] border border-[#E5DFD1]">
               <Image
                 src="/images/hero-exact.jpg"
-                alt="Bale Spa Family Reflexology - Suasana Nyaman dan Menenangkan"
+                alt="Wellness & Relaxation Tailored For You - Bale Spa Family Reflexology"
                 width={800}
-                height={560}
+                height={550}
                 className="w-full h-auto object-cover aspect-[4/3] sm:aspect-[16/11]"
                 priority
               />
 
-              {/* Gentle ambient gradient vignette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#12241A]/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Floating Badge */}
-              <div className="absolute bottom-4 left-4 right-4 sm:right-auto bg-[#FAF7F2]/95 backdrop-blur-xs border border-[#E5DFD3] rounded-lg p-3.5 shadow-md flex items-center gap-3">
-                <div className="w-9 h-9 rounded-md bg-[#1B3B2B] text-[#C5A880] flex items-center justify-center font-serif font-bold text-base shrink-0">
-                  🌿
-                </div>
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#385A42] block">
-                    Bale Spa Standard
-                  </span>
-                  <span className="text-xs font-semibold text-[#1A261D] block">
-                    Minyak Alami &amp; Perlengkapan Steril
-                  </span>
-                </div>
-              </div>
+              {/* Gentle warm spa vignette */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#142A1D]/30 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>
         </div>

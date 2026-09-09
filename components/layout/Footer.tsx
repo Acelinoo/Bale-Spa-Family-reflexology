@@ -1,6 +1,7 @@
 import React from "react";
-import { Phone, MapPin, Clock, ChevronRight } from "lucide-react";
+import { Phone, MapPin, Mail } from "lucide-react";
 import { businessConfig } from "@/config/business";
+import { SpaLotusIcon } from "@/components/ui/SpaIcons";
 
 export default function Footer() {
   const quickLinks = [
@@ -8,130 +9,146 @@ export default function Footer() {
     { label: "About Us", href: "#about" },
     { label: "Services", href: "#services" },
     { label: "Reviews", href: "#reviews" },
-    { label: "Contact", href: "#contact" },
+    { label: "Booking", href: "#booking" },
   ];
 
   const serviceLinks = [
-    { label: "Family Reflexology", href: "#services" },
-    { label: "Foot Reflexology", href: "#services" },
-    { label: "Full Body Massage", href: "#services" },
-    { label: "Head & Shoulder Massage", href: "#services" },
-    { label: "Back Massage", href: "#services" },
-    { label: "Spa Package", href: "#services" },
+    { label: "Aromatherapy Massage", href: "#services" },
+    { label: "Hot Stone Massage", href: "#services" },
+    { label: "Facial Treatments", href: "#services" },
+    { label: "Reflexology", href: "#services" },
+    { label: "Body Wraps & Massage", href: "#services" },
+    { label: "Spa Packages", href: "#services" },
   ];
 
   return (
-    <footer className="bg-[#12241A] text-[#FAF7F2] pt-16 pb-12 border-t border-[#233A2D]">
+    <footer className="bg-[#142A1D] text-[#FAF7F2] pt-12 pb-8 sm:pt-16 sm:pb-10 border-t border-[#223E2C]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#233A2D]/80">
-          {/* Col 1: Brand Info (5 cols) */}
-          <div className="lg:col-span-5 space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-8 sm:pb-12 border-b border-[#223E2C]">
+          {/* Col 1: Brand Info (Desktop 4 cols) */}
+          <div className="lg:col-span-4 space-y-3.5">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-[#FAF7F2] text-[#1B3B2B] flex items-center justify-center font-serif font-bold text-xl">
-                B
+              <div className="w-9 h-9 rounded-full bg-[#FAF7F2] text-[#142A1D] flex items-center justify-center">
+                <SpaLotusIcon className="w-5 h-5" />
               </div>
               <div>
-                <span className="font-serif text-2xl font-bold tracking-tight text-[#FAF7F2] block leading-tight">
+                <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white block leading-none">
                   BALE SPA
                 </span>
-                <span className="text-[10px] font-semibold tracking-[0.22em] text-[#C5A880] uppercase block">
+                <span className="text-[9px] font-semibold tracking-[0.22em] text-[#C5A880] uppercase block mt-0.5">
                   Family Reflexology
                 </span>
               </div>
             </div>
 
-            <p className="text-xs sm:text-sm text-[#D1DDD5] leading-relaxed max-w-sm pt-2">
-              &quot;Your place to relax, restore, and reconnect.&quot;
+            <p className="text-xs text-[#9EB2A4] leading-relaxed max-w-sm">
+              A peaceful sanctuary dedicated to your well-being. Relax, renew, and reconnect with our expert care.
             </p>
-            <p className="text-xs text-[#9BB1A4] leading-relaxed max-w-sm">
-              Menghadirkan kenyamanan pijat refleksi dan terapi tubuh keluarga dengan suasana hangat, higienis, dan terapis profesional terpercaya.
-            </p>
+
+            {/* Social Icons (Persis Gambar 1) */}
+            <div className="flex items-center gap-2 pt-1">
+              <a
+                href="#"
+                className="w-8 h-8 rounded-full bg-[#1F3C2B] hover:bg-[#2E553E] text-[#FAF7F2] flex items-center justify-center transition-colors text-xs"
+                aria-label="Facebook"
+              >
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                className="w-8 h-8 rounded-full bg-[#1F3C2B] hover:bg-[#2E553E] text-[#FAF7F2] flex items-center justify-center transition-colors text-xs"
+                aria-label="Instagram"
+              >
+                <svg
+                  className="w-3.5 h-3.5 fill-none stroke-current stroke-[2]"
+                  viewBox="0 0 24 24"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </a>
+            </div>
           </div>
 
-          {/* Col 2: Quick Links (2 cols) */}
-          <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-xs font-bold tracking-widest text-[#C5A880] uppercase">
-              Quick Links
-            </h3>
-            <ul className="space-y-2.5 text-xs text-[#D1DDD5]">
-              {quickLinks.map((item) => (
-                <li key={item.label}>
-                  <a
-                    href={item.href}
-                    className="hover:text-[#FAF7F2] transition-colors flex items-center gap-1.5"
-                  >
-                    <ChevronRight className="w-3 h-3 text-[#385A42]" />
-                    <span>{item.label}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+          {/* Sesuai instruksi: RAPI DI MOBILE (Grid 2 Kolom untuk Links & Services agar tidak panjang ke bawah) */}
+          <div className="grid grid-cols-2 lg:col-span-5 gap-6">
+            {/* Col 2: Quick Links */}
+            <div className="space-y-3">
+              <h4 className="text-[11px] font-bold tracking-widest text-[#C5A880] uppercase">
+                Quick Links
+              </h4>
+              <ul className="space-y-2 text-xs text-[#B7CABF]">
+                {quickLinks.map((item) => (
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      className="hover:text-white transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Col 3: Services */}
+            <div className="space-y-3">
+              <h4 className="text-[11px] font-bold tracking-widest text-[#C5A880] uppercase">
+                Our Services
+              </h4>
+              <ul className="space-y-2 text-xs text-[#B7CABF]">
+                {serviceLinks.map((item) => (
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      className="hover:text-white transition-colors line-clamp-1"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          {/* Col 3: Services (2 cols) */}
-          <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-xs font-bold tracking-widest text-[#C5A880] uppercase">
-              Services
-            </h3>
-            <ul className="space-y-2.5 text-xs text-[#D1DDD5]">
-              {serviceLinks.map((item) => (
-                <li key={item.label}>
-                  <a
-                    href={item.href}
-                    className="hover:text-[#FAF7F2] transition-colors flex items-center gap-1.5"
-                  >
-                    <ChevronRight className="w-3 h-3 text-[#385A42]" />
-                    <span>{item.label}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Col 4: Contact & Hours (3 cols) */}
-          <div className="lg:col-span-3 space-y-4">
-            <h3 className="text-xs font-bold tracking-widest text-[#C5A880] uppercase">
-              Contact &amp; Hours
-            </h3>
-            <ul className="space-y-3 text-xs text-[#D1DDD5]">
-              <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#C5A880] shrink-0 mt-0.5" />
-                <span>
-                  {businessConfig.address}, {businessConfig.city}
-                </span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Phone className="w-4 h-4 text-[#C5A880] shrink-0 mt-0.5" />
+          {/* Col 4: Contact Us (Desktop 3 cols) */}
+          <div className="lg:col-span-3 space-y-3">
+            <h4 className="text-[11px] font-bold tracking-widest text-[#C5A880] uppercase">
+              Contact Us
+            </h4>
+            <ul className="space-y-2.5 text-xs text-[#B7CABF]">
+              <li className="flex items-center gap-2.5">
+                <Phone className="w-3.5 h-3.5 text-[#C5A880] shrink-0" />
                 <a
                   href={`https://wa.me/${businessConfig.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#FAF7F2] transition-colors underline-offset-2 hover:underline"
+                  className="hover:text-white transition-colors"
                 >
-                  WhatsApp: {businessConfig.whatsappDisplay}
+                  {businessConfig.whatsappDisplay}
                 </a>
               </li>
+              <li className="flex items-center gap-2.5">
+                <Mail className="w-3.5 h-3.5 text-[#C5A880] shrink-0" />
+                <span>{businessConfig.email}</span>
+              </li>
               <li className="flex items-start gap-2.5">
-                <Clock className="w-4 h-4 text-[#C5A880] shrink-0 mt-0.5" />
-                <div>
-                  <span className="block font-medium text-[#FAF7F2]">
-                    {businessConfig.openingHours.days}
-                  </span>
-                  <span className="block text-[#9BB1A4]">
-                    {businessConfig.openingHours.hours}
-                  </span>
-                </div>
+                <MapPin className="w-3.5 h-3.5 text-[#C5A880] shrink-0 mt-0.5" />
+                <span className="line-clamp-2">
+                  {businessConfig.address}, {businessConfig.city}
+                </span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#7A9384]">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[#789080]">
           <p>© 2026 Bale Spa Family Reflexology. All rights reserved.</p>
-          <p className="text-[11px] text-[#556F60]">
-            Crafted for pure family wellness and authentic relaxation.
-          </p>
+          <p>Relax · Renew · Revive.</p>
         </div>
       </div>
     </footer>

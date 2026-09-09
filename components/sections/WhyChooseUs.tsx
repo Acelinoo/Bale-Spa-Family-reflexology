@@ -1,54 +1,184 @@
-import React from "react";
-import { businessConfig } from "@/config/business";
+"use client";
+
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  SpaLotusIcon,
+  HeartCareIcon,
+} from "@/components/ui/SpaIcons";
+
+// Bintang Line Art Minimalis (Sesuai Gambar 1 - Years of Experience)
+function StarExperienceIcon({ className = "w-7 h-7" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+    </svg>
+  );
+}
+
+// Group Users Line Art Minimalis (Sesuai Gambar 1 - Happy Clients)
+function GroupUsersIcon({ className = "w-7 h-7" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="9" cy="7" r="3.5" />
+      <path d="M2.5 19C2.5 15.7 5.4 13 9 13C12.6 13 15.5 15.7 15.5 19" />
+      <path d="M16 4C17.5 4.7 18.5 6.2 18.5 8C18.5 9.8 17.5 11.3 16 12" />
+      <path d="M19 19C20.4 18.5 21.5 17.2 21.5 15.5C21.5 14.2 20.7 13.1 19.5 12.5" />
+    </svg>
+  );
+}
 
 export default function WhyChooseUs() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const leftColRef = useRef<HTMLDivElement>(null);
+  const statsGridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      if (leftColRef.current) {
+        gsap.fromTo(
+          leftColRef.current,
+          { opacity: 0, y: 25 },
+          {
+            scrollTrigger: {
+              trigger: leftColRef.current,
+              start: "top 85%",
+              once: true,
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: "power2.out",
+          }
+        );
+      }
+
+      if (statsGridRef.current) {
+        gsap.fromTo(
+          statsGridRef.current.children,
+          { opacity: 0, y: 25 },
+          {
+            scrollTrigger: {
+              trigger: statsGridRef.current,
+              start: "top 85%",
+              once: true,
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out",
+            clearProps: "all",
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const stats = [
+    {
+      icon: GroupUsersIcon,
+      value: "5,000+",
+      label: "Happy Clients",
+    },
+    {
+      icon: StarExperienceIcon,
+      value: "15+",
+      label: "Years of Dedication",
+    },
+    {
+      icon: SpaLotusIcon,
+      value: "25+",
+      label: "Expert Therapists",
+    },
+    {
+      icon: HeartCareIcon,
+      value: "98%",
+      label: "Client Satisfaction",
+    },
+  ];
+
   return (
     <section
+      ref={sectionRef}
       id="why-us"
-      className="py-20 lg:py-24 bg-[#1B3B2B] text-[#FAF7F2] relative overflow-hidden"
+      className="py-16 sm:py-20 lg:py-24 bg-[#1E3827] text-[#FAF7F2] relative overflow-hidden"
     >
-      {/* Subtle organic floral/leaf background element */}
-      <div className="absolute -right-20 -bottom-20 w-96 h-96 bg-[#244835] rounded-full filter blur-3xl opacity-30 pointer-events-none" />
-      <div className="absolute -left-20 -top-20 w-96 h-96 bg-[#142C20] rounded-full filter blur-3xl opacity-40 pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center justify-center gap-2">
-            <span className="h-px w-6 bg-[#C5A880]"></span>
-            <span className="text-[11px] font-bold tracking-[0.25em] text-[#C5A880] uppercase">
-              WHY CHOOSE US
-            </span>
-            <span className="h-px w-6 bg-[#C5A880]"></span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Left Column: Heading & Subtitle (Desktop 5 cols) */}
+          <div ref={leftColRef} className="lg:col-span-5 space-y-4 text-left">
+            <div className="inline-flex items-center gap-2">
+              <span className="text-[11px] sm:text-xs font-bold tracking-[0.25em] text-[#C5A880] uppercase">
+                WHY CHOOSE US
+              </span>
+              <span className="h-px w-8 bg-[#C5A880]/60"></span>
+            </div>
+
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white leading-tight">
+              Experience the <br />
+              <span className="font-serif italic text-[#D8C6A5]">
+                Bale Difference
+              </span>
+            </h2>
+
+            <p className="text-xs sm:text-sm text-[#B7CABF] leading-relaxed max-w-md">
+              We are committed to providing exceptional wellness experiences that leave you feeling refreshed, renewed, and revitalized bersama keluarga tercinta.
+            </p>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white">
-            Why Choose Bale Spa?
-          </h2>
+          {/* Right Column: 4 Stats Grid (Desktop 7 cols) */}
+          {/* Sesuai instruksi: Mobile 2 kolom (grid-cols-2), Desktop 4 kolom (lg:grid-cols-4) */}
+          <div
+            ref={statsGridRef}
+            className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-2 text-center"
+          >
+            {stats.map((item, idx) => {
+              const IconComp = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="p-4 sm:p-5 flex flex-col items-center justify-center sm:border-l sm:border-[#33533E] first:border-l-0 bg-[#162D1F]/40 sm:bg-transparent rounded-lg sm:rounded-none"
+                >
+                  {/* Line Art Icon (Persis Gambar 1) */}
+                  <div className="text-[#C5A880] mb-3 flex items-center justify-center">
+                    <IconComp className="w-7 h-7" />
+                  </div>
 
-          <p className="text-sm text-[#D1DDD5] leading-relaxed">
-            Comfort, care, and relaxation for you and your family.
-          </p>
-        </div>
+                  {/* Value */}
+                  <span className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white block leading-tight">
+                    {item.value}
+                  </span>
 
-        {/* 4 Statistics / Benefits Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {businessConfig.stats.map((stat, idx) => (
-            <div
-              key={idx}
-              className="bg-[#142C20]/70 border border-[#2B4E3A] rounded-xl p-6 text-center hover:border-[#C5A880]/50 transition-all duration-300 group hover:-translate-y-1"
-            >
-              <div className="font-serif text-4xl sm:text-5xl font-bold text-[#C5A880] mb-2 tracking-tight group-hover:scale-105 transition-transform duration-300">
-                {stat.value}
-              </div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-2">
-                {stat.label}
-              </h3>
-              <p className="text-xs text-[#A8BEB1] leading-relaxed">
-                {stat.description}
-              </p>
-            </div>
-          ))}
+                  {/* Label */}
+                  <span className="text-[11px] sm:text-xs font-medium text-[#B7CABF] block mt-1.5 leading-snug">
+                    {item.label}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

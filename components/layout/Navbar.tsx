@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, Calendar } from "lucide-react";
+import { SpaLotusIcon } from "@/components/ui/SpaIcons";
 
 interface NavbarProps {
   onOpenBooking?: () => void;
@@ -56,54 +57,47 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
     <header
       className={`sticky top-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#F7F4EC]/95 backdrop-blur-md shadow-xs border-b border-[#E5DFD3]/80 py-3.5"
-          : "bg-[#F7F4EC] border-b border-[#E5DFD3]/40 py-5"
+          ? "bg-[#FBF9F4]/95 backdrop-blur-md shadow-xs border-b border-[#EAE3D4] py-3.5"
+          : "bg-[#FBF9F4] border-b border-[#EAE3D4]/40 py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
+        {/* Brand Logo (Persis Gambar 1) */}
         <Link href="#home" className="group flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-[#1B3B2B] text-[#FAF7F2] flex items-center justify-center shadow-xs transition-transform duration-300 group-hover:scale-105">
-            <svg
-              className="w-5 h-5 fill-none stroke-current stroke-[1.8]"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 3C9 7 6 10 6 14C6 17.3 8.7 20 12 20C15.3 20 18 17.3 18 14C18 10 15 7 12 3Z" />
-              <path d="M12 9V17" />
-              <path d="M9 13L15 15" />
-            </svg>
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#2E4A35] text-[#FAF7F2] flex items-center justify-center shadow-xs transition-transform duration-300 group-hover:scale-105">
+            <SpaLotusIcon className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <div className="flex flex-col">
-            <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#1B3B2B] leading-none">
+            <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#1B3324] leading-none">
               BALE SPA
             </span>
-            <span className="text-[10px] font-semibold tracking-[0.2em] text-[#385A42] uppercase mt-0.5">
+            <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.22em] text-[#425F49] uppercase mt-0.5">
               Family Reflexology
             </span>
           </div>
         </Link>
 
-        {/* Desktop Navigation Links */}
+        {/* Desktop Navigation Links (Persis Gambar 1) */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="text-xs font-semibold tracking-wider text-[#4E5952] uppercase hover:text-[#1B3B2B] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#1B3B2B] hover:after:w-full after:transition-all after:duration-300"
+              className="text-xs font-semibold tracking-wider text-[#4A594E] uppercase hover:text-[#1B3324] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#2E4A35] hover:after:w-full after:transition-all after:duration-300"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        {/* Right CTA */}
+        {/* Right CTA (Persis Gambar 1) */}
         <div className="hidden sm:flex items-center gap-3">
           <button
             onClick={handleBookingAction}
-            className="px-5 py-2.5 bg-[#1B3B2B] hover:bg-[#142C20] text-[#FAF7F2] text-xs font-bold tracking-wider uppercase rounded-lg shadow-xs transition-all duration-200 flex items-center gap-2 cursor-pointer hover:shadow-md active:translate-y-0.5"
+            className="px-5 py-2.5 bg-[#2E4A35] hover:bg-[#223827] text-[#FAF7F2] text-xs font-bold tracking-wider uppercase rounded-sm shadow-xs transition-all duration-200 flex items-center gap-2 cursor-pointer active:translate-y-0.5"
           >
-            <Calendar className="w-3.5 h-3.5 text-[#C5A880]" />
+            <Calendar className="w-3.5 h-3.5 text-[#D8C6A5]" />
             <span>Book Appointment</span>
           </button>
         </div>
@@ -112,7 +106,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
         <div className="flex items-center md:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 rounded-lg text-[#1B3B2B] hover:bg-[#EAE3D4]/50 transition-colors focus:outline-none focus:ring-2 focus:ring-[#1B3B2B]/20"
+            className="p-2 rounded-md text-[#1B3324] hover:bg-[#EFE9DC] transition-colors focus:outline-none"
             aria-label="Buka Menu"
             aria-expanded={isMobileMenuOpen}
           >
@@ -127,14 +121,14 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
 
       {/* Mobile Drawer Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#F7F4EC] border-b border-[#E5DFD3] px-5 pt-3 pb-6 space-y-4 animate-in slide-in-from-top-4 duration-200">
+        <div className="md:hidden bg-[#FBF9F4] border-b border-[#EAE3D4] px-5 pt-3 pb-6 space-y-4 animate-in slide-in-from-top-4 duration-200">
           <div className="flex flex-col space-y-3 pt-2">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-semibold tracking-wider text-[#1B3B2B] uppercase py-2 border-b border-[#E5DFD3]/40"
+                className="text-sm font-semibold tracking-wider text-[#1B3324] uppercase py-2 border-b border-[#EAE3D4]/50"
               >
                 {link.label}
               </a>
@@ -144,9 +138,9 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
           <div className="pt-2">
             <button
               onClick={handleBookingAction}
-              className="w-full py-3 bg-[#1B3B2B] text-[#FAF7F2] text-xs font-bold tracking-wider uppercase rounded-lg shadow-xs flex items-center justify-center gap-2"
+              className="w-full py-3 bg-[#2E4A35] text-[#FAF7F2] text-xs font-bold tracking-wider uppercase rounded-sm shadow-xs flex items-center justify-center gap-2"
             >
-              <Calendar className="w-4 h-4 text-[#C5A880]" />
+              <Calendar className="w-4 h-4 text-[#D8C6A5]" />
               <span>Book Appointment</span>
             </button>
           </div>
