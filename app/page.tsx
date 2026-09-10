@@ -15,6 +15,7 @@ import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
 import BookingModal from "@/components/sections/BookingModal";
 import BranchSelectorModal from "@/components/sections/BranchSelectorModal";
 import BranchQRModal from "@/components/branches/BranchQRModal";
+import PrototypePreviewModal from "@/components/PrototypePreviewModal";
 import { BranchProvider, useBranch } from "@/context/BranchContext";
 
 function MainContent() {
@@ -85,6 +86,9 @@ function MainContent() {
 
       {/* QR Codes Modal for 3 Branches (Website & Review QR) */}
       <BranchQRModal />
+
+      {/* Prototype Preview Welcome Modal */}
+      <PrototypePreviewModal />
     </main>
   );
 }

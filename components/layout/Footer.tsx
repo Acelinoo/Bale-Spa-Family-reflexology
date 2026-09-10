@@ -186,6 +186,14 @@ export default function Footer({ onOpenBooking }: FooterProps) {
             <button onClick={openBranchModal} className="hover:text-white underline cursor-pointer">
               Pilih Cabang
             </button>
+            <span>·</span>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent("open-prototype-preview"))}
+              className="hover:text-[#C5A880] transition-colors cursor-pointer"
+            >
+              Demo Preview
+            </button>
           </div>
         </div>
       </div>
