@@ -5,8 +5,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { BRANCHES } from "@/config/branches";
 import BranchCard from "./BranchCard";
-import { QrCode } from "lucide-react";
-import { useBranch } from "@/context/BranchContext";
+// import { QrCode } from "lucide-react";
+// import { useBranch } from "@/context/BranchContext";
 
 interface BranchSelectorSectionProps {
   onOpenBookingForBranch?: (branchId: string) => void;
@@ -18,7 +18,7 @@ export default function BranchSelectorSection({
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
-  const { openQrModal } = useBranch();
+  // const { openQrModal } = useBranch();
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -105,7 +105,8 @@ export default function BranchSelectorSection({
           ))}
         </div>
 
-        {/* Bottom Helper Bar: QR Code Access */}
+        {/* Bottom Helper Bar: QR Code Access (Hidden) */}
+        {/* 
         <div className="mt-10 p-4 sm:p-5 rounded-xl bg-white border border-[#EAE4DC] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left shadow-2xs max-w-4xl mx-auto">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-[#FAF7F2] border border-[#EAE4DC] flex items-center justify-center text-[#1D4533] shrink-0">
@@ -128,6 +129,7 @@ export default function BranchSelectorSection({
             Lihat QR Code Cabang
           </button>
         </div>
+        */}
       </div>
     </section>
   );
